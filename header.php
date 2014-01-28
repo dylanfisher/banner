@@ -8,8 +8,8 @@
 		<meta name="keywords" content="">
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_url'); ?>/images/favicon.png">
-		<link rel="stylesheet" type="text/css" href="<?php echo  bloginfo('stylesheet_url'); ?>" />
-		<link rel="stylesheet" type="text/css" href="<?php echo  get_bloginfo('template_url'); ?>/css/build/minified/application.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_url'); ?>" />
+		<link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); ?>/css/build/minified/application.css" />
 		<script src="<?php echo get_bloginfo('template_url'); ?>/js/modernizr-2.6.2.min.js"></script>
 <?php wp_head() // For plugins ?>
 	</head>
@@ -24,7 +24,7 @@
 <?php 
     //function_exists() — Return TRUE if the given function has been defined.
     //code by BOUTROS ABICHEDID. Adding breadcrumb trail to the WordPress theme.
-    if (function_exists('sandbox_bac_breadcrumb')) {sandbox_bac_breadcrumb();} 
+    if (function_exists('sandbox_custom_breadcrumbs')) {sandbox_custom_breadcrumbs();} 
 ?>
 			</nav>
 		</header>

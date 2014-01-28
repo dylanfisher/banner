@@ -12,10 +12,13 @@
 // Partials
 @import "partials/ui_elements";
 @import "partials/typography";
+@import "partials/columns";
 @import "partials/nav";
 @import "partials/layout";
-@import "partials/home";
 @import "partials/footer";
+@import "partials/home";
+@import "partials/collections";
+@import "partials/press";
 
 // Vendor
 @import "vendor/wordpress_core";

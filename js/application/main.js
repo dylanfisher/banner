@@ -14,16 +14,20 @@
 	navHover();
 
 	//
-	// Functions
+	// Define functions
 	//
 	function navHover(){
+		$('#menu-primary-nav').mouseenter(function(){
+			$('body:not(.home) header').after('<div id="fade-overlay" class="fade-overlay"></div>');
+		});
 		$('#menu-primary-nav li:first-child').mouseenter(function(){
 			$('#menu-primary-nav').addClass('active');
-			$('body:not(.home) header').after('<div id="fade-overlay" class="fade-overlay"></div>');
+			$('#breadcrumbs').hide();
 		});
 		$('#menu-primary-nav').mouseleave(function(){
 			$('#menu-primary-nav').removeClass('active');
 			$('#fade-overlay').remove();
+			$('#breadcrumbs').show();
 		});
 	}
 	function infoBoxPos(){
