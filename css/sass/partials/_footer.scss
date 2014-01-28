@@ -1,0 +1,16 @@
+//
+// Footer
+//
+
+footer {
+	position: fixed;
+	bottom: 20px;
+	left: 30px;
+	.social-media {
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+		}
+	}
+}

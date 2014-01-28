@@ -82,7 +82,7 @@ function sandbox_body_class( $print = true ) {
 		$page_children = wp_list_pages("child_of=$pageID&echo=0");
 		the_post();
 		$c[] = 'page pageid-' . $pageID;
-		$c[] = 'page-author-' . sanitize_title_with_dashes(strtolower(get_the_author('login')));
+		$c[] = 'page-author-' . sanitize_title_with_dashes(strtolower(get_the_author()));
 		// Checks to see if the page has children and/or is a child page; props to Adam
 		if ( $page_children )
 			$c[] = 'page-parent';
@@ -145,7 +145,7 @@ function sandbox_post_class( $print = true ) {
 	$c = array( 'hentry', "p$sandbox_post_alt", $post->post_type, $post->post_status );
 
 	// Author for the post queried
-	$c[] = 'author-' . sanitize_title_with_dashes(strtolower(get_the_author('login')));
+	$c[] = 'author-' . sanitize_title_with_dashes(strtolower(get_the_author()));
 
 	// Category for the post queried
 	foreach ( (array) get_the_category() as $cat )
@@ -247,159 +247,8 @@ function sandbox_tag_ur_it($glue) {
 	return trim(join( $glue, $tags ));
 }
 
-// Produces an avatar image with the hCard-compliant photo class
-function sandbox_commenter_link() {
-	$commenter = get_comment_author_link();
-	if ( ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
-		$commenter = ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
-	} else {
-		$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
-	}
-	$avatar_email = get_comment_author_email();
-	$avatar_size = apply_filters( 'avatar_size', '32' ); // Available filter: avatar_size
-	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( $avatar_email, $avatar_size ) );
-	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
-}
-
-// Widget: Search; to match the Sandbox style and replace Widget plugin default
-function widget_sandbox_search($args) {
-	extract($args);
-	$options = get_option('widget_sandbox_search');
-	$title = empty($options['title']) ? __( 'Search', 'sandbox' ) : attribute_escape($options['title']);
-	$button = empty($options['button']) ? __( 'Find', 'sandbox' ) : attribute_escape($options['button']);
-?>
-			<?php echo $before_widget ?>
-				<?php echo $before_title ?><label for="s"><?php echo $title ?></label><?php echo $after_title ?>
-				<form id="searchform" class="blog-search" method="get" action="<?php bloginfo('home') ?>">
-					<div>
-						<input id="s" name="s" type="text" class="text" value="<?php the_search_query() ?>" size="10" tabindex="1" />
-						<input type="submit" class="button" value="<?php echo $button ?>" tabindex="2" />
-					</div>
-				</form>
-			<?php echo $after_widget ?>
-<?php
-}
-
-// Widget: Search; element controls for customizing text within Widget plugin
-function widget_sandbox_search_control() {
-	$options = $newoptions = get_option('widget_sandbox_search');
-	if ( $_POST['search-submit'] ) {
-		$newoptions['title'] = strip_tags(stripslashes( $_POST['search-title']));
-		$newoptions['button'] = strip_tags(stripslashes( $_POST['search-button']));
-	}
-	if ( $options != $newoptions ) {
-		$options = $newoptions;
-		update_option( 'widget_sandbox_search', $options );
-	}
-	$title = attribute_escape($options['title']);
-	$button = attribute_escape($options['button']);
-?>
-	<p><label for="search-title"><?php _e( 'Title:', 'sandbox' ) ?> <input class="widefat" id="search-title" name="search-title" type="text" value="<?php echo $title; ?>" /></label></p>
-	<p><label for="search-button"><?php _e( 'Button Text:', 'sandbox' ) ?> <input class="widefat" id="search-button" name="search-button" type="text" value="<?php echo $button; ?>" /></label></p>
-	<input type="hidden" id="search-submit" name="search-submit" value="1" />
-<?php
-}
-
-// Widget: Meta; to match the Sandbox style and replace Widget plugin default
-function widget_sandbox_meta($args) {
-	extract($args);
-	$options = get_option('widget_meta');
-	$title = empty($options['title']) ? __( 'Meta', 'sandbox' ) : attribute_escape($options['title']);
-?>
-			<?php echo $before_widget; ?>
-				<?php echo $before_title . $title . $after_title; ?>
-				<ul>
-					<?php wp_register() ?>
-
-					<li><?php wp_loginout() ?></li>
-					<?php wp_meta() ?>
-
-				</ul>
-			<?php echo $after_widget; ?>
-<?php
-}
-
-// Widget: RSS links; to match the Sandbox style
-function widget_sandbox_rsslinks($args) {
-	extract($args);
-	$options = get_option('widget_sandbox_rsslinks');
-	$title = empty($options['title']) ? __( 'RSS Links', 'sandbox' ) : attribute_escape($options['title']);
-?>
-		<?php echo $before_widget; ?>
-			<?php echo $before_title . $title . $after_title; ?>
-			<ul>
-				<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo wp_specialchars( get_bloginfo('name'), 1 ) ?> <?php _e( 'Posts RSS feed', 'sandbox' ); ?>" rel="alternate" type="application/rss+xml"><?php _e( 'All posts', 'sandbox' ) ?></a></li>
-				<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo wp_specialchars(bloginfo('name'), 1) ?> <?php _e( 'Comments RSS feed', 'sandbox' ); ?>" rel="alternate" type="application/rss+xml"><?php _e( 'All comments', 'sandbox' ) ?></a></li>
-			</ul>
-		<?php echo $after_widget; ?>
-<?php
-}
-
-// Widget: RSS links; element controls for customizing text within Widget plugin
-function widget_sandbox_rsslinks_control() {
-	$options = $newoptions = get_option('widget_sandbox_rsslinks');
-	if ( $_POST['rsslinks-submit'] ) {
-		$newoptions['title'] = strip_tags( stripslashes( $_POST['rsslinks-title'] ) );
-	}
-	if ( $options != $newoptions ) {
-		$options = $newoptions;
-		update_option( 'widget_sandbox_rsslinks', $options );
-	}
-	$title = attribute_escape($options['title']);
-?>
-	<p><label for="rsslinks-title"><?php _e( 'Title:', 'sandbox' ) ?> <input class="widefat" id="rsslinks-title" name="rsslinks-title" type="text" value="<?php echo $title; ?>" /></label></p>
-	<input type="hidden" id="rsslinks-submit" name="rsslinks-submit" value="1" />
-<?php
-}
-
-// Widgets plugin: intializes the plugin after the widgets above have passed snuff
-function sandbox_widgets_init() {
-	if ( !function_exists('register_sidebars') )
-		return;
-
-	// Formats the Sandbox widgets, adding readability-improving whitespace
-	$p = array(
-		'before_widget'  =>   "\n\t\t\t" . '<li id="%1$s" class="widget %2$s">',
-		'after_widget'   =>   "\n\t\t\t</li>\n",
-		'before_title'   =>   "\n\t\t\t\t". '<h3 class="widgettitle">',
-		'after_title'    =>   "</h3>\n"
-	);
-
-	// Table for how many? Two? This way, please.
-	register_sidebars( 2, $p );
-
-	// Finished intializing Widgets plugin, now let's load the Sandbox default widgets; first, Sandbox search widget
-	$widget_ops = array(
-		'classname'    =>  'widget_search',
-		'description'  =>  __( "A search form for your blog (Sandbox)", "sandbox" )
-	);
-	wp_register_sidebar_widget( 'search', __( 'Search', 'sandbox' ), 'widget_sandbox_search', $widget_ops );
-	wp_unregister_widget_control('search'); // We're being Sandbox-specific; remove WP default
-	wp_register_widget_control( 'search', __( 'Search', 'sandbox' ), 'widget_sandbox_search_control' );
-
-	// Sandbox Meta widget
-	$widget_ops = array(
-		'classname'    =>  'widget_meta',
-		'description'  =>  __( "Log in/out and administration links (Sandbox)", "sandbox" )
-	);
-	wp_register_sidebar_widget( 'meta', __( 'Meta', 'sandbox' ), 'widget_sandbox_meta', $widget_ops );
-	wp_unregister_widget_control('meta'); // We're being Sandbox-specific; remove WP default
-	wp_register_widget_control( 'meta', __( 'Meta', 'sandbox' ), 'wp_widget_meta_control' );
-
-	//Sandbox RSS Links widget
-	$widget_ops = array(
-		'classname'    =>  'widget_rss_links',
-		'description'  =>  __( "RSS links for both posts and comments (Sandbox)", "sandbox" )
-	);
-	wp_register_sidebar_widget( 'rss_links', __( 'RSS Links', 'sandbox' ), 'widget_sandbox_rsslinks', $widget_ops );
-	wp_register_widget_control( 'rss_links', __( 'RSS Links', 'sandbox' ), 'widget_sandbox_rsslinks_control' );
-}
-
 // Translate, if applicable
 load_theme_textdomain('sandbox');
-
-// Runs our code at the end to check that everything needed has loaded
-add_action( 'init', 'sandbox_widgets_init' );
 
 // Adds filters for the description/meta content in archives.php
 add_filter( 'archive_meta', 'wptexturize' );
@@ -512,28 +361,6 @@ add_filter('comment_text', 'sandbox_autoblank'); */
 add_filter('single_template', create_function('$t', 'foreach( (array) get_the_category() as $cat ) { if ( file_exists(TEMPLATEPATH . "/single-{$cat->term_id}.php") ) return TEMPLATEPATH . "/single-{$cat->term_id}.php"; } return $t;' ));
  */
 
-// Custom Wordpress UI options
-// CUSTOM ADMIN LOGIN HEADER LOGO
-/*
-function sandbox_login_logo(){
-    echo '<style  type="text/css"> h1 a {  background-image:url(' . get_bloginfo('template_directory') . '/images/logo_admin.png)  !important; } </style>';}
-add_action('login_head',  'sandbox_login_logo');
-*/
-
-// CUSTOM ADMIN DASHBOARD HEADER LOGO
-/*
-function sandbox_admin_logo(){
-    echo '<style type="text/css">#header-logo { background-image: url(' . get_bloginfo('template_directory') . '/images/logo_admin_dashboard.png) !important; }</style>';}
-add_action('admin_head', 'sandbox_admin_logo');
-*/
-
-// Admin footer modification
-/*
-function sandbox_remove_footer_admin (){
-    echo '<span id="footer-backend">Developed by <a href="http://www.designerswebsite.com" target="_blank">Your Name</a></span>';}
-add_filter('admin_footer_text', 'sandbox_remove_footer_admin');
-*/
-
 // REMOVE META BOXES FROM WORDPRESS DASHBOARD FOR ALL USERS
 function sandbox_remove_dashboard_widgets(){
     // Globalize the metaboxes array, this holds all the widgets for wp-admin
@@ -544,58 +371,204 @@ function sandbox_remove_dashboard_widgets(){
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);}
 add_action('wp_dashboard_setup', 'sandbox_remove_dashboard_widgets' );
 
-//
-// AJAX Functions
-//
-
-add_action('wp_ajax_nopriv_do_ajax', 'our_ajax_function');
-add_action('wp_ajax_do_ajax', 'our_ajax_function');
-function our_ajax_function(){
- 
-   // the first part is a SWTICHBOARD that fires specific functions
-   // according to the value of Query Var 'fn'
- 
-     switch($_REQUEST['fn']){
-          case 'get_latest_posts':
-               $output = ajax_get_latest_posts($_REQUEST['category']);
-          break;
-          case 'get_single_post':
-               $output = ajax_get_single_post($_REQUEST['id']);
-          break;
-          default:
-              $output = 'No function specified, check your jQuery.ajax() call';
-          break;
- 
-     }
- 
-   // at this point, $output contains some sort of valuable data!
-   // Now, convert $output to JSON and echo it to the browser 
-   // That way, we can recapture it with jQuery and run our success function
- 
-          $output=json_encode($output);
-         if(is_array($output)){
-        print_r($output);   
-         }
-         else{
-        echo $output;
-         }
-         die;
- 
+function sandbox_breadcrumb() {
+    echo '<ul id="breadcrumbs">';
+    if (!is_home()) {
+        echo '<li><a href="';
+        echo get_option('home');
+        echo '">';
+        echo 'Home';
+        echo '</a></li><li class="separator"> / </li>';
+        if (is_category() || is_single()) {
+            echo '<li>';
+            the_category(' </li><li class="separator"> / </li><li> ');
+            if (is_single()) {
+                echo '</li><li class="separator"> / </li><li>';
+                the_title();
+                echo '</li>';
+            }
+        } elseif (is_page()) {
+            if($post->post_parent){
+                $anc = get_post_ancestors( $post->ID );
+                 
+                foreach ( $anc as $ancestor ) {
+                    $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> <li class="separator">/</li>';
+                }
+                echo $output;
+                echo '<strong title="'.$title.'"> '.$title.'</strong>';
+            } else {
+                echo '<strong> ';
+                echo the_title();
+                echo '</strong>';
+            }
+        }
+    }
+    elseif (is_tag()) {single_tag_title();}
+    elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
+    elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
+    elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
+    elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
+    elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
+    elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
+    echo '</ul>';
 }
 
-function ajax_get_latest_posts($category){
-     $posts = get_posts(
-     	'category='.$category,
-     	'posts_per_page'.'1'
-     	);
-     return $posts;
-}
+?>
 
-function ajax_get_single_post($id){
-     $posts = get_post(
-     	$id
-	);
-     return $posts;
-}
+<?php
+/***********************************************************************
+* @Author: Boutros AbiChedid 
+* @Date:   February 14, 2011
+* @Copyright: Boutros AbiChedid (http://bacsoftwareconsulting.com/)
+* @Licence: Feel free to use it and modify it to your needs but keep the 
+* Author's credit. This code is provided 'as is' without any warranties.
+* @Function Name:  wp_bac_breadcrumb()
+* @Version:  1.0 -- Tested up to WordPress version 3.1.2
+* @Description: WordPress Breadcrumb navigation function. Adding a 
+* breadcrumb trail to the theme without a plugin.
+* This code does not support multi-page split numbering, attachments,
+* custom post types and custom taxonomies.
+***********************************************************************/
+ 
+function sandbox_bac_breadcrumb() {   
+    //Variable (symbol >> encoded) and can be styled separately.
+    //Use >> for different level categories (parent >> child >> grandchild)
+            $delimiter = '<span class="delimiter"> &raquo; </span>'; 
+    //Use bullets for same level categories ( parent . parent )
+    $delimiter1 = '<span class="delimiter1"> &bull; </span>';
+     
+    //text link for the 'Home' page
+            $main = 'Home';  
+    //Display only the first 30 characters of the post title.
+            $maxLength= 30;
+     
+    //variable for archived year 
+    $arc_year = get_the_time('Y'); 
+    //variable for archived month 
+    $arc_month = get_the_time('F'); 
+    //variables for archived day number + full
+    $arc_day = get_the_time('d');
+    $arc_day_full = get_the_time('l');  
+     
+    //variable for the URL for the Year
+    $url_year = get_year_link($arc_year);
+    //variable for the URL for the Month    
+    $url_month = get_month_link($arc_year,$arc_month);
+ 
+    /*is_front_page(): If the front of the site is displayed, whether it is posts or a Page. This is true 
+    when the main blog page is being displayed and the 'Settings > Reading ->Front page displays' 
+    is set to "Your latest posts", or when 'Settings > Reading ->Front page displays' is set to 
+    "A static page" and the "Front Page" value is the current Page being displayed. In this case 
+    no need to add breadcrumb navigation. is_home() is a subset of is_front_page() */
+     
+    //Check if NOT the front page (whether your latest posts or a static page) is displayed. Then add breadcrumb trail.
+    if (!is_front_page()) {         
+        //If Breadcrump exists, wrap it up in a div container for styling. 
+        //You need to define the breadcrumb class in CSS file.
+        echo '<div class="breadcrumb">';
+         
+        //global WordPress variable $post. Needed to display multi-page navigations. 
+        global $post, $cat;         
+        //A safe way of getting values for a named option from the options database table. 
+        $homeLink = get_option('home'); //same as: $homeLink = get_bloginfo('url');
 
+        //Display breadcrumb for single post
+        if (is_single()) { //check if any single post is being displayed.           
+            //Returns an array of objects, one object for each category assigned to the post.
+            //This code does not work well (wrong delimiters) if a single post is listed 
+            //at the same time in a top category AND in a sub-category. But this is highly unlikely.
+            $category = get_the_category();
+            $num_cat = count($category); //counts the number of categories the post is listed in.
+             
+            //If you have a single post assigned to one category.
+            //If you don't set a post to a category, WordPress will assign it a default category.
+            if ($num_cat <=1)  //I put less or equal than 1 just in case the variable is not set (a catch all).
+            {
+                echo get_category_parents($category[0],  true,' ' . $delimiter . ' ');
+                //Display the full post title.
+                echo ' ' . get_the_title(); 
+            }
+            //then the post is listed in more than 1 category.  
+            else { 
+                //Put bullets between categories, since they are at the same level in the hierarchy.
+                echo the_category( $delimiter1, multiple); 
+                    //Display partial post title, in order to save space.
+                    if (strlen(get_the_title()) >= $maxLength) { //If the title is long, then don't display it all.
+                        echo ' ' . $delimiter . trim(substr(get_the_title(), 0, $maxLength)) . ' ...';
+                    }                         
+                    else { //the title is short, display all post title.
+                        echo ' ' . $delimiter . get_the_title(); 
+                    } 
+            }           
+        } 
+        //Display breadcrumb for category and sub-category archive
+        elseif (is_category()) { //Check if Category archive page is being displayed.
+            //returns the category title for the current page. 
+            //If it is a subcategory, it will display the full path to the subcategory. 
+            //Returns the parent categories of the current category with links separated by '»'
+            echo 'Archive Category: "' . get_category_parents($cat, true,' ' . $delimiter . ' ') . '"' ;
+        }       
+        //Display breadcrumb for tag archive        
+        elseif ( is_tag() ) { //Check if a Tag archive page is being displayed.
+            //returns the current tag title for the current page. 
+            echo 'Posts Tagged: "' . single_tag_title("", false) . '"';
+        }        
+        //Display breadcrumb for calendar (day, month, year) archive
+        elseif ( is_day()) { //Check if the page is a date (day) based archive page.
+            echo '<a href="' . $url_year . '">' . $arc_year . '</a> ' . $delimiter . ' ';
+            echo '<a href="' . $url_month . '">' . $arc_month . '</a> ' . $delimiter . $arc_day . ' (' . $arc_day_full . ')';
+        } 
+        elseif ( is_month() ) {  //Check if the page is a date (month) based archive page.
+            echo '<a href="' . $url_year . '">' . $arc_year . '</a> ' . $delimiter . $arc_month;
+        } 
+        elseif ( is_year() ) {  //Check if the page is a date (year) based archive page.
+            echo $arc_year;
+        }       
+        //Display breadcrumb for search result page
+        elseif ( is_search() ) {  //Check if search result page archive is being displayed. 
+            echo 'Search Results for: "' . get_search_query() . '"';
+        }       
+        //Display breadcrumb for top-level pages (top-level menu)
+        elseif ( is_page() && !$post->post_parent ) { //Check if this is a top Level page being displayed.
+            echo get_the_title();
+        }           
+        //Display breadcrumb trail for multi-level subpages (multi-level submenus)
+        elseif ( is_page() && $post->post_parent ) {  //Check if this is a subpage (submenu) being displayed.
+            //get the ancestor of the current page/post_id, with the numeric ID 
+            //of the current post as the argument. 
+            //get_post_ancestors() returns an indexed array containing the list of all the parent categories.                
+            $post_array = get_post_ancestors($post);
+             
+            //Sorts in descending order by key, since the array is from top category to bottom.
+            krsort($post_array); 
+             
+            //Loop through every post id which we pass as an argument to the get_post() function. 
+            //$post_ids contains a lot of info about the post, but we only need the title. 
+            foreach($post_array as $key=>$postid){
+                //returns the object $post_ids
+                $post_ids = get_post($postid);
+                //returns the name of the currently created objects 
+                $title = $post_ids->post_title; 
+                //Create the permalink of $post_ids
+                echo '<a href="' . get_permalink($post_ids) . '">' . $title . '</a>' . $delimiter;
+            }
+            the_title(); //returns the title of the current page.               
+        }           
+        //Display breadcrumb for author archive   
+        elseif ( is_author() ) {//Check if an Author archive page is being displayed.
+            global $author;
+            //returns the user's data, where it can be retrieved using member variables. 
+            $user_info = get_userdata($author);
+            echo  'Archived Article(s) by Author: ' . $user_info->display_name ;
+        }       
+        //Display breadcrumb for 404 Error 
+        elseif ( is_404() ) {//checks if 404 error is being displayed 
+            echo  'Error 404 - Not Found.';
+        }
+        else {
+            //All other cases that I missed. No Breadcrumb trail.
+        }
+       echo '</div>';
+    }
+}
 ?>

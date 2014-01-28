@@ -1,29 +1,39 @@
-// Testing AJAX calls
+// Primary Javascript file
 
-$('#test').on('click', function(){
-  loader($(this));
-  getData.api('get_post/?post_id=14/', function(data){
-    $('#ajax-here').html(
-      'this post title = ' + data.title +
-      '<br/>and more content = ' + data.custom_fields.test +
-      '<br/>and even more stuff like an image = <img src="' + data.acf.image.url + '"/>');
-  });
-});
+(function() {
+	//
+	// Define variables
+	//
+	var docHeight = $(document).height(),
+		docWidth = $(document).width();
 
-var getData = function(){
-  var apiUrl = '/5andbox-test-install/api/',
-  api = function(method, callback){
-    $.getJSON(apiUrl + method, function(data) {
-      callback(data.post);
-      $('.loading').remove();
-    });
-  };
-  return {
-    api: api
-  };
-} ();
+	//
+	// Call functions
+	//
+	infoBoxPos();
+	navHover();
 
-var loader = function(el){
-  var animation = '<div class="loading">loading...</div>';
-  el.append(animation);
-};
+	//
+	// Functions
+	//
+	function navHover(){
+		$('#menu-primary-nav li:first-child').mouseenter(function(){
+			$('#menu-primary-nav').addClass('active');
+			$('body:not(.home) header').after('<div id="fade-overlay" class="fade-overlay"></div>');
+		});
+		$('#menu-primary-nav').mouseleave(function(){
+			$('#menu-primary-nav').removeClass('active');
+			$('#fade-overlay').remove();
+		});
+	}
+	function infoBoxPos(){
+		var infoBoxHeight = $('#info-box').outerWidth(true),
+			infoBoxWidth = $('#info-box').outerHeight(true),
+			infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight)),
+			infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth));
+		$('#info-box').css({
+			top: infoBoxPosY,
+			left: infoBoxPosX
+		});
+	}
+})();

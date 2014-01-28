@@ -1,0 +1,47 @@
+//
+// Nav
+//
+
+nav {
+	ul.active {
+		&:hover {
+			li {
+				display: block;
+			}
+		}
+		li {
+			&.current-menu-item {
+				&:before {
+					margin-left: -15px;
+				}
+			}
+		}
+	}
+	li {
+		display: none;
+		body.home & {
+			display: block;
+		}
+		&:first-child {
+			display: inline-block;
+		}
+		&.current-menu-item {
+			display: inline-block;
+			&:before {
+				content: '\25BA';
+				font-size: 12px;
+				width: 0;
+				display: inline-block;
+				margin-left: 0;
+				padding-right: 15px;
+				vertical-align: middle;
+				body.home & {
+					content: normal;
+				}
+			}
+		}
+		a {
+			display: inline-block;
+		}
+	}
+}

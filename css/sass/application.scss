@@ -10,7 +10,12 @@
 @import "base/chromeframe";
 
 // Partials
+@import "partials/ui_elements";
+@import "partials/typography";
+@import "partials/nav";
+@import "partials/layout";
 @import "partials/home";
+@import "partials/footer";
 
 // Vendor
 @import "vendor/wordpress_core";
