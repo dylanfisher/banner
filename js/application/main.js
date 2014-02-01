@@ -36,6 +36,7 @@
 			infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight)),
 			infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth));
 		$('#info-box').css({
+			display: 'block',
 			top: infoBoxPosY,
 			left: infoBoxPosX
 		});

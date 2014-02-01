@@ -773,6 +773,7 @@ body.home {
 }
 
 .info-box {
+  display: none;
   position: fixed;
   width: 340px;
   padding: 25px;
