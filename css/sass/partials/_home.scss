@@ -3,19 +3,18 @@
 //
 
 body {
-    background-color: #C6C6C6;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-	background-size: cover;
+    background-size: cover;
 }
 
 .info-box {
-	display: none;
-	position: fixed;
-	width: 340px;
-	padding: 25px;
-	background: #FFF;
+    display: none;
+    position: fixed;
+    width: 340px;
+    padding: 25px;
+    background: #FFF;
     cursor: move;
     p, input {
         cursor: auto;

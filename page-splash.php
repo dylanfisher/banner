@@ -21,7 +21,7 @@ Template Name: Page - Splash
 $rows = get_field('background_image');
 $row_count = count($rows);
 $i = rand(0, $row_count - 1);
- ?>
+?>
     </head>
     <body class="<?php sandbox_body_class() ?>" style="background-image: url(<?php echo $rows[ $i ]['image']; ?>)">
         <!--[if lte IE 7]>

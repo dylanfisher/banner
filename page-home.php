@@ -8,6 +8,11 @@ Template Name: Page - Home
 // exit(); 
 ?>
 <?php get_header() ?>
+<?php // Select a random background image
+$rows = get_field('background_image');
+$row_count = count($rows);
+$i = rand(0, $row_count - 1);
+?>
 		<div class="content"><?php the_post() ?>
 			<div id="info-box" class="info-box draggable">
 				<a href="#">March 25, 2014</a>
@@ -16,6 +21,7 @@ Template Name: Page - Home
 				<p>(Your email here)</p>
 			</div>
 		</div><!-- .content -->
+        <div class="background"></div>
 <?php get_footer() ?>
 </body>
 </html>
