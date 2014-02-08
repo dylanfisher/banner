@@ -1,6 +1,6 @@
 // Primary Javascript file
 
-(function() {
+$(function() {
 	//
 	// Define variables
 	//
@@ -10,6 +10,7 @@
 	//
 	// Call functions
 	//
+	// setInterval(function(){infoBoxPos();}, 500);
 	infoBoxPos();
 	navHover();
 
@@ -31,8 +32,8 @@
 		});
 	}
 	function infoBoxPos(){
-		var infoBoxHeight = $('#info-box').outerWidth(true),
-			infoBoxWidth = $('#info-box').outerHeight(true),
+		var infoBoxHeight = $('#info-box').outerHeight(true),
+			infoBoxWidth = $('#info-box').outerWidth(true),
 			infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight)),
 			infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth));
 		$('#info-box').css({
@@ -41,4 +42,4 @@
 			left: infoBoxPosX
 		});
 	}
-})();
+});

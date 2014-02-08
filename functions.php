@@ -3,6 +3,17 @@
 //    BEGIN SANDBOX FUNCTIONS    //
 ///////////////////////////////////
 
+// Redirect all pages to the Splash template
+function home_mobile_redirect()
+{
+    if( !is_page(33) )
+    {
+        include( get_template_directory() . '/page-home.php' );
+        exit();
+    }
+}
+// add_action( 'template_redirect', 'home_mobile_redirect' );
+
 // Produces a list of pages in the header without whitespace
 function sandbox_globalnav() {
 	if ( $menu = str_replace( array( "\r", "\n", "\t" ), '', wp_list_pages('title_li=&sort_column=menu_order&echo=0') ) )

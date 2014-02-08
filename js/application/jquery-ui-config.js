@@ -1,5 +1,7 @@
 // jQueryUI config
 
 (function() {
-	$( ".draggable" ).draggable();
+	$( ".draggable" ).draggable({
+        cancel: "p, input"
+    });
 })();

@@ -3,6 +3,10 @@
 Template Name: Page - Home
 */
 ?>
+<?php // Temporarily redirect everything to the splash page
+// header('Location:' . get_permalink(33));
+// exit(); 
+?>
 <?php get_header() ?>
 		<div class="content"><?php the_post() ?>
 			<div id="info-box" class="info-box draggable">

@@ -689,8 +689,11 @@ footer .social-media li {
   display: inline-block;
 }
 
-body.home {
-  background: url(../../../images/chair.jpg) no-repeat center center fixed;
+body {
+  background-color: #C6C6C6;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -700,6 +703,10 @@ body.home {
   width: 340px;
   padding: 25px;
   background: #FFF;
+  cursor: move;
+}
+.info-box p, .info-box input {
+  cursor: auto;
 }
 
 .page-template-page-collections-php,
