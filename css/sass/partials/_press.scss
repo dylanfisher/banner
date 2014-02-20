@@ -3,12 +3,12 @@
 //
 
 .page-template-page-press-php {
-	.content {
-		img {
-			filter: grayscale(1);
-			&:hover {
-				filter: grayscale(0);
-			}
-		}
-	}
+    .content {
+        img {
+            filter: grayscale(1);
+            &:hover {
+                filter: grayscale(0);
+            }
+        }
+    }
 }

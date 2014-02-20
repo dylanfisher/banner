@@ -3,12 +3,21 @@
 //
 
 .col {
-	padding: 20px;
-	display: inline-block;
+    padding: 20px;
+    display: inline-block;
 }
 .col2 {
-	width: 49%;
+    width: 49%;
+    &.col-first {
+        text-align: center;
+        img {
+            margin-bottom: 40px;
+        }
+    }
 }
 .col4 {
-	width: 24.5%;
+    display: inline-block;
+    width: 25%;
+    min-width: 300px;
+    padding: 20px;
 }

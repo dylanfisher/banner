@@ -1,27 +1,35 @@
 <?php
 /*
-Template Name: Page - Collections
+Template Name: - Collection Container
 */
 ?>
 <?php get_header() ?>
-		<div class="content">
-<?php the_post() ?>
-			<div class="col col2">
-				<a href="?page_id=27">
-					<img src="http://st.houzz.com/simgs/5cc156a40ddc3499_4-5843/eclectic-dining-tables.jpg">
-					<p>Heritage Collection</p>
-				</a>
-			</div>
-			<div class="col col2">
-				<a href="?page_id=25">
-					<img src="http://4.bp.blogspot.com/-kp3VMuJq4Bc/T1keHrHbqlI/AAAAAAAAAMY/ktg3CyNafuA/s1600/Krusin%2BSide%2BChair%2BCollection.jpg">
-					<p>Contemporary Collection</p>
-				</a>
-			</div>
-			<div>
-				<a href="?page_id=29">See all</a>
-			</div>
-		</div><!-- .content -->
+        <div class="content">
+<?php
+$args = array(
+    'post_type' => 'page',
+    'post_parent' => $post->ID,
+    'post__not_in' => array(29), // Don't get the 'see all' post
+    'posts_per_page' => -1
+);
+$the_query = new WP_Query( $args ); ?>
+<?php if ( $the_query->have_posts() ) : ?>
+    <div class="ibfix">
+    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); // Begin loop 
+        $attachment_id = get_field('collection_image');
+        $size = "full"; // (thumbnail, medium, large, full or custom size) ?>
+                <div class="collection ib">
+                    <a href="<?php the_permalink(); ?>">
+            <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
+                        <h2><?php the_title(); ?></h2>
+                    </a>
+                </div>
+    <?php endwhile; // End loop ?>
+    <?php wp_reset_postdata(); ?>
+    </div>
+<?php endif; ?>
+            <a class="see-all" href="?page_id=29">See all</a>
+        </div><!-- .content -->
 <?php get_footer() ?>
 </body>
 </html>

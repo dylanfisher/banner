@@ -1,16 +1,15 @@
+<!-- TEMP STUFF FIX LOOP AND ACF FIELDS -->
 <?php get_header() ?>
-		<div class="content">
-<?php the_post() ?>
-			<section id="post-<?php the_ID() ?>" class="<?php sandbox_post_class() ?>">
-				<div class="entry-content">
-<?php the_content() ?>
-				</div>
-			</section><!-- .post -->
-			<div id="nav-below" class="navigation">
-				<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&laquo;</span> %title' ) ?></div>
-				<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">&raquo;</span>' ) ?></div>
-			</div>
-		</div><!-- .content -->
+        <div class="content">
+<?php if( have_rows('images') ):
+    while ( have_rows('images') ) : the_row();
+        $attachment_id = get_sub_field('image');
+        $size = "full"; // (thumbnail, medium, large, full or custom size)
+        echo wp_get_attachment_image( $attachment_id, $size, false, array('class' => "attachement-$size product") );
+    endwhile;
+endif; 
+?>
+        </div><!-- .content -->
 <?php get_footer() ?>
 </body>
 </html>

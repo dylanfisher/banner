@@ -1,14 +1,33 @@
 //
-// Collections
+// Collections and Products
 //
 
 .page-template-page-collections-php,
-.page-template-page-collections-see-all-php {
-	text-align: center;
+.page-template-page-collection-single-php {
+    text-align: center;
 }
 
 .page-template-page-collections-php {
-	.col {
-		vertical-align: bottom;
-	}
+    .col {
+        vertical-align: bottom;
+    }
+}
+
+.collection {
+    display: inline-block;
+    width: 50%;
+    padding: 20px;
+    h2 {
+        font-size: $font-normal;
+        margin-top: 40px;
+    }
+}
+
+.product {
+    margin-bottom: 40px;
+}
+
+.see-all {
+    display: block;
+    margin: 40px 0;
 }
