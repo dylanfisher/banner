@@ -19,6 +19,9 @@
 <![endif]-->
 <header>
     <h1 id="site-title" class="visuallyhidden"><span><a href="<?php bloginfo('url') ?>/" title="<?php echo esc_html( bloginfo('name'), 1 ) ?>" rel="home"><?php bloginfo('name') ?></a></span></h1>
+    <a class="banner-logo mobile" href="<?php bloginfo('url') ?>/">
+        <img src="<?php echo get_bloginfo('template_url'); ?>/images/banner-logo.svg">
+    </a>
     <nav>
         <?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'container_class' => 'menu-header' ) ); ?>
         <?php 

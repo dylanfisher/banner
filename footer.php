@@ -1,4 +1,5 @@
         <footer>
+            <div id="to-top" class="button1 to-top">Back to top</div>
             <ul class="social-media">
                 <li><a href="http://instagram.com/wishbonewoodworking" target="_blank"><img src="<?php echo get_bloginfo('template_url'); ?>/images/instagram.png"></a></li>
                 <li><a href="https://www.facebook.com/wishbonewoodworking" target="_blank"><img src="<?php echo get_bloginfo('template_url'); ?>/images/facebook.png"></a></li>

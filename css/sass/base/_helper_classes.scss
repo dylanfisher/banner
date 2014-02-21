@@ -83,17 +83,21 @@
 }
 
 /*
- * No underline
- */
- .no-underline:hover {
+* No underline
+*/
+.no-underline:hover {
     border-bottom: 0 !important;
- }
+}
 
 // Fixed inline block spacing
 // Note that font size must be reset in the child element
- .ibfix {
+.ibfix {
     font-size: 0;
     .ib {
         font-size: $font-normal;
     }
- }
+}
+
+.mobile {
+    display: none;
+}

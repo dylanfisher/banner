@@ -5,8 +5,9 @@ Template Name: Template - Two Column
 ?>
 <?php get_header() ?>
 <div class="content">
+    <div class="ibfix">
 <?php the_post() ?>
-    <div class="col col2 col-first">
+        <div class="col col2 col-first ib">
 <?php 
 if( have_rows('images') ):
     while ( have_rows('images') ) : the_row();
@@ -16,9 +17,10 @@ if( have_rows('images') ):
     endwhile;
 endif;
 ?>
-    </div>
-    <div class="col col2 col-last">
+        </div>
+        <div class="col col2 col-last ib">
 <?php the_field('content'); ?>
+        </div>
     </div>
 </div><!-- .content -->
 <?php get_footer() ?>

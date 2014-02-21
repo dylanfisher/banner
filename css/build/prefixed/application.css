@@ -611,8 +611,8 @@ nav li:first-child a:before {
 }
 
 /*
- * No underline
- */
+* No underline
+*/
 
 .no-underline:hover {
   border-bottom: 0 !important;
@@ -624,6 +624,10 @@ nav li:first-child a:before {
 
 .ibfix .ib {
   font-size: 20px;
+}
+
+.mobile {
+  display: none;
 }
 
 .chromeframe {
@@ -639,6 +643,16 @@ nav li:first-child a:before {
 
 .draggable {
   cursor: pointer;
+}
+
+.button1 {
+  padding: 5px 12px;
+  border: 2px solid #000;
+  margin: 20px 0;
+}
+
+.to-top {
+  display: none;
 }
 
 body {
@@ -678,7 +692,7 @@ h6 {
 }
 
 .col2 {
-  width: 49%;
+  width: 50%;
 }
 
 .col2.col-first {
@@ -766,6 +780,10 @@ body.home nav li:hover:before {
 
 nav li a {
   display: inline-block;
+}
+
+.banner-logo img {
+  width: 106px;
 }
 
 .breadcrumbs {
@@ -988,8 +1006,67 @@ a img.aligncenter {
   padding: 0 4px 5px;
 }
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 1000px) {
+  .content {
+    margin: 100px 3.33333% 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .mobile {
+    display: block;
+  }
+
+  header {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+  }
+
+  .menu-header {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+  }
+
+  .menu-header li:first-child a {
+    background-image: url(../../../images/mobile-menu.png);
+    width: 40px;
+    height: 32px;
+    background-size: 40px 32px;
+  }
+
+  footer {
+    position: static;
+    margin: 20px;
+  }
+
+  .content {
+    margin: 100px 0 0;
+  }
+
+  .col {
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .breadcrumbs .current {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 2px;
+  }
+
+  .breadcrumb-arrow {
+    display: none;
+  }
+
+  .to-top {
+    display: inline-block;
+  }
 }
 
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {

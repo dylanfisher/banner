@@ -1,6 +1,6 @@
 <!-- TEMP STUFF FIX LOOP AND ACF FIELDS -->
 <?php get_header() ?>
-        <div class="content">
+    <div class="content">
 <?php if( have_rows('images') ):
     while ( have_rows('images') ) : the_row();
         $attachment_id = get_sub_field('image');
@@ -9,7 +9,7 @@
     endwhile;
 endif; 
 ?>
-        </div><!-- .content -->
+    </div><!-- .content -->
 <?php get_footer() ?>
 </body>
 </html>
