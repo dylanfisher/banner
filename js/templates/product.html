@@ -1,0 +1,17 @@
+<h2 class="product-title"><%= title.toUpperCase() %></h2>
+<ul class="product-images">
+    <% _.each(acf.images, function (key) { %>
+      <% _.each(key, function(image){ %>
+            <li><img src="<%= image.url %>" width="<%= image.width %>" height="<%= image.height %>"></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<div class="ibfix">
+    <div class="col col2 ib">
+        <%= acf.description %>
+        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>
+    </div>
+    <div class="col col2 ib">
+        <%= acf.details %>
+    </div>
+</div>

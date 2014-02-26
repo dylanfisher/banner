@@ -33,6 +33,8 @@ hr {
 
 img {
     vertical-align: middle;
+    max-width: 100%; // Watch out for this global img width, it breaks things like Google maps
+    height: auto;
 }
 
 .entry-content img {

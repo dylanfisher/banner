@@ -1,6 +1,7 @@
 <!-- TEMP STUFF FIX LOOP AND ACF FIELDS -->
+<?php $nonce = wp_create_nonce('my-nonce'); ?>
 <?php get_header() ?>
-    <div class="content">
+    <div class="content" id="content" data-nonce="<?php echo $nonce; ?>">
 <?php if( have_rows('images') ):
     while ( have_rows('images') ) : the_row();
         $attachment_id = get_sub_field('image');

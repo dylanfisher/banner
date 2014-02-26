@@ -1,4 +1,6 @@
+//
 // Primary Javascript file
+//
 
 $(function() {
     //

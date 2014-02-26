@@ -16,7 +16,8 @@ $the_query = new WP_Query( $args ); ?>
     <div class="ibfix">
     <?php while ( $the_query->have_posts() ) : $the_query->the_post(); // Begin loop ?>
         <?php
-            $attachment_id = get_field('featured_image');
+            $image = get_field('featured_image');
+            $attachment_id = $image['id'];
             $size = "full"; // (thumbnail, medium, large, full or custom size)
         ?>
                 <div class="col4 ib">

@@ -6,6 +6,10 @@ body {
     background: #D9D9D9;
 }
 
+body.fixed .wrapper {
+    position: fixed;
+}
+
 .content {
     @extend %clearfix;
     margin: 100px $gutter 0;
@@ -29,4 +33,34 @@ header {
     z-index: 1;
     background: #fff;
     opacity: .7;
+}
+
+.lightbox {
+    padding: 50px $gutter 100px;
+    position: absolute;
+    background: #FFF;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    z-index: 20;
+    &.fixed {
+        position: fixed;
+    }
+}
+.lightbox-close {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+.lightbox-loader {
+    font-size: $font-large;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

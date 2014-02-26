@@ -39,7 +39,25 @@ module.exports = function(grunt) {
       }
     },
 
+    jst: {
+      compile: {
+        options: {
+          processName: function(filename) {
+              //Shortens the file path for the template.
+              var file = filename.slice(filename.indexOf("template"), filename.length);
+              return file.replace('.html', '');
+          }
+        },
+        files: {
+          "js/application/templates.js": ["js/templates/**/*.html"]
+        }
+      }
+    },
+
     jshint: {
+      options: {
+        ignores: ['js/application/templates.js']
+      },
       beforeconcat: ['js/application/*.js']
     },
 
@@ -88,6 +106,13 @@ module.exports = function(grunt) {
           spawn: false,
         }
       },
+      templates: {
+        files: ['js/templates/**/*.html'],
+        tasks: ['jst', 'jshint', 'concat', 'uglify'],
+        options: {
+          spawn: false,
+        }
+      },
       css: {
         files: ['css/sass/**/*.scss'],
         tasks: ['sass', 'autoprefixer', 'cssmin'],
@@ -118,7 +143,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Default Task is basically a rebuild
-  grunt.registerTask('default', ['concat', 'uglify', 'sass', 'imagemin']);
+  grunt.registerTask('default', ['jst', 'concat', 'uglify', 'sass', 'imagemin']);
 
   grunt.registerTask('dev', ['connect', 'watch']);
 

@@ -415,19 +415,19 @@ function sandbox_custom_breadcrumbs() {
 
     } elseif ( is_single() && !is_attachment() ) {
       if ( get_post_type() != 'post' ) {
-        // $post_type = get_post_type_object(get_post_type());
-        // $slug = $post_type->rewrite;
-        // echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
-        // if ($showCurrent == 1) echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
-      } else { // Custom code added here
-        // $cat = get_the_category(); $cat = $cat[0] ;
-        // $cats = get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-        // $catChild = wp_get_post_categories($post->ID);
-        // $catChild = $catChild[1];
-        // $catChildLink = get_category_link($catChild);
-        // if ($showCurrent == 0) $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
-        // echo $cats;
-        // if ($showCurrent == 1) echo ' ' . '<a href="' . $catChildLink . '">' . get_category($catChild)->name . '</a>' . ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
+        $post_type = get_post_type_object(get_post_type());
+        $slug = $post_type->rewrite;
+        echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
+        if ($showCurrent == 1) echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
+      } else { // Custom code added here to change category breadcrumb behavior
+        $cat = get_the_category(); $cat = $cat[0] ;
+        $cats = get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
+        $catChild = wp_get_post_categories($post->ID);
+        $catChild = $catChild[1];
+        $catChildLink = get_category_link($catChild);
+        if ($showCurrent == 0) $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
+        echo $cats;
+        if ($showCurrent == 1) echo ' ' . '<a href="' . $catChildLink . '">' . get_category($catChild)->name . '</a>' . ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
       }
 
     } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
@@ -462,6 +462,60 @@ function sandbox_custom_breadcrumbs() {
     echo '</div>';
 
   }
+}
+
+//
+// Custom email template
+//
+
+// Enable HTML emails
+add_filter ("wp_mail_content_type", "sandbox_mail_content_type");
+function sandbox_mail_content_type() {
+    return "text/html";
+}
+
+//if you want only logged in users to access this function use this hook
+add_action('wp_ajax_mail_before_submit', 'send_AJAX_mail_before_submit');
+
+//if you want none logged in users to access this function use this hook
+add_action('wp_ajax_nopriv_mail_before_submit', 'send_AJAX_mail_before_submit');
+
+function send_AJAX_mail_before_submit(){
+    var_dump($_POST);
+    check_ajax_referer( 'my-nonce', 'ajax_nonce');
+    if (isset($_POST['action']) && $_POST['action'] =="mail_before_submit"){
+        echo 'it worked!';
+
+        //send email  wp_mail( $to, $subject, $message, $headers, $attachments ); ex:
+
+        $email_recipient = 'dylanisthis@gmail.com';
+        $email_subject = 'DID THIS THING WORK';
+        $message = 'YO DIS BE DA MESSAGE MAHN';
+
+        ob_start();
+        // include("email_header.php");
+        ?>
+        <p>
+            Hi, DUDE. I've just published one of your articles 
+            (ARTICLE TITLE) on MyAwesomeWebsite!
+        </p>
+        <p>
+            If you'd like to take a look, <a href="http://example.com">click here</a>. 
+            I would appreciate it if you could come back now and again to respond to some comments.
+        </p>
+
+        <?php
+        // include("email_footer.php");
+        $message = ob_get_contents();
+
+        ob_end_clean();
+
+        wp_mail($email_recipient, $email_subject, $message);
+        echo 'email sent';
+        die();
+    }
+    echo 'error';
+    die();
 }
 
 ?>
