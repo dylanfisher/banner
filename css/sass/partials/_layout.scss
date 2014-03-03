@@ -13,10 +13,6 @@ body.fixed .wrapper {
 .content {
     @extend %clearfix;
     margin: 100px $gutter 0;
-    img {
-        max-width: 100%;
-        height: auto;
-    }
 }
 header {
     position: fixed;

@@ -262,13 +262,13 @@ add_filter( 'archive_meta', 'wpautop' );
 
 // Add support for Advanced Custom Fields JSON data in JSON-API plugin
 add_filter('json_api_encode', 'sandbox_json_api_encode_acf');
-function sandbox_json_api_encode_acf($response) 
+function sandbox_json_api_encode_acf($response)
 {
     if (isset($response['posts'])) {
         foreach ($response['posts'] as $post) {
             sandbox_json_api_add_acf($post); // Add specs to each post
         }
-    } 
+    }
     else if (isset($response['post'])) {
         sandbox_json_api_add_acf($response['post']); // Add a specs property
     }
@@ -276,7 +276,7 @@ function sandbox_json_api_encode_acf($response)
     return $response;
 }
 
-function sandbox_json_api_add_acf(&$post) 
+function sandbox_json_api_add_acf(&$post)
 {
     $post->acf = get_fields($post->id);
 }
@@ -333,15 +333,15 @@ function sandbox_content($limit) {
     $content = implode(" ",$content).'...';
   } else {
     $content = implode(" ",$content);
-  } 
+  }
   $content = preg_replace('/\[.+\]/','', $content);
-  $content = apply_filters('the_content', $content); 
+  $content = apply_filters('the_content', $content);
   $content = str_replace(']]>', ']]&gt;', $content);
   return $content;
 }
 
 // Add Custom Image Sizes
-/* 
+/*
 add_image_size( 'custom-image-size-name', 300, 300, true ); // Custom Image - Name, Width, Height, Hard Crop boolean
  */
 
@@ -357,7 +357,7 @@ add_filter('the_content', 'sandbox_autoblank');
 add_filter('comment_text', 'sandbox_autoblank'); */
 
 // Check for custom Single Post templates by category ID. Format for new template names is single-category[ID#].php (ommiting the brackets)
-/* 
+/*
 add_filter('single_template', create_function('$t', 'foreach( (array) get_the_category() as $cat ) { if ( file_exists(TEMPLATEPATH . "/single-{$cat->term_id}.php") ) return TEMPLATEPATH . "/single-{$cat->term_id}.php"; } return $t;' ));
  */
 
@@ -390,23 +390,23 @@ function sandbox_remove_admin_menus(){
 add_action( 'admin_menu', 'sandbox_remove_admin_menus' );
 
 function sandbox_custom_breadcrumbs() {
-  
+
   $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
   $delimiter = '<span class="breadcrumb-arrow">&#9658;</span>'; // delimiter between crumbs
   $home = 'Home'; // text for the 'Home' link
   $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
   $before = '<span class="current">'; // tag before the current crumb
   $after = '</span>'; // tag after the current crumb
-  
+
   global $post;
   $homeLink = get_bloginfo('url');
-  
+
   if (is_home() || is_front_page()) {
-  
+
     if ($showOnHome == 1) echo '<div id="breadcrumbs" class="breadcrumbs"><a href="' . $homeLink . '">' . $home . '</a></div>';
-  
+
   } else {
-  
+
     // echo '<div class="breadcrumbs"><a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
     echo '<div id="breadcrumbs" class="breadcrumbs">' . $delimiter . ' ';
 
@@ -499,11 +499,11 @@ function send_AJAX_mail_before_submit(){
         // include("email_header.php");
         ?>
         <p>
-            Hi, DUDE. I've just published one of your articles 
+            Hi, DUDE. I've just published one of your articles
             (ARTICLE TITLE) on MyAwesomeWebsite!
         </p>
         <p>
-            If you'd like to take a look, <a href="http://example.com">click here</a>. 
+            If you'd like to take a look, <a href="http://example.com">click here</a>.
             I would appreciate it if you could come back now and again to respond to some comments.
         </p>
 

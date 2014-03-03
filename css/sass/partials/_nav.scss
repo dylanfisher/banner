@@ -6,6 +6,10 @@
 .menu-header .menu {
     display: inline-block;
 }
+header.dark,
+header.dark a {
+    color: white;
+}
 nav {
     text-align: left;
     ul.active {
@@ -40,6 +44,9 @@ nav {
                 background-repeat: no-repeat;
                 line-height: normal;
                 vertical-align: middle;
+                .dark & {
+                    background-image: url(../../../images/banner-logo-white.svg);
+                }
             }
         }
         &.current-menu-item,
