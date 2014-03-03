@@ -4,7 +4,7 @@ Template Name: - Collection Container
 */
 ?>
 <?php get_header() ?>
-        <div class="content">
+        <div class="content collection-content">
 <?php
 $args = array(
     'post_type' => 'page',

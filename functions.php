@@ -368,13 +368,15 @@ function sandbox_remove_dashboard_widgets(){
     unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
     unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
     unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
-    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);}
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+}
 add_action('wp_dashboard_setup', 'sandbox_remove_dashboard_widgets' );
 
 // Remove selected admin menu items
 function sandbox_remove_admin_menus(){
   remove_menu_page( 'edit-comments.php' );          //Comments
-  remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
+  remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag'); // Edit Tags
+  remove_meta_box('tagsdiv-post_tag', 'post', 'normal'); // Tags
   // remove_menu_page( 'edit.php' );                   //Posts
   // remove_menu_page( 'index.php' );                  //Dashboard
   // remove_menu_page( 'upload.php' );                 //Media
@@ -423,7 +425,8 @@ function sandbox_custom_breadcrumbs() {
         $cat = get_the_category(); $cat = $cat[0] ;
         $cats = get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
         $catChild = wp_get_post_categories($post->ID);
-        $catChild = $catChild[1];
+        // var_dump($catChild);
+        $catChild = $catChild[0];
         $catChildLink = get_category_link($catChild);
         if ($showCurrent == 0) $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
         echo $cats;

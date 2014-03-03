@@ -8,7 +8,7 @@ Template Name: Page - Press
 <?php
 $args = array(
     'post_type' => 'post',
-    'cat' => 7,
+    'cat' => 6,
     'posts_per_page' => -1
 );
 $the_query = new WP_Query( $args ); ?>

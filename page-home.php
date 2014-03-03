@@ -6,7 +6,7 @@ Template Name: Page - Home
 get_header();
 
 // Select a random background image
-$rows = get_field('background_image');
+$rows = get_field('background_images');
 $row_count = count($rows);
 $i = rand(0, $row_count - 1);
 ?>
@@ -18,7 +18,7 @@ $i = rand(0, $row_count - 1);
                 <input type="text" name="comment" placeholder="Your email here">
             </div>
         </div><!-- .content -->
-        <div class="home-background" style="background-image: url(<?php echo $rows[ $i ]['image']; ?>)"></div>
+        <div class="home-background" style="background-image: url(<?php echo $rows[ $i ]['background_image']; ?>)"></div>
 <?php get_footer() ?>
 </body>
 </html>

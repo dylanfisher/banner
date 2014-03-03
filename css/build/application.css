@@ -831,6 +831,7 @@ footer .social-media img {
   border-bottom: 1px solid #000;
 }
 
+.collection-content,
 .page-template-page-collections-php,
 .page-template-page-collection-single-php {
   text-align: center;
