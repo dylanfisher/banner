@@ -80,7 +80,15 @@ window.matchMedia=window.matchMedia||(function(e,f){var c,a=e.documentElement,b=
 
 var APIData,
     ScrollPos,
-    ScrollPos2;
+    ScrollPos2,
+    SitePath;
+
+// Check to see if we are running locally
+if (document.location.hostname == 'localhost'){
+  SitePath = window.location.protocol + '//' + window.location.host + '/banner/';
+} else {
+  SitePath = window.location.protocol + '//' + window.location.host;
+}
 
 $(function(){
 
@@ -141,9 +149,9 @@ $(function(){
 });
 
 function apiRequest(request, identifier, callback){
-    var url = window.location.protocol + '//' + window.location.host + '/banner/'; // Temporarily adding 'banner' for localhost testing
+
     if(request == 'get_post'){
-        url = url + 'api/' + request + '/?post_slug=' + identifier;
+        url = SitePath + 'api/' + request + '/?post_slug=' + identifier;
         $.getJSON(url, function(data) {
             APIData = data.post;
             callback();
@@ -212,7 +220,7 @@ $(document).on('click', '#inquiry-submit', function(e){
         message: $('#inquiry-message').val()
     };
     $.post(
-        'http://localhost:3000/banner/wp-admin/admin-ajax.php', data, function(response){
+        SitePath + '/wp-admin/admin-ajax.php', data, function(response){
             console.warn('The server responded: ' + response);
         }
     );
