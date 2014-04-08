@@ -14,6 +14,19 @@
   clear: both;
 }
 
+.inquiry-overlay h2:before,
+nav li:first-child a:before {
+  content: '';
+  background-image: url(../../../images/wishbone-logo.svg);
+  width: 52px;
+  height: 52px;
+  background-size: 50px;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: -60px;
+  padding-right: 20px;
+}
+
 /*! normalize.css v3.0.0-rc.1 | MIT License | git.io/normalize */
 
 /**
@@ -528,8 +541,7 @@ p {
  * Image replacement
  */
 
-.ir,
-nav li:first-child a {
+.ir {
   background-color: transparent;
   border: 0;
   overflow: hidden;
@@ -537,8 +549,7 @@ nav li:first-child a {
   *text-indent: -9999px;
 }
 
-.ir:before,
-nav li:first-child a:before {
+.ir:before {
   content: "";
   display: block;
   width: 0;
@@ -660,6 +671,7 @@ nav li:first-child a:before {
   margin: 20px 0;
   display: inline-block;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .to-top {
@@ -673,7 +685,7 @@ body {
 }
 
 nav {
-  font-size: 32px;
+  font-size: 40px;
 }
 
 nav ul {
@@ -696,6 +708,11 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+}
+
+.inquiry-overlay h2 {
+  font-size: 40px;
+  text-align: left;
 }
 
 .col {
@@ -728,11 +745,6 @@ h6 {
   display: inline-block;
 }
 
-header.dark,
-header.dark a {
-  color: white;
-}
-
 nav {
   text-align: left;
 }
@@ -756,21 +768,14 @@ body.home nav li {
 
 nav li:first-child {
   display: inline-block;
-  height: 44px;
 }
 
-nav li:first-child a {
-  background-image: url(../../../images/banner-logo.svg);
-  width: 110px;
-  height: 42px;
-  background-size: 108px;
-  background-repeat: no-repeat;
-  line-height: normal;
-  vertical-align: middle;
+nav li:first-child:hover:before {
+  content: normal;
 }
 
-.dark nav li:first-child a {
-  background-image: url(../../../images/banner-logo-white.svg);
+body.home nav li:first-child:hover:before {
+  content: normal;
 }
 
 nav li.current-menu-item:before,
@@ -834,6 +839,7 @@ header {
   z-index: 10;
   top: 30px;
   left: 3.33333%;
+  margin-left: 60px;
 }
 
 .fade-overlay {
@@ -861,10 +867,12 @@ header {
   position: fixed;
 }
 
-.lightbox-close {
+.lightbox-close,
+.inquiry-close {
+  background: url("../../../images/close.png") no-repeat 0 0;
   position: fixed;
-  width: 25px;
-  height: 25px;
+  width: 33px;
+  height: 33px;
   top: 20px;
   right: 20px;
   cursor: pointer;
@@ -872,8 +880,16 @@ header {
   font-family: sans-serif;
 }
 
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 192dpi) {
+  .lightbox-close,
+  .inquiry-close {
+    background: url("../../../images/retina/close.png") no-repeat 0 0 !important;
+    background-size: 33px 33px !important;
+  }
+}
+
 .lightbox-loader {
-  font-size: 32px;
+  font-size: 40px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -1012,6 +1028,32 @@ footer {
   background-repeat: no-repeat;
   line-height: normal;
   vertical-align: middle;
+}
+
+.inquiry-overlay label,
+.inquiry-overlay input {
+  display: block;
+}
+
+.inquiry-overlay input,
+.inquiry-overlay textarea {
+  padding: 5px 10px;
+}
+
+.inquiry-overlay input {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: .8em;
+}
+
+.inquiry-overlay textarea {
+  width: 100%;
+  max-width: 500px;
+  min-height: 150px;
+}
+
+.inquiry-overlay .submit-button {
+  width: auto;
 }
 
 .page-template-page-press-php .content img {
@@ -1235,7 +1277,6 @@ a img.aligncenter {
    */
 
   .ir a:after,
-  nav li:first-child a a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";

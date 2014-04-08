@@ -46,6 +46,11 @@ $(function(){
         e.preventDefault();
         closeLightbox();
     });
+    // Inquiry close
+    $(document).on('click', '#inquiry-close', function(e){
+        e.preventDefault();
+        closeInquiry();
+    });
     // Lightbox close if escape key is pressed
     $(document).keyup(function(e){
       if(e.keyCode == 27){
@@ -81,7 +86,7 @@ function openLightbox(){
 
     ScrollPos = $(window).scrollTop();
     $('body')
-    .prepend('<div id="lightbox" class="lightbox"><div id="lightbox-close" class="lightbox-close">X</div><div id="lightbox-content"><div class="lightbox-loader" class="loader">' + verb +'...</div></div></div>')
+    .prepend('<div id="lightbox" class="lightbox"><div id="lightbox-close" class="lightbox-close"></div><div id="lightbox-content"><div class="lightbox-loader" class="loader">' + verb +'...</div></div></div>')
     .addClass('fixed');
 }
 
@@ -120,11 +125,19 @@ $(document).on('click', '#inquiry-submit', function(e){
     console.log(nonce);
     var data = {
         action: 'mail_before_submit',
-        ajax_nonce: nonce
+        ajax_nonce: nonce,
+        product: $('#inquiry-product-title').text(),
+        image: $('#inquiry-image').attr('data-image'),
+        email: $('#inquiry-email').val(),
+        name: $('#inquiry-name').val(),
+        company: $('#inquiry-company').val(),
+        phone: $('#inquiry-phone').val(),
+        location: $('#inquiry-location').val(),
+        message: $('#inquiry-message').val()
     };
     $.post(
         'http://localhost:3000/banner/wp-admin/admin-ajax.php', data, function(response){
-            alert('The server responded: ' + response);
+            console.warn('The server responded: ' + response);
         }
     );
 });

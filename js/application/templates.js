@@ -4,15 +4,17 @@ this["JST"]["templates/inquiry"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="logo"></div>\n<div class="ibfix">\n    <div class="col col2 ib">\n        <p>Product Inquiry:<br>' +
+__p += '<div id="inquiry-close" class="inquiry-close"></div>\n<h2>Banner</h2>\n<div class="ibfix">\n    <div class="col col2 ib">\n        <p>Product Inquiry:<br><span id="inquiry-product-title">' +
 ((__t = ( title )) == null ? '' : __t) +
-'</p>\n        <img src="' +
+'</span></p>\n        <img id="inquiry-image" data-image="' +
+((__t = ( acf.featured_image.sizes.medium )) == null ? '' : __t) +
+'" src="' +
 ((__t = ( acf.featured_image.url )) == null ? '' : __t) +
 '" width="' +
 ((__t = ( acf.featured_image.width )) == null ? '' : __t) +
 '" height="' +
 ((__t = ( acf.featured_image.height )) == null ? '' : __t) +
-'">\n    </div>\n    <div class="col col2 ib">\n        <form method="post" action="yourFileName.php">\n            <input type="text" name="studentname">\n            <input id="inquiry-submit" type="submit" value="click" name="submit">\n        </form>\n    </div>\n</div>';
+'">\n    </div>\n    <div class="col col2 ib">\n        <form>\n            <label for="inquiry-email" class="required">Email</label>\n            <input type="text" name="email" id="inquiry-email">\n            <label for="inquiry-name" class="required">Name</label>\n            <input type="text" name="name" id="inquiry-name">\n            <label for="inquiry-company">Company</label>\n            <input type="text" name="company" id="inquiry-company">\n            <label for="inquiry-phone">Phone Number</label>\n            <input type="text" name="phone" id="inquiry-phone">\n            <label for="inquiry-location">Location</label>\n            <input type="text" name="location" id="inquiry-location">\n            <label for="inquiry-message">Message</label>\n            <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>\n            <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>\n        </form>\n    </div>\n</div>';
 
 }
 return __p

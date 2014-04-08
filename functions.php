@@ -480,40 +480,72 @@ function sandbox_mail_content_type() {
 //if you want only logged in users to access this function use this hook
 add_action('wp_ajax_mail_before_submit', 'send_AJAX_mail_before_submit');
 
-//if you want none logged in users to access this function use this hook
+//if you want non logged in users to access this function use this hook
 add_action('wp_ajax_nopriv_mail_before_submit', 'send_AJAX_mail_before_submit');
 
 function send_AJAX_mail_before_submit(){
     var_dump($_POST);
+
     check_ajax_referer( 'my-nonce', 'ajax_nonce');
-    if (isset($_POST['action']) && $_POST['action'] =="mail_before_submit"){
-        echo 'it worked!';
 
-        //send email  wp_mail( $to, $subject, $message, $headers, $attachments ); ex:
+    if (isset($_POST['action']) && $_POST['action'] == "mail_before_submit"){
+        // It worked
 
-        $email_recipient = 'dylanisthis@gmail.com';
-        $email_subject = 'DID THIS THING WORK';
-        $message = 'YO DIS BE DA MESSAGE MAHN';
+        $banner_email = 'dylanisthis@gmail.com';
 
-        ob_start();
-        // include("email_header.php");
-        ?>
-        <p>
-            Hi, DUDE. I've just published one of your articles
-            (ARTICLE TITLE) on MyAwesomeWebsite!
-        </p>
-        <p>
-            If you'd like to take a look, <a href="http://example.com">click here</a>.
-            I would appreciate it if you could come back now and again to respond to some comments.
-        </p>
+        $product = $_POST['product'];
+        $image = $_POST['image'];
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        $company = $_POST['company'];
+        $phone = $_POST['phone'];
+        $location = $_POST['location'];
+        $message = $_POST['message'];
 
-        <?php
-        // include("email_footer.php");
-        $message = ob_get_contents();
+        //send email  wp_mail( $to, $subject, $message, $headers, $attachments );
 
-        ob_end_clean();
+        //
+        // Shared visitor and banner variables
+        //
+        $image_url = substr($image, strpos($image, '/uploads/'));
+        $attachments = array( WP_CONTENT_DIR . $image_url );
+        $relative_image = WP_CONTENT_DIR . $image_url;
+        $headers = 'From: Banner Furniture <tina@bannerfurniture.com>' . "\r\n";
+        $email_subject = 'Product Inquiry: ' . $product;
 
-        wp_mail($email_recipient, $email_subject, $message);
+        //
+        // Email to visitor
+        //
+        $message_visitor = '<i>Thanks for sending a product inquiry about "' . $product . '".
+        <br>We will get back to you as soon as possible.</i>
+        <br><br><img src="' . $image . '">
+        <br><br>
+        <hr>
+        <p><b>Product: </b>' . $product . '</p>
+        <p><b>Email: </b>' . $email . '</p>
+        <p><b>Name: </b>' . $name . '</p>
+        <p><b>Company: </b>' . $company . '</p>
+        <p><b>Phone Number: </b>' . $phone . '</p>
+        <p><b>Location: </b>' . $location . '</p>
+        <p><b>Message: </b>' . $message . '</p>';
+        wp_mail($email, $email_subject, $message_visitor, $headers, $attachments);
+
+        //
+        // Email to Banner
+        //
+        $message_banner = '<i>You have received an inquiry about "' . $product . '".
+        <br>Please respond directly to the contact info email shown below.</i>
+        <br><br><img src="' . $image . '">
+        <br><br>
+        <hr>
+        <p><b>Product: </b>' . $product . '</p>
+        <p><b>Email: </b>' . $email . '</p>
+        <p><b>Name: </b>' . $name . '</p>
+        <p><b>Company: </b>' . $company . '</p>
+        <p><b>Phone Number: </b>' . $phone . '</p>
+        <p><b>Location: </b>' . $location . '</p>
+        <p><b>Message: </b>' . $message . '</p>';
+        wp_mail($banner_email, $email_subject, $message_banner, $headers, $attachments);
         echo 'email sent';
         die();
     }

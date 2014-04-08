@@ -19,4 +19,25 @@
         line-height: normal;
         vertical-align: middle;
     }
+    label,
+    input {
+        display: block;
+    }
+    input,
+    textarea {
+        padding: 5px 10px;
+    }
+    input {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: .8em;
+    }
+    textarea {
+        width: 100%;
+        max-width: 500px;
+        min-height: 150px;
+    }
+    .submit-button {
+        width: auto;
+    }
 }

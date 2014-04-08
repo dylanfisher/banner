@@ -15,6 +15,7 @@ header {
     z-index: 10;
     top: 30px;
     left: $gutter / 3;
+    margin-left: 60px;
 }
 .fade-overlay {
     position: fixed;
@@ -40,9 +41,10 @@ header {
     }
 }
 .lightbox-close {
+    @include set_background('close.png', '33px 33px', '0 0');
     position: fixed;
-    width: 25px;
-    height: 25px;
+    width: 33px;
+    height: 33px;
     top: 20px;
     right: 20px;
     cursor: pointer;
@@ -55,4 +57,8 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.inquiry-close {
+    @extend .lightbox-close;
 }

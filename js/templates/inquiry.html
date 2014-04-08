@@ -1,13 +1,25 @@
-<div class="logo"></div>
+<div id="inquiry-close" class="inquiry-close"></div>
+<h2>Banner</h2>
 <div class="ibfix">
     <div class="col col2 ib">
-        <p>Product Inquiry:<br><%= title %></p>
-        <img src="<%= acf.featured_image.url %>" width="<%= acf.featured_image.width %>" height="<%= acf.featured_image.height %>">
+        <p>Product Inquiry:<br><span id="inquiry-product-title"><%= title %></span></p>
+        <img id="inquiry-image" data-image="<%= acf.featured_image.sizes.medium %>" src="<%= acf.featured_image.url %>" width="<%= acf.featured_image.width %>" height="<%= acf.featured_image.height %>">
     </div>
     <div class="col col2 ib">
-        <form method="post" action="yourFileName.php">
-            <input type="text" name="studentname">
-            <input id="inquiry-submit" type="submit" value="click" name="submit">
+        <form>
+            <label for="inquiry-email" class="required">Email</label>
+            <input type="text" name="email" id="inquiry-email">
+            <label for="inquiry-name" class="required">Name</label>
+            <input type="text" name="name" id="inquiry-name">
+            <label for="inquiry-company">Company</label>
+            <input type="text" name="company" id="inquiry-company">
+            <label for="inquiry-phone">Phone Number</label>
+            <input type="text" name="phone" id="inquiry-phone">
+            <label for="inquiry-location">Location</label>
+            <input type="text" name="location" id="inquiry-location">
+            <label for="inquiry-message">Message</label>
+            <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>
+            <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>
         </form>
     </div>
 </div>
