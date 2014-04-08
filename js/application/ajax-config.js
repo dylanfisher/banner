@@ -11,7 +11,7 @@ var APIData,
 if (document.location.hostname == 'localhost'){
   SitePath = window.location.protocol + '//' + window.location.host + '/banner/';
 } else {
-  SitePath = window.location.protocol + '//' + window.location.host;
+  SitePath = window.location.protocol + '//' + window.location.host + '/';
 }
 
 $(function(){
