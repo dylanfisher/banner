@@ -22,9 +22,8 @@ $the_query = new WP_Query( $args ); ?>
             $size = "full"; // (thumbnail, medium, large, full or custom size)
         ?>
             <div class="product">
-                <a class="api-product" data-slug="<?php echo $post->post_name; ?>" href="<?php the_permalink(); ?>">
+                <a class="api-product nu" data-slug="<?php echo $post->post_name; ?>" href="<?php the_permalink(); ?>">
             <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
-                    <div><?php the_title(); ?></div>
                 </a>
             </div>
     <?php endwhile; // End loop ?>

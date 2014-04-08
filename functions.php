@@ -516,6 +516,10 @@ function send_AJAX_mail_before_submit(){
         //
         // Email to visitor
         //
+
+        // TEMP!
+        $email = 'dylanisthis@gmail.com';
+
         $message_visitor = '<i>Thanks for sending a product inquiry about "' . $product . '".
         <br>We will get back to you as soon as possible.</i>
         <br><br><img src="' . $image . '">

@@ -651,6 +651,11 @@ p {
   text-transform: uppercase;
 }
 
+.nu {
+  text-decoration: none;
+  border-bottom: none;
+}
+
 .chromeframe {
   padding: 2em;
   text-align: center;
@@ -918,7 +923,7 @@ footer {
 .info-box {
   display: none;
   position: fixed;
-  width: 340px;
+  width: 310px;
   padding: 30px;
   background: #FFF;
   font-size: 15px;
@@ -940,6 +945,15 @@ footer {
 
 .info-box .date {
   border-bottom: 1px solid #000;
+}
+
+.email-button {
+  display: none;
+  background: #F5F5F5;
+  margin: 0.5em 0 0;
+  padding: 10px;
+  cursor: pointer !important;
+  height: 39px;
 }
 
 .page-template-page-collections-php,

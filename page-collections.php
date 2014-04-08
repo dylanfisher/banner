@@ -25,7 +25,7 @@ $the_query = new WP_Query( $args ); ?>
             <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
                         <div class="collection-rollover"><?php the_field('description'); ?></div>
                     </a>
-                    <a href="<?php the_permalink(); ?>">
+                    <a class="nu" href="<?php the_permalink(); ?>">
                         <h2><?php the_title(); ?></h2>
                     </a>
                 </div>
