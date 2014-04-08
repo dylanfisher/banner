@@ -18,6 +18,53 @@ __p += '<div class="logo"></div>\n<div class="ibfix">\n    <div class="col col2 
 return __p
 };
 
+this["JST"]["templates/press"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<div class="press-overlay">\n  <h3>' +
+((__t = ( title )) == null ? '' : __t) +
+'</h3>\n  <div>' +
+((__t = ( acf.content )) == null ? '' : __t) +
+'</div>\n  ';
+ if (acf.pdf_link_boolean == false){ ;
+__p += '\n      <a href="' +
+((__t = ( acf.external_link )) == null ? '' : __t) +
+'" target="_blank">' +
+((__t = ( acf.link_text )) == null ? '' : __t) +
+'</a>\n  ';
+ } else { ;
+__p += '\n      <a href="' +
+((__t = ( acf.pdf_link.url )) == null ? '' : __t) +
+'" target="_blank">' +
+((__t = ( acf.link_text )) == null ? '' : __t) +
+'</a>\n  ';
+ } ;
+__p += '\n  <div class="image-container">\n  ';
+ if (acf.pdf_link_boolean == false){ ;
+__p += '\n      <a href="' +
+((__t = ( acf.external_link )) == null ? '' : __t) +
+'" target="_blank">\n        <img src="' +
+((__t = ( acf.featured_image.url )) == null ? '' : __t) +
+'" alt="' +
+((__t = ( acf.featured_image.alt )) == null ? '' : __t) +
+'">\n      </a>\n  ';
+ } else { ;
+__p += '\n      <a href="' +
+((__t = ( acf.pdf_link.url )) == null ? '' : __t) +
+'" target="_blank">\n        <img src="' +
+((__t = ( acf.featured_image.url )) == null ? '' : __t) +
+'" alt="' +
+((__t = ( acf.featured_image.alt )) == null ? '' : __t) +
+'">\n      </a>\n  ';
+ } ;
+__p += '\n  </div>\n</div>';
+
+}
+return __p
+};
+
 this["JST"]["templates/product"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
@@ -43,7 +90,13 @@ __p += '\n</ul>\n<div class="ibfix">\n    <div class="col col2 ib">\n        ' +
 ((__t = ( acf.description )) == null ? '' : __t) +
 '\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n    </div>\n    <div class="col col2 ib">\n        ' +
 ((__t = ( acf.details )) == null ? '' : __t) +
-'\n    </div>\n</div>';
+'\n        ';
+ if(acf.tear_sheet){ ;
+__p += '\n            <a href="' +
+((__t = ( acf.tear_sheet )) == null ? '' : __t) +
+'">Download PDF tear sheet</a>\n        ';
+ } ;
+__p += '\n    </div>\n</div>';
 
 }
 return __p

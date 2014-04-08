@@ -83,7 +83,8 @@ var APIData,
     ScrollPos2;
 
 $(function(){
-    // Lightbox open and api request
+
+    // Product overlay, template and request
     $(document).on('click', '.api-product', function(e){
         e.preventDefault();
         openLightbox();
@@ -94,6 +95,28 @@ $(function(){
         });
 
     });
+
+    // Product inquiry overlay, template and request
+    $(document).on('click', '.product-inquiry', function(e){
+        e.preventDefault();
+        ScrollPos2 = $(window).scrollTop();
+        $('body').prepend('<div class="inquiry-overlay" id="inquiry-overlay"></div>');
+        $('#lightbox').addClass('fixed');
+        getTemplate($('#inquiry-overlay'), 'templates/inquiry', APIData);
+    });
+
+    // Press page overlay, template and request
+    $(document).on('click', '.api-press', function(e){
+        e.preventDefault();
+        openLightbox();
+
+        apiRequest('get_post', $(this).data('slug'), function(){
+            console.log(APIData);
+            getTemplate($('#lightbox-content'), 'templates/press', APIData);
+        });
+
+    });
+
     // Lightbox close
     $(document).on('click', '#lightbox-close', function(e){
         e.preventDefault();
@@ -110,14 +133,6 @@ $(function(){
       }
     });
 
-    // Open product inquiry overlay
-    $(document).on('click', '.product-inquiry', function(e){
-        e.preventDefault();
-        ScrollPos2 = $(window).scrollTop();
-        $('body').prepend('<div class="inquiry-overlay" id="inquiry-overlay"></div>');
-        $('#lightbox').addClass('fixed');
-        getTemplate($('#inquiry-overlay'), 'templates/inquiry', APIData);
-    });
 });
 
 function apiRequest(request, identifier, callback){
@@ -272,10 +287,11 @@ $(function() {
         docWidth = $(document).width(),
         infoBoxHeight = $('#info-box').outerHeight(true),
         infoBoxWidth = $('#info-box').outerWidth(true),
-        infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight)),
+        infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight - 120)),
         infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth)),
         mobile = false,
-        mobileSize = 800;
+        mobileSize = 800,
+        breakpoint = 800;
 
     //
     // Call functions
@@ -284,11 +300,33 @@ $(function() {
     setMobile();
 
     // Info box
-    $('#info-box').css({
-        display: 'block',
-        top: infoBoxPosY,
-        left: infoBoxPosX
-    });
+    setInfoBox();
+    function setInfoBox(){
+        if(window.outerWidth >= breakpoint){
+            $(".draggable" ).draggable({
+                cancel: "p, input"
+            });
+
+            $('#info-box').css({
+                display: 'block',
+                top: infoBoxPosY,
+                left: infoBoxPosX
+            });
+        } else {
+            // $(".draggable").draggable('destroy');
+        }
+    }
+
+    if(window.outerWidth >= breakpoint){
+        $('#info-box').css({
+            display: 'block',
+            top: infoBoxPosY,
+            left: infoBoxPosX
+        });
+    } else {
+        // Mobile
+        // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
+    }
 
     // To top button
     $('#to-top').click(function(){
@@ -312,6 +350,17 @@ $(function() {
 
     $(window).resize(function(){
         setMobile();
+        setInfoBox();
+        if(window.outerWidth >= breakpoint){
+            // Not mobile
+            $('.mobile-image').removeClass('hidden');
+        } else {
+            // Mobile
+            $('.mobile-image').addClass('hidden');
+            setInfoBox();
+            $('.mobile-image').remove();
+            // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
+        }
     });
 
     //
@@ -361,6 +410,53 @@ __p += '<div class="logo"></div>\n<div class="ibfix">\n    <div class="col col2 
 return __p
 };
 
+this["JST"]["templates/press"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<div class="press-overlay">\n  <h3>' +
+((__t = ( title )) == null ? '' : __t) +
+'</h3>\n  <div>' +
+((__t = ( acf.content )) == null ? '' : __t) +
+'</div>\n  ';
+ if (acf.pdf_link_boolean == false){ ;
+__p += '\n      <a href="' +
+((__t = ( acf.external_link )) == null ? '' : __t) +
+'" target="_blank">' +
+((__t = ( acf.link_text )) == null ? '' : __t) +
+'</a>\n  ';
+ } else { ;
+__p += '\n      <a href="' +
+((__t = ( acf.pdf_link.url )) == null ? '' : __t) +
+'" target="_blank">' +
+((__t = ( acf.link_text )) == null ? '' : __t) +
+'</a>\n  ';
+ } ;
+__p += '\n  <div class="image-container">\n  ';
+ if (acf.pdf_link_boolean == false){ ;
+__p += '\n      <a href="' +
+((__t = ( acf.external_link )) == null ? '' : __t) +
+'" target="_blank">\n        <img src="' +
+((__t = ( acf.featured_image.url )) == null ? '' : __t) +
+'" alt="' +
+((__t = ( acf.featured_image.alt )) == null ? '' : __t) +
+'">\n      </a>\n  ';
+ } else { ;
+__p += '\n      <a href="' +
+((__t = ( acf.pdf_link.url )) == null ? '' : __t) +
+'" target="_blank">\n        <img src="' +
+((__t = ( acf.featured_image.url )) == null ? '' : __t) +
+'" alt="' +
+((__t = ( acf.featured_image.alt )) == null ? '' : __t) +
+'">\n      </a>\n  ';
+ } ;
+__p += '\n  </div>\n</div>';
+
+}
+return __p
+};
+
 this["JST"]["templates/product"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
@@ -386,7 +482,13 @@ __p += '\n</ul>\n<div class="ibfix">\n    <div class="col col2 ib">\n        ' +
 ((__t = ( acf.description )) == null ? '' : __t) +
 '\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n    </div>\n    <div class="col col2 ib">\n        ' +
 ((__t = ( acf.details )) == null ? '' : __t) +
-'\n    </div>\n</div>';
+'\n        ';
+ if(acf.tear_sheet){ ;
+__p += '\n            <a href="' +
+((__t = ( acf.tear_sheet )) == null ? '' : __t) +
+'">Download PDF tear sheet</a>\n        ';
+ } ;
+__p += '\n    </div>\n</div>';
 
 }
 return __p

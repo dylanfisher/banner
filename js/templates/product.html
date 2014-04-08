@@ -13,5 +13,8 @@
     </div>
     <div class="col col2 ib">
         <%= acf.details %>
+        <% if(acf.tear_sheet){ %>
+            <a href="<%= acf.tear_sheet %>">Download PDF tear sheet</a>
+        <% } %>
     </div>
 </div>

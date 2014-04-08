@@ -2,7 +2,6 @@
 // Collections and Products
 //
 
-.collection-content,
 .page-template-page-collections-php,
 .page-template-page-collection-single-php {
     text-align: center;
@@ -18,10 +17,33 @@
     display: inline-block;
     width: 50%;
     padding: 20px;
+    text-align: center;
     h2 {
         font-size: $font-normal;
         margin-top: 40px;
     }
+}
+
+.collection-link-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    &:hover {
+        .collection-rollover {
+            display: block;
+        }
+        img {
+            opacity: $opacity;
+        }
+    }
+}
+
+.collection-rollover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
 }
 
 .product {
@@ -41,6 +63,8 @@
 }
 
 .see-all {
-    display: block;
+    @extend .button1;
+    display: inline-block;
     margin: 40px 0;
+    text-align: center;
 }

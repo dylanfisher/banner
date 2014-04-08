@@ -10,7 +10,9 @@ $args = array(
     'post_type' => 'page',
     'post_parent' => $post->ID,
     'post__not_in' => array(29), // Don't get the 'see all' post
-    'posts_per_page' => -1
+    'posts_per_page' => -1,
+    'order' => 'ASC',
+    'orderby' => 'menu_order'
 );
 $the_query = new WP_Query( $args ); ?>
 <?php if ( $the_query->have_posts() ) : ?>
@@ -19,8 +21,11 @@ $the_query = new WP_Query( $args ); ?>
         $attachment_id = get_field('collection_image');
         $size = "full"; // (thumbnail, medium, large, full or custom size) ?>
                 <div class="collection ib">
-                    <a href="<?php the_permalink(); ?>">
+                    <a class="collection-link-container" href="<?php the_permalink(); ?>">
             <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
+                        <div class="collection-rollover"><?php the_field('description'); ?></div>
+                    </a>
+                    <a href="<?php the_permalink(); ?>">
                         <h2><?php the_title(); ?></h2>
                     </a>
                 </div>
@@ -28,7 +33,9 @@ $the_query = new WP_Query( $args ); ?>
     <?php wp_reset_postdata(); ?>
     </div>
 <?php endif; ?>
-            <a class="see-all" href="?page_id=29">See all</a>
+            <div class="center">
+                <a class="see-all" href="?page_id=29">See all</a>
+            </div>
         </div><!-- .content -->
 <?php get_footer() ?>
 </body>

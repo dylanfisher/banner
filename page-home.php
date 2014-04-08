@@ -6,7 +6,8 @@ get_header(); ?>
     <div class="content"><?php the_post() ?>
         <div id="info-box" class="info-box draggable">
             <p><span class="date">Spring 2014</span></p>
-            <p>Hi! We will be participating in the ICFF in May 2014. El incius modi ipis culliquam, nim volluptat. Piciatur, cuptae pres aut rerum laborep editet alibusa nimaximus, officitate vel illiam fuga. Itaturit etureic iisque denihillore, aut ea dolorio omnim nonsed maiore magnis ped maximporera dipitatis dus, occum sam dentur?</p>
+            <p>Website coming soon!</p>
+            <p>Visit us at ICFF Booth #2524 at New York's Javits Center, May 17-20, 2014 </p>
             <p>Sign up here to be the first to hear about the new collection:</p>
             <div class="email-form-container">
                 <input id="email-form" type="email" value="" type="text" placeholder="Your email here">

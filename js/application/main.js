@@ -10,10 +10,11 @@ $(function() {
         docWidth = $(document).width(),
         infoBoxHeight = $('#info-box').outerHeight(true),
         infoBoxWidth = $('#info-box').outerWidth(true),
-        infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight)),
+        infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight - 120)),
         infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth)),
         mobile = false,
-        mobileSize = 800;
+        mobileSize = 800,
+        breakpoint = 800;
 
     //
     // Call functions
@@ -22,11 +23,33 @@ $(function() {
     setMobile();
 
     // Info box
-    $('#info-box').css({
-        display: 'block',
-        top: infoBoxPosY,
-        left: infoBoxPosX
-    });
+    setInfoBox();
+    function setInfoBox(){
+        if(window.outerWidth >= breakpoint){
+            $(".draggable" ).draggable({
+                cancel: "p, input"
+            });
+
+            $('#info-box').css({
+                display: 'block',
+                top: infoBoxPosY,
+                left: infoBoxPosX
+            });
+        } else {
+            // $(".draggable").draggable('destroy');
+        }
+    }
+
+    if(window.outerWidth >= breakpoint){
+        $('#info-box').css({
+            display: 'block',
+            top: infoBoxPosY,
+            left: infoBoxPosX
+        });
+    } else {
+        // Mobile
+        // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
+    }
 
     // To top button
     $('#to-top').click(function(){
@@ -50,6 +73,17 @@ $(function() {
 
     $(window).resize(function(){
         setMobile();
+        setInfoBox();
+        if(window.outerWidth >= breakpoint){
+            // Not mobile
+            $('.mobile-image').removeClass('hidden');
+        } else {
+            // Mobile
+            $('.mobile-image').addClass('hidden');
+            setInfoBox();
+            $('.mobile-image').remove();
+            // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
+        }
     });
 
     //

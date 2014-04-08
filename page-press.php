@@ -15,16 +15,12 @@ $the_query = new WP_Query( $args ); ?>
 <?php if ( $the_query->have_posts() ) : ?>
     <div class="ibfix">
     <?php while ( $the_query->have_posts() ) : $the_query->the_post(); // Begin loop ?>
-        <?php
-            $attachment_id = get_field('featured_image');
-            $size = "full"; // (thumbnail, medium, large, full or custom size)
-        ?>
-                <div class="col4 ib">
-                    <a href="<?php the_permalink(); ?>">
-                <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
-                        <div><?php the_title(); ?></div>
-                    </a>
-                </div>
+        <?php $image = get_field('featured_image'); ?>
+        <div class="col4 ib">
+            <a class="api-press" href="<?php the_permalink(); ?>" data-slug="<?php echo $post->post_name; ?>">
+                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+            </a>
+        </div>
     <?php endwhile; // End loop ?>
     <?php wp_reset_postdata(); ?>
     </div>

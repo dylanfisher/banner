@@ -7,7 +7,8 @@ var APIData,
     ScrollPos2;
 
 $(function(){
-    // Lightbox open and api request
+
+    // Product overlay, template and request
     $(document).on('click', '.api-product', function(e){
         e.preventDefault();
         openLightbox();
@@ -18,6 +19,28 @@ $(function(){
         });
 
     });
+
+    // Product inquiry overlay, template and request
+    $(document).on('click', '.product-inquiry', function(e){
+        e.preventDefault();
+        ScrollPos2 = $(window).scrollTop();
+        $('body').prepend('<div class="inquiry-overlay" id="inquiry-overlay"></div>');
+        $('#lightbox').addClass('fixed');
+        getTemplate($('#inquiry-overlay'), 'templates/inquiry', APIData);
+    });
+
+    // Press page overlay, template and request
+    $(document).on('click', '.api-press', function(e){
+        e.preventDefault();
+        openLightbox();
+
+        apiRequest('get_post', $(this).data('slug'), function(){
+            console.log(APIData);
+            getTemplate($('#lightbox-content'), 'templates/press', APIData);
+        });
+
+    });
+
     // Lightbox close
     $(document).on('click', '#lightbox-close', function(e){
         e.preventDefault();
@@ -34,14 +57,6 @@ $(function(){
       }
     });
 
-    // Open product inquiry overlay
-    $(document).on('click', '.product-inquiry', function(e){
-        e.preventDefault();
-        ScrollPos2 = $(window).scrollTop();
-        $('body').prepend('<div class="inquiry-overlay" id="inquiry-overlay"></div>');
-        $('#lightbox').addClass('fixed');
-        getTemplate($('#inquiry-overlay'), 'templates/inquiry', APIData);
-    });
 });
 
 function apiRequest(request, identifier, callback){

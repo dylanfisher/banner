@@ -569,20 +569,28 @@ p {
   display: none;
 }
 
+.center {
+  text-align: center;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
 .chromeframe {
   padding: 2em;
   text-align: center;
 }
 
 .fade {
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .draggable {
   cursor: pointer;
 }
 
-.button1 {
+.button1, .see-all {
   padding: 5px 12px;
   border: 1px solid #000;
   margin: 20px 0;
@@ -592,6 +600,7 @@ p {
 
 .to-top {
   display: none;
+  cursor: pointer;
 }
 
 body {
@@ -718,10 +727,6 @@ nav li a {
   vertical-align: middle;
 }
 
-body {
-  background: #D9D9D9;
-}
-
 body.fixed .wrapper {
   position: fixed;
 }
@@ -821,7 +826,6 @@ footer {
   border-bottom: 1px solid #000;
 }
 
-.collection-content,
 .page-template-page-collections-php,
 .page-template-page-collection-single-php {
   text-align: center;
@@ -835,10 +839,31 @@ footer {
   display: inline-block;
   width: 50%;
   padding: 20px;
+  text-align: center;
 }
 .collection h2 {
   font-size: 20px;
   margin-top: 40px;
+}
+
+.collection-link-container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.collection-link-container:hover .collection-rollover {
+  display: block;
+}
+.collection-link-container:hover img {
+  opacity: 0.3;
+}
+
+.collection-rollover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
 }
 
 .product {
@@ -860,8 +885,9 @@ footer {
 }
 
 .see-all {
-  display: block;
+  display: inline-block;
   margin: 40px 0;
+  text-align: center;
 }
 
 .inquiry-overlay {
@@ -888,6 +914,16 @@ footer {
 }
 .page-template-page-press-php .content img:hover {
   filter: grayscale(0);
+}
+
+.press-overlay {
+  text-align: center;
+}
+.press-overlay p {
+  margin: 0;
+}
+.press-overlay .image-container {
+  margin-top: 40px;
 }
 
 .social-media {
