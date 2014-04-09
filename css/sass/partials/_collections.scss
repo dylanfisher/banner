@@ -20,7 +20,7 @@
     text-align: center;
     h2 {
         font-size: $font-normal;
-        margin-top: 40px;
+        margin-top: 30px;
     }
 }
 
@@ -44,16 +44,19 @@
     top: 0;
     left: 0;
     text-align: left;
+    padding: 10px;
 }
 
 .product {
     margin-bottom: 60px;
 }
 .product-title {
+    text-align: center;
     font-size: $font-small;
     margin-bottom: 60px;
 }
 .product-images {
+    text-align: center;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -67,4 +70,15 @@
     display: inline-block;
     margin: 40px 0;
     text-align: center;
+}
+
+.collection-see-all {
+    text-align: center;
+    .title {
+        margin-top: 10px;
+        display: block;
+        h2 {
+            font-size: $font-normal;
+        }
+    }
 }

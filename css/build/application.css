@@ -11,7 +11,7 @@
   clear: both;
 }
 
-.inquiry-overlay h2:before, nav li:first-child a:before {
+nav li:first-child a:before {
   content: '';
   background-image: url(../../../images/wishbone-logo.svg);
   width: 52px;
@@ -515,12 +515,12 @@ p {
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  height: 1px !important;
+  margin: -1px !important;
   overflow: hidden;
-  padding: 0;
+  padding: 0 !important;
   position: absolute;
-  width: 1px;
+  width: 1px !important;
 }
 
 /*
@@ -619,6 +619,18 @@ p {
 .to-top {
   display: none;
   cursor: pointer;
+}
+
+label.error {
+  color: #F00;
+}
+
+input.error {
+  box-shadow: 1px 1px 2px #F00;
+  border: 1px solid #C90000;
+}
+input.error:focus {
+  outline: 1px solid #F00;
 }
 
 body {
@@ -723,7 +735,8 @@ nav li a {
 }
 
 .banner-logo img {
-  width: 106px;
+  height: 49px;
+  width: auto;
 }
 
 .breadcrumbs {
@@ -805,6 +818,10 @@ header {
   transform: translate(-50%, -50%);
 }
 
+.inquiry-close {
+  z-index: 40;
+}
+
 footer {
   position: fixed;
   bottom: 20px;
@@ -855,6 +872,10 @@ footer {
   height: 39px;
 }
 
+.mobile-image {
+  display: none;
+}
+
 .page-template-page-collections-php,
 .page-template-page-collection-single-php {
   text-align: center;
@@ -872,7 +893,7 @@ footer {
 }
 .collection h2 {
   font-size: 20px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .collection-link-container {
@@ -893,6 +914,7 @@ footer {
   top: 0;
   left: 0;
   text-align: left;
+  padding: 10px;
 }
 
 .product {
@@ -900,11 +922,13 @@ footer {
 }
 
 .product-title {
+  text-align: center;
   font-size: 14px;
   margin-bottom: 60px;
 }
 
 .product-images {
+  text-align: center;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -919,8 +943,19 @@ footer {
   text-align: center;
 }
 
+.collection-see-all {
+  text-align: center;
+}
+.collection-see-all .title {
+  margin-top: 10px;
+  display: block;
+}
+.collection-see-all .title h2 {
+  font-size: 20px;
+}
+
 .inquiry-overlay {
-  padding: 50px 10% 100px;
+  padding: 140px 10% 100px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -929,13 +964,17 @@ footer {
   background: #fff;
 }
 .inquiry-overlay .logo {
-  background-image: url(../../../images/banner-logo.svg);
-  width: 110px;
-  height: 42px;
-  background-size: 108px;
+  background-image: url(../../../images/banner-furniture-logo.svg);
+  width: 192px;
+  height: 52px;
+  background-size: 188px 49px;
   background-repeat: no-repeat;
   line-height: normal;
   vertical-align: middle;
+  position: absolute;
+  top: 30px;
+  left: 3.33333%;
+  z-index: 40;
 }
 .inquiry-overlay label,
 .inquiry-overlay input {
@@ -957,6 +996,20 @@ footer {
 }
 .inquiry-overlay .submit-button {
   width: auto;
+}
+
+.inquiry-overlay-success {
+  z-index: 40;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  text-align: center;
+  display: inline-block;
+  font-size: 40px;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 .page-template-page-press-php .content img {
@@ -1088,13 +1141,26 @@ a img.aligncenter {
   }
 
   header {
-    position: absolute;
-    top: 5px;
-    left: 20px;
+    position: static;
+    margin-top: 10px;
+    margin: 10px 10px 0;
+  }
+
+  .home-background {
+    display: none;
+  }
+
+  .info-box {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-top: 20px;
+    position: static !important;
+    cursor: auto;
   }
 
   .menu-header {
-    position: fixed;
+    position: absolute;
     right: 10px;
     top: 10px;
   }
@@ -1105,25 +1171,60 @@ a img.aligncenter {
     background-size: 40px 32px;
   }
 
+  nav {
+    font-size: 1em;
+    margin: 20px 0 0;
+  }
+  nav li {
+    display: none;
+  }
+  body.home nav li {
+    display: none;
+  }
+  nav li:first-child {
+    display: block;
+  }
+  body.home nav li:first-child {
+    display: block;
+  }
+  nav li:first-child a {
+    color: transparent;
+    text-indent: 100%;
+    overflow: hidden;
+  }
+  nav li:first-child a:before {
+    content: normal;
+    background: blue;
+  }
+
+  .fade-overlay {
+    display: none;
+  }
+
   footer {
     position: static;
     margin: 20px;
   }
 
   .content {
-    margin: 100px 0 0;
+    margin: 10px 10px 0;
   }
 
   .col {
     display: block;
     width: 100%;
-    padding: 0 20px;
+    padding: 0;
+  }
+
+  .collection {
+    width: 100%;
+    padding: 0;
   }
 
   .breadcrumbs .current {
     font-family: sans-serif;
     text-transform: uppercase;
-    position: absolute;
+    position: static;
     font-size: 14px;
     margin-top: 20px;
     margin-left: 2px;
@@ -1135,6 +1236,10 @@ a img.aligncenter {
 
   .to-top {
     display: inline-block;
+  }
+
+  .mobile-image {
+    display: block;
   }
 }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {

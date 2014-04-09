@@ -35,5 +35,5 @@ $i = rand(0, $row_count - 1);
 </header>
 <div id="wrapper" class="wrapper">
 <?php if($rows): ?>
-    <div class="home-background" style="background-image: url(<?php echo $rows[ $i ]['background_image']; ?>)"></div>
+    <div class="home-background" style="background-image: url(<?php echo $rows[ $i ]['background_image']; ?>)" data-bg="<?php echo $rows[ $i ]['background_image']; ?>"></div>
 <?php endif; ?>

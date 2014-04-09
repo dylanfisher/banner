@@ -22,3 +22,19 @@
     display: none;
     cursor: pointer;
 }
+
+label {
+    &.error {
+        color: #F00;
+    }
+}
+
+input {
+    &.error {
+        box-shadow: 1px 1px 2px #F00;
+        border: 1px solid #C90000;
+        &:focus {
+            outline: 1px solid #F00;
+        }
+    }
+}

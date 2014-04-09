@@ -14,7 +14,9 @@ $(function() {
         infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth)),
         mobile = false,
         mobileSize = 800,
-        breakpoint = 800;
+        breakpoint = 800,
+        randImage = $('.home-background').attr('data-bg'),
+        isHome = $('.page-template-page-home-php').length;
 
     //
     // Call functions
@@ -40,17 +42,6 @@ $(function() {
         }
     }
 
-    if(window.outerWidth >= breakpoint){
-        $('#info-box').css({
-            display: 'block',
-            top: infoBoxPosY,
-            left: infoBoxPosX
-        });
-    } else {
-        // Mobile
-        // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
-    }
-
     // To top button
     $('#to-top').click(function(){
         $('html, body').animate({scrollTop: 0});
@@ -58,7 +49,9 @@ $(function() {
 
     // Nav hover
     $('#menu-primary-nav').mouseenter(function(){
-        $('body:not(.home) header').after('<div id="fade-overlay" class="fade-overlay"></div>');
+        if(mobile === false){
+            $('body:not(.home) header').after('<div id="fade-overlay" class="fade-overlay"></div>');
+        }
     });
     $('#menu-primary-nav li:first-child').mouseenter(function(){
         showMenu();
@@ -71,20 +64,33 @@ $(function() {
     // Resize
     //
 
-    $(window).resize(function(){
-        setMobile();
-        setInfoBox();
+    if(isHome == 1){
         if(window.outerWidth >= breakpoint){
-            // Not mobile
-            $('.mobile-image').removeClass('hidden');
+            $('#info-box').css({
+                display: 'block',
+                top: infoBoxPosY,
+                left: infoBoxPosX
+            });
         } else {
             // Mobile
-            $('.mobile-image').addClass('hidden');
-            setInfoBox();
-            $('.mobile-image').remove();
-            // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
+            $('.content').prepend('<img class="mobile-image" src="' + randImage + '">');
         }
-    });
+
+        $(window).resize(function(){
+            setMobile();
+            setInfoBox();
+            if(window.outerWidth >= breakpoint){
+                // Not mobile
+                $('.mobile-image').removeClass('hidden');
+            } else {
+                // Mobile
+                $('.mobile-image').addClass('hidden');
+                setInfoBox();
+                $('.mobile-image').remove();
+                $('.content').prepend('<img class="mobile-image" src="' + randImage + '">');
+            }
+        });
+    }
 
     //
     // Define functions
@@ -104,7 +110,7 @@ $(function() {
     }
 
     function setMobile(){
-        if ($(window).width() < mobileSize) {
+        if (window.outerWidth < mobileSize) {
             mobile = true;
             $('body').addClass('mobile-layout');
         } else {

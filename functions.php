@@ -507,6 +507,7 @@ function send_AJAX_mail_before_submit(){
         //
         // Shared visitor and banner variables
         //
+
         $image_url = substr($image, strpos($image, '/uploads/'));
         $attachments = array( WP_CONTENT_DIR . $image_url );
         $relative_image = WP_CONTENT_DIR . $image_url;
@@ -520,6 +521,7 @@ function send_AJAX_mail_before_submit(){
         // TEMP!
         $email = 'dylanisthis@gmail.com';
 
+        // Create the message
         $message_visitor = '<i>Thanks for sending a product inquiry about "' . $product . '".
         <br>We will get back to you as soon as possible.</i>
         <br><br><img src="' . $image . '">
@@ -532,11 +534,15 @@ function send_AJAX_mail_before_submit(){
         <p><b>Phone Number: </b>' . $phone . '</p>
         <p><b>Location: </b>' . $location . '</p>
         <p><b>Message: </b>' . $message . '</p>';
+
+        // Send the email
         wp_mail($email, $email_subject, $message_visitor, $headers, $attachments);
 
         //
         // Email to Banner
         //
+
+        // Create the message
         $message_banner = '<i>You have received an inquiry about "' . $product . '".
         <br>Please respond directly to the contact info email shown below.</i>
         <br><br><img src="' . $image . '">
@@ -549,6 +555,8 @@ function send_AJAX_mail_before_submit(){
         <p><b>Phone Number: </b>' . $phone . '</p>
         <p><b>Location: </b>' . $location . '</p>
         <p><b>Message: </b>' . $message . '</p>';
+
+        // Send the email
         wp_mail($banner_email, $email_subject, $message_banner, $headers, $attachments);
         echo 'email sent';
         die();

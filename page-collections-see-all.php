@@ -4,11 +4,13 @@ Template Name: Page - Collections - See All
 */
 ?>
 <?php get_header() ?>
-<div class="content">
+<?php $nonce = wp_create_nonce('my-nonce'); ?>
+<?php get_header() ?>
+        <div class="content" id="content" data-nonce="<?php echo $nonce; ?>">
 <?php
 $args = array(
     'post_type' => 'post',
-    'cat' => 6,
+    'category_name' => 'collections',
     'posts_per_page' => -1
 );
 $the_query = new WP_Query( $args ); ?>
@@ -20,10 +22,12 @@ $the_query = new WP_Query( $args ); ?>
             $attachment_id = $image['id'];
             $size = "full"; // (thumbnail, medium, large, full or custom size)
         ?>
-                <div class="col4 ib">
-                    <a href="<?php the_permalink(); ?>">
+                <div class="col4 ib collection-see-all">
+                    <a class="api-product nu" data-slug="<?php echo $post->post_name; ?>" href="<?php the_permalink(); ?>">
                 <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
-                        <div><?php the_title(); ?></div>
+                    </a>
+                    <a class="nu title" href="<?php the_permalink(); ?>">
+                        <h2><?php the_title(); ?></h2>
                     </a>
                 </div>
     <?php endwhile; // End loop ?>

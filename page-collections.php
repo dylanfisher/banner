@@ -9,7 +9,7 @@ Template Name: - Collection Container
 $args = array(
     'post_type' => 'page',
     'post_parent' => $post->ID,
-    'post__not_in' => array(29), // Don't get the 'see all' post
+    'post__not_in' => array(140), // Don't get the 'see all' post
     'posts_per_page' => -1,
     'order' => 'ASC',
     'orderby' => 'menu_order'
@@ -34,7 +34,7 @@ $the_query = new WP_Query( $args ); ?>
     </div>
 <?php endif; ?>
             <div class="center">
-                <a class="see-all" href="?page_id=29">See all</a>
+                <a class="see-all" href="<?php echo get_permalink(140); ?>">See all</a>
             </div>
         </div><!-- .content -->
 <?php get_footer() ?>

@@ -130,7 +130,8 @@ function getTemplate($targetContainer, template, templateData){
 $(document).on('click', '#inquiry-submit', function(e){
     e.preventDefault();
     var nonce = $('#content').data('nonce');
-    console.log(nonce);
+    var honeypot = $('#hp-verification').val();
+    // console.log(nonce);
     var data = {
         action: 'mail_before_submit',
         ajax_nonce: nonce,
@@ -143,9 +144,45 @@ $(document).on('click', '#inquiry-submit', function(e){
         location: $('#inquiry-location').val(),
         message: $('#inquiry-message').val()
     };
-    $.post(
-        SitePath + '/wp-admin/admin-ajax.php', data, function(response){
-            console.warn('The server responded: ' + response);
-        }
-    );
+
+    var validation = data.email;
+    if(/(.+)@(.+){2,}\.(.+){2,}/.test(validation)){
+        validation = true;
+    } else {
+        validation = false;
+    }
+    // Submit the form and send the email if email validates,
+    // name field is NOT blank, and honeypot IS blank 
+    if( validation === true && $('#inquiry-name').val() && honeypot === ''){
+        $.post(
+            SitePath + '/wp-admin/admin-ajax.php', data, function(response){
+                $('#inquiry-overlay').append('<div id="fade-overlay" class="fade-overlay"></div>');
+                $('#inquiry-overlay').append('<div class="inquiry-overlay-success">Thanks for getting in touch! We received your email and will get in touch shortly.</div>');
+                setTimeout(function(){
+                    $('#inquiry-overlay').fadeOut(function(){
+                        closeInquiry();
+                    });
+                }, 5000);
+            }
+         );
+    }
+
+    if(validation === false){
+        // Enter a valid email
+        $('#inquiry-email, label[for="inquiry-email"]').addClass('error');
+    } else {
+        $('#inquiry-email, label[for="inquiry-email"]').removeClass('error');
+    }
+
+    if( ! $('#inquiry-name').val()){
+        // Enter a valid name
+        $('#inquiry-name, label[for="inquiry-name"]').addClass('error');
+    } else {
+        $('#inquiry-name, label[for="inquiry-name"]').removeClass('error');
+    }
+
+    if( honeypot !== ''){
+        // Hidden honeypot was filled in, could be spam
+        console.error('Sorry, something went wrong. Please try again.');
+    }
 });

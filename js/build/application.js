@@ -206,7 +206,8 @@ function getTemplate($targetContainer, template, templateData){
 $(document).on('click', '#inquiry-submit', function(e){
     e.preventDefault();
     var nonce = $('#content').data('nonce');
-    console.log(nonce);
+    var honeypot = $('#hp-verification').val();
+    // console.log(nonce);
     var data = {
         action: 'mail_before_submit',
         ajax_nonce: nonce,
@@ -219,11 +220,47 @@ $(document).on('click', '#inquiry-submit', function(e){
         location: $('#inquiry-location').val(),
         message: $('#inquiry-message').val()
     };
-    $.post(
-        SitePath + '/wp-admin/admin-ajax.php', data, function(response){
-            console.warn('The server responded: ' + response);
-        }
-    );
+
+    var validation = data.email;
+    if(/(.+)@(.+){2,}\.(.+){2,}/.test(validation)){
+        validation = true;
+    } else {
+        validation = false;
+    }
+    // Submit the form and send the email if email validates,
+    // name field is NOT blank, and honeypot IS blank 
+    if( validation === true && $('#inquiry-name').val() && honeypot === ''){
+        $.post(
+            SitePath + '/wp-admin/admin-ajax.php', data, function(response){
+                $('#inquiry-overlay').append('<div id="fade-overlay" class="fade-overlay"></div>');
+                $('#inquiry-overlay').append('<div class="inquiry-overlay-success">Thanks for getting in touch! We received your email and will get in touch shortly.</div>');
+                setTimeout(function(){
+                    $('#inquiry-overlay').fadeOut(function(){
+                        closeInquiry();
+                    });
+                }, 5000);
+            }
+         );
+    }
+
+    if(validation === false){
+        // Enter a valid email
+        $('#inquiry-email, label[for="inquiry-email"]').addClass('error');
+    } else {
+        $('#inquiry-email, label[for="inquiry-email"]').removeClass('error');
+    }
+
+    if( ! $('#inquiry-name').val()){
+        // Enter a valid name
+        $('#inquiry-name, label[for="inquiry-name"]').addClass('error');
+    } else {
+        $('#inquiry-name, label[for="inquiry-name"]').removeClass('error');
+    }
+
+    if( honeypot !== ''){
+        // Hidden honeypot was filled in, could be spam
+        console.error('Sorry, something went wrong. Please try again.');
+    }
 });
 // jQueryUI config
 
@@ -312,7 +349,9 @@ $(function() {
         infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth)),
         mobile = false,
         mobileSize = 800,
-        breakpoint = 800;
+        breakpoint = 800,
+        randImage = $('.home-background').attr('data-bg'),
+        isHome = $('.page-template-page-home-php').length;
 
     //
     // Call functions
@@ -338,17 +377,6 @@ $(function() {
         }
     }
 
-    if(window.outerWidth >= breakpoint){
-        $('#info-box').css({
-            display: 'block',
-            top: infoBoxPosY,
-            left: infoBoxPosX
-        });
-    } else {
-        // Mobile
-        // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
-    }
-
     // To top button
     $('#to-top').click(function(){
         $('html, body').animate({scrollTop: 0});
@@ -356,7 +384,9 @@ $(function() {
 
     // Nav hover
     $('#menu-primary-nav').mouseenter(function(){
-        $('body:not(.home) header').after('<div id="fade-overlay" class="fade-overlay"></div>');
+        if(mobile === false){
+            $('body:not(.home) header').after('<div id="fade-overlay" class="fade-overlay"></div>');
+        }
     });
     $('#menu-primary-nav li:first-child').mouseenter(function(){
         showMenu();
@@ -369,20 +399,33 @@ $(function() {
     // Resize
     //
 
-    $(window).resize(function(){
-        setMobile();
-        setInfoBox();
+    if(isHome == 1){
         if(window.outerWidth >= breakpoint){
-            // Not mobile
-            $('.mobile-image').removeClass('hidden');
+            $('#info-box').css({
+                display: 'block',
+                top: infoBoxPosY,
+                left: infoBoxPosX
+            });
         } else {
             // Mobile
-            $('.mobile-image').addClass('hidden');
-            setInfoBox();
-            $('.mobile-image').remove();
-            // $('.content').prepend('<img class="mobile-image" src="images/small/' + randImage + '">');
+            $('.content').prepend('<img class="mobile-image" src="' + randImage + '">');
         }
-    });
+
+        $(window).resize(function(){
+            setMobile();
+            setInfoBox();
+            if(window.outerWidth >= breakpoint){
+                // Not mobile
+                $('.mobile-image').removeClass('hidden');
+            } else {
+                // Mobile
+                $('.mobile-image').addClass('hidden');
+                setInfoBox();
+                $('.mobile-image').remove();
+                $('.content').prepend('<img class="mobile-image" src="' + randImage + '">');
+            }
+        });
+    }
 
     //
     // Define functions
@@ -402,7 +445,7 @@ $(function() {
     }
 
     function setMobile(){
-        if ($(window).width() < mobileSize) {
+        if (window.outerWidth < mobileSize) {
             mobile = true;
             $('body').addClass('mobile-layout');
         } else {
@@ -417,13 +460,13 @@ this["JST"]["templates/inquiry"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="inquiry-close" class="inquiry-close"></div>\n<h2>Banner</h2>\n<div class="ibfix">\n    <div class="col col2 ib">\n        <p>Product Inquiry:<br><span id="inquiry-product-title">' +
+__p += '<div id="inquiry-close" class="inquiry-close"></div>\n<a class="nu" href="<?php bloginfo(\'url\') ?>/"><h2 class="logo"></h2></a>\n<div class="ibfix">\n    <div class="col col2 ib">\n        <p>Product Inquiry:<br><span id="inquiry-product-title">' +
 ((__t = ( title )) == null ? '' : __t) +
 '</span></p>\n        <img id="inquiry-image" data-image="' +
 ((__t = ( acf.featured_image.sizes.medium )) == null ? '' : __t) +
 '" src="' +
 ((__t = ( acf.featured_image.url )) == null ? '' : __t) +
-'">\n    </div>\n    <div class="col col2 ib">\n        <form>\n            <label for="inquiry-email" class="required">Email</label>\n            <input type="text" name="email" id="inquiry-email">\n            <label for="inquiry-name" class="required">Name</label>\n            <input type="text" name="name" id="inquiry-name">\n            <label for="inquiry-company">Company</label>\n            <input type="text" name="company" id="inquiry-company">\n            <label for="inquiry-phone">Phone Number</label>\n            <input type="text" name="phone" id="inquiry-phone">\n            <label for="inquiry-location">Location</label>\n            <input type="text" name="location" id="inquiry-location">\n            <label for="inquiry-message">Message</label>\n            <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>\n            <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>\n        </form>\n    </div>\n</div>';
+'">\n    </div>\n    <div class="col col2 ib">\n        <form>\n            <label for="inquiry-email" class="required">Email<sup>&#42;</sup></label>\n            <input type="email" name="email" id="inquiry-email">\n            <label for="inquiry-name" class="required">Name<sup>&#42;</sup></label>\n            <input type="text" name="name" id="inquiry-name">\n            <label for="inquiry-company">Company</label>\n            <input type="text" name="company" id="inquiry-company">\n            <label for="inquiry-phone">Phone Number</label>\n            <input type="tel" name="phone" id="inquiry-phone">\n            <label for="inquiry-location">Location</label>\n            <input type="text" name="location" id="inquiry-location">\n            <label for="inquiry-message">Message</label>\n            <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>\n            <input class="visuallyhidden" type="text" name="verification" id="hp-verification">\n            <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>\n        </form>\n    </div>\n</div>';
 
 }
 return __p

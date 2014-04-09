@@ -61,4 +61,5 @@ header {
 
 .inquiry-close {
     @extend .lightbox-close;
+    z-index: 40;
 }

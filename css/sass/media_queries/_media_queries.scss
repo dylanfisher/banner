@@ -9,12 +9,23 @@
         display: block;
     }
     header {
-        position: absolute;
-        top: 5px;
-        left: 20px;
+        position: static;
+        margin-top: 10px;
+        margin: 10px 10px 0;
+    }
+    .home-background {
+        display: none;
+    }
+    .info-box {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+        position: static !important;
+        cursor: auto;
     }
     .menu-header {
-        position: fixed;
+        position: absolute;
         right: 10px;
         top: 10px;
         li:first-child a {
@@ -24,23 +35,55 @@
             background-size: 40px 32px;
         }
     }
+    nav {
+        font-size: 1em;
+        margin: 20px 0 0;
+        li {
+            display: none;
+            body.home & {
+                display: none;
+            }
+            &:first-child {
+                display: block;
+                body.home & {
+                    display: block;
+                }
+                a {
+                    color: transparent;
+                    text-indent: 100%;
+                    overflow: hidden;
+                    &:before {
+                        content: normal;
+                        background: blue;
+                    }
+                }
+            }
+        }
+    }
+    .fade-overlay {
+        display: none;
+    }
     footer {
         position: static;
         margin: 20px;
     }
     .content {
-        margin: 100px 0 0;
+        margin: 10px 10px 0;
     }
     .col {
         display: block;
         width: 100%;
-        padding: 0 20px;
+        padding: 0;
+    }
+    .collection {
+        width: 100%;
+        padding: 0;
     }
     .breadcrumbs {
         .current {
             font-family: sans-serif;
             text-transform: uppercase;
-            position: absolute;
+            position: static;
             font-size: $font-small;
             margin-top: 20px;
             margin-left: 2px;
@@ -51,6 +94,9 @@
     }
     .to-top {
         display: inline-block;
+    }
+    .mobile-image {
+        display: block;
     }
 }
 

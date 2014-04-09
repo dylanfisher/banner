@@ -1,5 +1,5 @@
 <div id="inquiry-close" class="inquiry-close"></div>
-<h2>Banner</h2>
+<a class="nu" href="<?php bloginfo('url') ?>/"><h2 class="logo"></h2></a>
 <div class="ibfix">
     <div class="col col2 ib">
         <p>Product Inquiry:<br><span id="inquiry-product-title"><%= title %></span></p>
@@ -7,18 +7,19 @@
     </div>
     <div class="col col2 ib">
         <form>
-            <label for="inquiry-email" class="required">Email</label>
-            <input type="text" name="email" id="inquiry-email">
-            <label for="inquiry-name" class="required">Name</label>
+            <label for="inquiry-email" class="required">Email<sup>&#42;</sup></label>
+            <input type="email" name="email" id="inquiry-email">
+            <label for="inquiry-name" class="required">Name<sup>&#42;</sup></label>
             <input type="text" name="name" id="inquiry-name">
             <label for="inquiry-company">Company</label>
             <input type="text" name="company" id="inquiry-company">
             <label for="inquiry-phone">Phone Number</label>
-            <input type="text" name="phone" id="inquiry-phone">
+            <input type="tel" name="phone" id="inquiry-phone">
             <label for="inquiry-location">Location</label>
             <input type="text" name="location" id="inquiry-location">
             <label for="inquiry-message">Message</label>
             <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>
+            <input class="visuallyhidden" type="text" name="verification" id="hp-verification">
             <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>
         </form>
     </div>

@@ -24,12 +24,28 @@
             }
             nav {
                 position: fixed;
-                z-index: 10;
+                z-index: 9999;
                 top: 30px;
                 left: 3.33333%;
             }
             h1 {
                 margin: 0;
+            }
+            h1 a {
+                background-image: url('http://static.tumblr.com/cqzobiu/OF4n3qz5i/banner-furniture-logo.svg');
+                width: 192px;
+                height: 52px;
+                background-size: 188px 49px;
+                background-repeat: no-repeat;
+                line-height: normal;
+                vertical-align: middle;
+                display: block;
+            }
+            iframe {
+                max-width: 100%;
+            }
+            div {
+                vertical-align: top;
             }
             .posts {
                 font-size: 0;
@@ -37,26 +53,54 @@
                 margin: 0 auto;
             }
             .post-container {
-                font-size: 1rem;
+                font-size: 16px;
                 display: inline-block;
                 width: 50%;
-                padding: 0 40px 20px;
+                padding: 0 10px 40px;
+                vertical-align: top;
             }
             .date {
                 border-bottom: 1px solid;
                 display: inline-block;
                 margin-bottom: 20px;
             }
+            /* Helper classes */
+            /* Image replacement */
+            .ir {
+                background-color: transparent;
+                border: 0;
+                overflow: hidden;
+                /* IE 6/7 fallback */
+                *text-indent: -9999px;
+            }
+            .ir:before {
+                content: "";
+                display: block;
+                width: 0;
+                height: 150%;
+            }
+            .visuallyhidden {
+                border: 0;
+                clip: rect(0 0 0 0);
+                height: 1px !important;
+                margin: -1px !important;
+                overflow: hidden;
+                padding: 0 !important;
+                position: absolute;
+                width: 1px !important;
+            }
         </style>
+        <script type="text/javascript" src="http://static.tumblr.com/cqzobiu/Xdpn3qzn0/infinitescrolling.js"></script>
     </head>
     <body>
         <nav>
-            <h1>Banner > News</h1>
+            <h1><a class="ir" href="http://bannerfurniture.com/">Banner Furniture</a></h1>
         </nav>
         {block:Description}
             <p id="description">{Description}</p>
         {/block:Description}
         <ol id="posts" class="posts">
+            <div class="autopagerize_page_element">
             {block:Posts}
                 <li class="post-container">
                     <ul>
@@ -135,13 +179,14 @@
                     </ul>
                 </li>
             {/block:Posts}
+            </div>
         </ol>
-        <p id="footer">
+        <div id="footer visuallyhidden">
             {block:PreviousPage}
                 <a href="{PreviousPage}">&#171; Previous</a>
             {/block:PreviousPage}{block:NextPage}
                 <a href="{NextPage}">Next &#187;</a>
             {/block:NextPage}
-        </p>
+        </div>
     </body>
 </html>
