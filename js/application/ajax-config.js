@@ -154,10 +154,10 @@ $(document).on('click', '#inquiry-submit', function(e){
     // Submit the form and send the email if email validates,
     // name field is NOT blank, and honeypot IS blank 
     if( validation === true && $('#inquiry-name').val() && honeypot === ''){
+        $('#inquiry-overlay').append('<div id="fade-overlay" class="fade-overlay"></div>');
+        $('#inquiry-overlay').append('<div class="inquiry-overlay-success">Thanks for getting in touch! We received your email and will get in touch shortly.</div>');
         $.post(
             SitePath + '/wp-admin/admin-ajax.php', data, function(response){
-                $('#inquiry-overlay').append('<div id="fade-overlay" class="fade-overlay"></div>');
-                $('#inquiry-overlay').append('<div class="inquiry-overlay-success">Thanks for getting in touch! We received your email and will get in touch shortly.</div>');
                 setTimeout(function(){
                     $('#inquiry-overlay').fadeOut(function(){
                         closeInquiry();
