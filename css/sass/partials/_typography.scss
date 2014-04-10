@@ -10,6 +10,7 @@ body {
 nav {
     @extend %serif;
     font-size: $font-large;
+    line-height: 1.2em;
     ul {
         margin: 0;
         padding: 0;

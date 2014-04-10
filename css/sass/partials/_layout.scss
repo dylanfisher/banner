@@ -11,11 +11,20 @@ body.fixed .wrapper {
     margin: 100px $gutter 0;
 }
 header {
-    position: fixed;
+    position: absolute;
     z-index: 10;
     top: 30px;
-    left: $gutter / 3;
-    margin-left: 60px;
+    left: 30px;
+    margin-left: 70px; // This accounts for the offset of the wishobe logo
+    &:hover {
+        position: fixed;
+        nav {
+            pointer-events: auto;
+        }
+    }
+    .page-template-page-home-php & {
+        position: fixed;
+    }
 }
 .fade-overlay {
     position: fixed;

@@ -8,6 +8,9 @@
 }
 nav {
     text-align: left;
+    &.disabled {
+        pointer-events: none;
+    }
     ul.active {
         &:hover {
             li {
@@ -54,6 +57,7 @@ nav {
                 display: inline-block;
                 margin-right: 1.5em;
                 vertical-align: middle;
+                line-height: 1.2em;
                 body.home & {
                     content: normal;
                 }

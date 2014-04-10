@@ -382,6 +382,14 @@ $(function() {
         $('html, body').animate({scrollTop: 0});
     });
 
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 0){
+            $('header, header nav').addClass('disabled');
+        } else {
+            $('header, header nav').removeClass('disabled');
+        }
+    });
+
     // Nav hover
     $('#menu-primary-nav').mouseenter(function(){
         if(mobile === false){
@@ -544,7 +552,7 @@ __p += '\n</ul>\n<div class="ibfix">\n    <div class="col col2 ib">\n        ' +
  if(acf.tear_sheet){ ;
 __p += '\n            <a href="' +
 ((__t = ( acf.tear_sheet )) == null ? '' : __t) +
-'">Download PDF tear sheet</a>\n        ';
+'" target="_blank">Download PDF tear sheet</a>\n        ';
  } ;
 __p += '\n    </div>\n</div>';
 

@@ -7,7 +7,7 @@
     <meta name="description" content="<?php echo get_bloginfo('description') ?>">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_url'); ?>/images/favicon.ico">
+    <link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_url'); ?>/images/banner-favicon.png">
     <link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_url'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); ?>/css/build/minified/application.css" />
     <script src="<?php echo get_bloginfo('template_url'); ?>/js/modernizr-2.6.2.min.js"></script>

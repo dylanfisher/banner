@@ -26,13 +26,21 @@ body {
 nav li:first-child a:before {
   content: '';
   background-image: url(../../../images/wishbone-logo.svg);
-  width: 52px;
-  height: 52px;
-  background-size: 50px;
+  width: 66px;
+  height: 66px;
+  background-size: 63px;
   background-repeat: no-repeat;
   position: absolute;
-  left: -60px;
+  left: 30px;
   padding-right: 20px;
+  margin-top: -6px;
+  position: fixed;
+  pointer-events: auto;
+}
+
+.page-template-page-home-php nav li:first-child a:before,
+nav li:first-child .page-template-page-home-php a:before {
+  position: static;
 }
 
 @font-face {
@@ -718,7 +726,8 @@ body {
 }
 
 nav {
-  font-size: 40px;
+  font-size: 48px;
+  line-height: 1.2em;
 }
 
 nav ul {
@@ -744,7 +753,7 @@ h6 {
 }
 
 .inquiry-overlay h2 {
-  font-size: 40px;
+  font-size: 48px;
   text-align: left;
 }
 
@@ -759,7 +768,7 @@ h6 {
 }
 
 .col2.col-first {
-  text-align: center;
+  text-align: right;
 }
 
 .col2.col-first img {
@@ -780,6 +789,10 @@ h6 {
 
 nav {
   text-align: left;
+}
+
+nav.disabled {
+  pointer-events: none;
 }
 
 nav ul.active:hover li {
@@ -820,6 +833,7 @@ nav li:hover:before {
   display: inline-block;
   margin-right: 1.5em;
   vertical-align: middle;
+  line-height: 1.2em;
 }
 
 body.home nav li.current-menu-item:before,
@@ -869,11 +883,23 @@ body.fixed .wrapper {
 }
 
 header {
-  position: fixed;
+  position: absolute;
   z-index: 10;
   top: 30px;
-  left: 3.33333%;
-  margin-left: 60px;
+  left: 30px;
+  margin-left: 70px;
+}
+
+header:hover {
+  position: fixed;
+}
+
+header:hover nav {
+  pointer-events: auto;
+}
+
+.page-template-page-home-php header {
+  position: fixed;
 }
 
 .fade-overlay {
@@ -923,7 +949,7 @@ header {
 }
 
 .lightbox-loader {
-  font-size: 40px;
+  font-size: 48px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -936,9 +962,15 @@ header {
 }
 
 footer {
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+
+.page-template-page-home-php footer {
   position: fixed;
   bottom: 20px;
   left: 30px;
+  margin: 0;
 }
 
 .home-background {
@@ -1043,7 +1075,7 @@ footer {
 
 .product-title {
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   margin-bottom: 60px;
 }
 
@@ -1376,7 +1408,7 @@ a img.aligncenter {
     font-family: sans-serif;
     text-transform: uppercase;
     position: static;
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 20px;
     margin-left: 2px;
   }

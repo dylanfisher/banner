@@ -47,6 +47,14 @@ $(function() {
         $('html, body').animate({scrollTop: 0});
     });
 
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 0){
+            $('header, header nav').addClass('disabled');
+        } else {
+            $('header, header nav').removeClass('disabled');
+        }
+    });
+
     // Nav hover
     $('#menu-primary-nav').mouseenter(function(){
         if(mobile === false){

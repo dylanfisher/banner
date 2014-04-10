@@ -88,7 +88,7 @@ __p += '\n</ul>\n<div class="ibfix">\n    <div class="col col2 ib">\n        ' +
  if(acf.tear_sheet){ ;
 __p += '\n            <a href="' +
 ((__t = ( acf.tear_sheet )) == null ? '' : __t) +
-'">Download PDF tear sheet</a>\n        ';
+'" target="_blank">Download PDF tear sheet</a>\n        ';
  } ;
 __p += '\n    </div>\n</div>';
 
