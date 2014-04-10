@@ -20,5 +20,9 @@
   }
   .image-container {
     margin-top: 40px;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 }

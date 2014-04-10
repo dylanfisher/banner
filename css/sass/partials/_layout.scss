@@ -52,6 +52,7 @@ header {
     font-family: sans-serif;
 }
 .lightbox-loader {
+    @extend %serif;
     font-size: $font-large;
     position: fixed;
     top: 50%;

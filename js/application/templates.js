@@ -40,23 +40,19 @@ __p += '\n      <a href="' +
 '</a>\n  ';
  } ;
 __p += '\n  <div class="image-container">\n  ';
- if (acf.pdf_link_boolean == false){ ;
-__p += '\n      <a href="' +
-((__t = ( acf.external_link )) == null ? '' : __t) +
-'" target="_blank">\n        <img src="' +
-((__t = ( acf.featured_image.url )) == null ? '' : __t) +
-'" alt="' +
-((__t = ( acf.featured_image.alt )) == null ? '' : __t) +
-'">\n      </a>\n  ';
- } else { ;
-__p += '\n      <a href="' +
-((__t = ( acf.pdf_link.url )) == null ? '' : __t) +
-'" target="_blank">\n        <img src="' +
-((__t = ( acf.featured_image.url )) == null ? '' : __t) +
-'" alt="' +
-((__t = ( acf.featured_image.alt )) == null ? '' : __t) +
-'">\n      </a>\n  ';
- } ;
+ _.each(acf.images, function (key) { ;
+__p += '\n    ';
+ _.each(key, function(image){ ;
+__p += '\n      <img src="' +
+((__t = ( image.url )) == null ? '' : __t) +
+'" width="' +
+((__t = ( image.width )) == null ? '' : __t) +
+'" height="' +
+((__t = ( image.height )) == null ? '' : __t) +
+'">\n      ';
+ }); ;
+__p += '\n  ';
+ }); ;
 __p += '\n  </div>\n</div>';
 
 }

@@ -7,14 +7,10 @@
       <a href="<%= acf.pdf_link.url %>" target="_blank"><%= acf.link_text %></a>
   <% } %>
   <div class="image-container">
-  <% if (acf.pdf_link_boolean == false){ %>
-      <a href="<%= acf.external_link %>" target="_blank">
-        <img src="<%= acf.featured_image.url %>" alt="<%= acf.featured_image.alt %>">
-      </a>
-  <% } else { %>
-      <a href="<%= acf.pdf_link.url %>" target="_blank">
-        <img src="<%= acf.featured_image.url %>" alt="<%= acf.featured_image.alt %>">
-      </a>
-  <% } %>
+  <% _.each(acf.images, function (key) { %>
+    <% _.each(key, function(image){ %>
+      <img src="<%= image.url %>" width="<%= image.width %>" height="<%= image.height %>">
+      <% }); %>
+  <% }); %>
   </div>
 </div>

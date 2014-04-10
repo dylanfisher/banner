@@ -3,11 +3,12 @@
 //
 
 body {
-    font-family: serif;
+    @extend %sans;
     font-size: $font-normal;
 }
 
 nav {
+    @extend %serif;
     font-size: $font-large;
     ul {
         margin: 0;
