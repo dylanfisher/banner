@@ -1231,6 +1231,11 @@ a img.aligncenter {
   }
 }
 @media only screen and (max-width: 800px) {
+  html,
+  body {
+    height: auto;
+  }
+
   .mobile {
     display: block;
   }
@@ -1332,7 +1337,7 @@ a img.aligncenter {
   }
 
   .breadcrumbs {
-    display: none;
+    display: none !important;
   }
 
   .breadcrumb-arrow {
@@ -1352,7 +1357,7 @@ a img.aligncenter {
   }
 
   .mobile-breadcrumb .breadcrumbs {
-    display: block;
+    display: block !important;
     margin: 15px 0 20px;
     text-align: left;
   }
@@ -1364,6 +1369,12 @@ a img.aligncenter {
     position: static;
     font-size: 30px;
     margin-top: 20px;
+  }
+
+  .collection-see-all {
+    padding: 0;
+    width: 100%;
+    margin-bottom: 20px;
   }
 }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {

@@ -5,6 +5,10 @@
 }
 
 @media only screen and (max-width: 800px) {
+    html,
+    body {
+        height: auto;
+    }
     .mobile {
         display: block;
     }
@@ -92,7 +96,7 @@
         padding: 0;
     }
     .breadcrumbs {
-        display: none;
+        display: none !important;
     }
     .breadcrumb-arrow {
         display: none;
@@ -110,7 +114,7 @@
 
     .mobile-breadcrumb {
         .breadcrumbs {
-            display: block;
+            display: block !important;
             margin: 15px 0 20px;
             text-align: left;
             a {
@@ -123,6 +127,12 @@
             font-size: 30px;
             margin-top: 20px;
         }
+    }
+
+    .collection-see-all {
+        padding: 0;
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
 
