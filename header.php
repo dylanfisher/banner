@@ -21,19 +21,20 @@ $i = rand(0, $row_count - 1);
 ?>
 <body class="<?php sandbox_body_class() ?>">
 <!--[if lte IE 8]><p class="chromeframe">*You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p><![endif]-->
-<header>
-    <h1 id="site-title" class="visuallyhidden"><span><a href="<?php bloginfo('url') ?>/" title="<?php echo esc_html( bloginfo('name'), 1 ) ?>" rel="home"><?php bloginfo('name') ?></a></span></h1>
-    <a class="banner-logo mobile" href="<?php bloginfo('url') ?>/">
-        <img src="<?php echo get_bloginfo('template_url'); ?>/images/banner-furniture-logo.svg">
-    </a>
-    <nav>
-        <?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'container_class' => 'menu-header' ) ); ?>
-        <?php
-        if (function_exists('sandbox_custom_breadcrumbs')) {sandbox_custom_breadcrumbs();}
-        ?>
-    </nav>
-</header>
-<div id="wrapper" class="wrapper">
-<?php if($rows): ?>
-    <div class="home-background" style="background-image: url(<?php echo $rows[ $i ]['background_image']; ?>)" data-bg="<?php echo $rows[ $i ]['background_image']; ?>"></div>
-<?php endif; ?>
+<div class="page-wrap">
+    <header>
+        <h1 id="site-title" class="visuallyhidden"><span><a href="<?php bloginfo('url') ?>/" title="<?php echo esc_html( bloginfo('name'), 1 ) ?>" rel="home"><?php bloginfo('name') ?></a></span></h1>
+        <a class="banner-logo mobile" href="<?php bloginfo('url') ?>/">Banner</a>
+        <img id="mobile-menu" class="mobile-menu" src="<?php echo get_bloginfo('template_url'); ?>/images/retina/hamburger.png">
+        <nav>
+            <?php wp_nav_menu( array( 'sort_column' => 'menu_order', 'container_class' => 'menu-header' ) ); ?>
+            <?php if (function_exists('sandbox_custom_breadcrumbs')) {sandbox_custom_breadcrumbs();} ?>
+        </nav>
+        <div class="mobile-breadcrumb mobile">
+            <?php if (function_exists('sandbox_custom_breadcrumbs')) {sandbox_custom_breadcrumbs();} ?>
+        </div>
+    </header>
+    <div id="wrapper" class="wrapper">
+    <?php if($rows): ?>
+        <div class="home-background" style="background-image: url(<?php echo $rows[ $i ]['background_image']; ?>)" data-bg="<?php echo $rows[ $i ]['background_image']; ?>"></div>
+    <?php endif; ?>

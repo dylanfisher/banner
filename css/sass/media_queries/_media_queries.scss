@@ -9,9 +9,12 @@
         display: block;
     }
     header {
-        position: static;
+        position: static !important;
         margin-top: 10px;
-        margin: 10px 10px 0;
+        margin: 10px 20px 0;
+        .page-template-page-home-php & {
+            position: static;
+        }
     }
     .home-background {
         display: none;
@@ -24,37 +27,33 @@
         position: static !important;
         cursor: auto;
     }
-    .menu-header {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        li:first-child a {
-            background-image: url(../../../images/mobile-menu.png);
-            width: 40px;
-            height: 32px;
-            background-size: 40px 32px;
-        }
+    .mobile-menu {
+        display: block;
+    }
+    .banner-logo.mobile {
+        display: inline-block;
     }
     nav {
-        font-size: 1em;
-        margin: 20px 0 0;
+        display: none;
+        &.disabled {
+            pointer-events: auto;
+        }
+        .menu-header {
+            margin-top: 20px;
+        }
         li {
-            display: none;
-            body.home & {
-                display: none;
+            display: block !important;
+            &:before {
+                content: normal !important;
             }
             &:first-child {
-                display: block;
-                body.home & {
-                    display: block;
-                }
+                display: none !important;
                 a {
                     color: transparent;
                     text-indent: 100%;
                     overflow: hidden;
                     &:before {
                         content: normal;
-                        background: blue;
                     }
                 }
             }
@@ -64,11 +63,12 @@
         display: none;
     }
     footer {
-        position: static;
-        margin: 20px;
+        position: static !important;
+        margin: 20px !important;
     }
     .content {
-        margin: 10px 10px 0;
+        margin: 20px 20px 0;
+        padding: 0;
     }
     .col {
         display: block;
@@ -80,14 +80,7 @@
         padding: 0;
     }
     .breadcrumbs {
-        .current {
-            font-family: sans-serif;
-            text-transform: uppercase;
-            position: static;
-            font-size: $font-small;
-            margin-top: 20px;
-            margin-left: 2px;
-        }
+        display: none;
     }
     .breadcrumb-arrow {
         display: none;
@@ -97,6 +90,23 @@
     }
     .mobile-image {
         display: block;
+    }
+
+    .nav-disabler {
+        display: none !important;
+    }
+
+    .mobile-breadcrumb {
+        .breadcrumbs {
+            display: block;
+            margin: 20px 0;
+        }
+        .current {
+            font-family: 'century_expanded_regularRg', serif;
+            position: static;
+            font-size: $font-large;
+            margin-top: 20px;
+        }
     }
 }
 

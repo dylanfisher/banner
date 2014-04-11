@@ -382,11 +382,16 @@ $(function() {
         $('html, body').animate({scrollTop: 0});
     });
 
+    // Disable hover on breadcrumbs if we have started scrolling
+    $('nav').before('<div id="nav-disabler" class="nav-disabler"></div>');
+
     $(window).scroll(function(){
         if($(window).scrollTop() > 0){
             $('header, header nav').addClass('disabled');
+            $('#nav-disabler').show();
         } else {
             $('header, header nav').removeClass('disabled');
+            $('#nav-disabler').hide();
         }
     });
 
@@ -401,6 +406,22 @@ $(function() {
     });
     $('#menu-primary-nav').mouseleave(function(){
         hideMenu();
+    });
+
+    $('nav').on('mouseenter', function(){
+        $('header').addClass('fixed');
+        // $('#nav-disabler').hide();
+    });
+
+    $('nav').on('mouseleave', function(){
+        $('header').removeClass('fixed');
+        // $('#nav-disabler').show();
+    });
+
+    // Nav hover at mobile
+    $('#mobile-menu').on('click touchstart', function(e){
+        e.preventDefault();
+        $('nav').slideToggle();
     });
 
     //
@@ -420,7 +441,6 @@ $(function() {
         }
 
         $(window).resize(function(){
-            setMobile();
             setInfoBox();
             if(window.outerWidth >= breakpoint){
                 // Not mobile
@@ -434,6 +454,14 @@ $(function() {
             }
         });
     }
+
+    $(window).resize(function(){
+        setMobile();
+        if(window.outerWidth >= breakpoint){
+            // Not mobile
+            $('nav').css({display: 'block'});
+        }
+    });
 
     //
     // Define functions
@@ -453,7 +481,7 @@ $(function() {
     }
 
     function setMobile(){
-        if (window.outerWidth < mobileSize) {
+        if (window.outerWidth <= mobileSize) {
             mobile = true;
             $('body').addClass('mobile-layout');
         } else {

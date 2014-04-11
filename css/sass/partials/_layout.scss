@@ -8,7 +8,7 @@ body.fixed .wrapper {
 
 .content {
     @extend %clearfix;
-    margin: 100px $gutter 0;
+    padding: 100px $gutter 0;
 }
 header {
     position: absolute;
@@ -16,7 +16,7 @@ header {
     top: 30px;
     left: 30px;
     margin-left: 70px; // This accounts for the offset of the wishobe logo
-    &:hover {
+    &.fixed {
         position: fixed;
         nav {
             pointer-events: auto;

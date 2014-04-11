@@ -3,12 +3,34 @@
 //
 
 footer {
-    margin-bottom: 20px;
     margin-left: 30px;
+    text-align: left;
     .page-template-page-home-php & {
+      height: auto;
       position: fixed;
-      bottom: 20px;
+      bottom: 22px;
       left: 30px;
       margin: 0;
     }
+}
+
+html, body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  // equal to footer height
+  margin-bottom: -44px; 
+}
+
+footer,
+.page-wrap:after {
+  // .push must be the same height as footer
+  height: 44px; 
+}
+
+.page-wrap:after {
+  @extend %clearfix;
+  display: block;
 }
