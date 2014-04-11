@@ -893,6 +893,9 @@ nav li a {
 }
 
 .banner-logo.mobile:before {
+  background-size: 42px;
+  width: 46px;
+  height: 46px;
   left: 20px;
   position: absolute;
   margin-top: 0;
@@ -1400,10 +1403,13 @@ a img.aligncenter {
 
   .banner-logo.mobile {
     display: inline-block;
+    font-size: 30px;
+    margin-left: 52px;
   }
 
   nav {
     display: none;
+    font-size: 30px;
   }
 
   nav.disabled {
@@ -1483,7 +1489,7 @@ a img.aligncenter {
 
   .mobile-breadcrumb .breadcrumbs {
     display: block;
-    margin: 20px 0;
+    margin: 15px 0 20px;
     text-align: left;
   }
 
@@ -1494,7 +1500,7 @@ a img.aligncenter {
   .mobile-breadcrumb .current {
     font-family: 'century_expanded_regularRg', serif;
     position: static;
-    font-size: 48px;
+    font-size: 30px;
     margin-top: 20px;
   }
 }

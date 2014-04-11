@@ -33,9 +33,12 @@
     }
     .banner-logo.mobile {
         display: inline-block;
+        font-size: 30px;
+        margin-left: 52px;
     }
     nav {
         display: none;
+        font-size: 30px;
         &.disabled {
             pointer-events: auto;
         }
@@ -100,7 +103,7 @@
     .mobile-breadcrumb {
         .breadcrumbs {
             display: block;
-            margin: 20px 0;
+            margin: 15px 0 20px;
             text-align: left;
             a {
                 display: none;
@@ -109,7 +112,7 @@
         .current {
             font-family: 'century_expanded_regularRg', serif;
             position: static;
-            font-size: $font-large;
+            font-size: 30px;
             margin-top: 20px;
         }
     }
