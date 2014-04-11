@@ -1303,7 +1303,7 @@ a img.aligncenter {
   footer {
     position: static !important;
     margin: 20px !important;
-    padding-bottom: 20px;
+    padding-bottom: 20px !important;
   }
 
   .content {
