@@ -1233,6 +1233,7 @@ a img.aligncenter {
   }
 
   header {
+    text-align: left;
     position: static !important;
     margin-top: 10px;
     margin: 10px 20px 0;
