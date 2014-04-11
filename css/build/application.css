@@ -1305,6 +1305,10 @@ a img.aligncenter {
     height: auto;
   }
 
+  .page-wrap {
+    margin-bottom: 0;
+  }
+
   footer {
     position: static !important;
     margin: 20px !important;
