@@ -802,7 +802,7 @@ nav li a {
 .mobile-menu {
   display: none;
   position: absolute;
-  top: 30px;
+  top: 20px;
   right: 20px;
   width: 29px;
   height: 20px;
@@ -1276,7 +1276,7 @@ a img.aligncenter {
     pointer-events: auto;
   }
   nav .menu-header {
-    margin-top: 20px;
+    margin-top: 15px;
   }
   nav li {
     display: block !important;
