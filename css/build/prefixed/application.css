@@ -880,6 +880,10 @@ nav li a {
   text-decoration: none;
 }
 
+.breadcrumbs .current {
+  line-height: 1.2em;
+}
+
 .breadcrumb-arrow {
   font-size: 12px;
   vertical-align: middle;
@@ -1522,6 +1526,37 @@ a img.aligncenter {
   .collection-see-all {
     padding: 0;
     width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .collection-link-container:hover .collection-rollover {
+    display: none;
+  }
+
+  .collection-link-container:hover img {
+    opacity: 1;
+  }
+
+  .lightbox {
+    padding-top: 70px;
+  }
+
+  .lightbox-close,
+  .inquiry-close {
+    position: absolute;
+  }
+
+  .inquiry-overlay {
+    padding-top: 110px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .inquiry-overlay .logo {
+    left: 20px;
+  }
+
+  .inquiry-overlay .col {
     margin-bottom: 20px;
   }
 }

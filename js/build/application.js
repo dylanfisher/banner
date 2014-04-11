@@ -111,6 +111,7 @@ $(function(){
         $('body').prepend('<div class="inquiry-overlay" id="inquiry-overlay"></div>');
         $('#lightbox').addClass('fixed');
         getTemplate($('#inquiry-overlay'), 'templates/inquiry', APIData);
+        $(window).scrollTop(0);
     });
 
     // Press page overlay, template and request
@@ -244,15 +245,17 @@ $(document).on('click', '#inquiry-submit', function(e){
     }
 
     if(validation === false){
-        // Enter a valid email
+        // Validation FAILS: Enter a valid email
         $('#inquiry-email, label[for="inquiry-email"]').addClass('error');
+        $(window).scrollTop(0);
     } else {
         $('#inquiry-email, label[for="inquiry-email"]').removeClass('error');
     }
 
     if( ! $('#inquiry-name').val()){
-        // Enter a valid name
+        // Validation FAILS: Enter a valid name
         $('#inquiry-name, label[for="inquiry-name"]').addClass('error');
+        $(window).scrollTop(0);
     } else {
         $('#inquiry-name, label[for="inquiry-name"]').removeClass('error');
     }
