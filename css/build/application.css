@@ -1337,6 +1337,10 @@ a img.aligncenter {
   .mobile-breadcrumb .breadcrumbs {
     display: block;
     margin: 20px 0;
+    text-align: left;
+  }
+  .mobile-breadcrumb .breadcrumbs a {
+    display: none;
   }
   .mobile-breadcrumb .current {
     font-family: 'century_expanded_regularRg', serif;

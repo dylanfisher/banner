@@ -100,6 +100,10 @@
         .breadcrumbs {
             display: block;
             margin: 20px 0;
+            text-align: left;
+            a {
+                display: none;
+            }
         }
         .current {
             font-family: 'century_expanded_regularRg', serif;
