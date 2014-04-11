@@ -791,7 +791,7 @@ nav li a {
   font-size: 48px;
 }
 .banner-logo.mobile:before {
-  background-size: 42px;
+  background-size: 39px;
   width: 46px;
   height: 46px;
   left: 20px;
@@ -1265,7 +1265,7 @@ a img.aligncenter {
   .banner-logo.mobile {
     display: inline-block;
     font-size: 30px;
-    margin-left: 52px;
+    margin-left: 44px;
   }
 
   nav {
