@@ -1423,6 +1423,14 @@ a img.aligncenter {
   .lightbox-loader {
     font-style: 30px;
   }
+
+  .col4 {
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin-bottom: 20px;
+    min-width: 0;
+  }
 }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */

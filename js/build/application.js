@@ -161,13 +161,15 @@ function apiRequest(request, identifier, callback){
 }
 
 function openLightbox(){
-    var verbs = [
-    'Loading','Building','Creating','Constructing','Crafting','Testing','Working',
-    'Tidying','Erecting','Assembling','Arranging','Signing','Photographing','Painting',
-    'Sanding','Dusting','Washing','Finishing','Drying','Updating','Searching','Polishing',
-    'Measuring','Cutting','Sawing','Nailing','Screwing','Hammering','Leveling','Fetching'
-    ];
+    // var verbs = [
+    // 'Loading','Building','Creating','Constructing','Crafting','Testing','Working',
+    // 'Tidying','Erecting','Assembling','Arranging','Signing','Photographing','Painting',
+    // 'Sanding','Dusting','Washing','Finishing','Drying','Updating','Searching','Polishing',
+    // 'Measuring','Cutting','Sawing','Nailing','Screwing','Hammering','Leveling','Fetching'
+    // ];
+    var verbs = $('#loading-verbs').html().split(',');
     var verb = verbs[Math.floor(Math.random() * verbs.length)];
+    console.warn(verb);
 
     ScrollPos = $(window).scrollTop();
     $('body')
