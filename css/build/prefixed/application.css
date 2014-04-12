@@ -1559,6 +1559,22 @@ a img.aligncenter {
   .inquiry-overlay .col {
     margin-bottom: 20px;
   }
+
+  .inquiry-overlay-success {
+    z-index: 40;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+  }
+
+  .lightbox-loader {
+    font-style: 30px;
+  }
 }
 
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {

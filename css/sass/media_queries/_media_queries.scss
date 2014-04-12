@@ -166,6 +166,22 @@
         }
     }
 
+    .inquiry-overlay-success {
+        z-index: 40;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        text-align: center;
+        display: inline-block;
+        font-size: 30px;
+    }
+
+    .lightbox-loader {
+        font-style: 30px;
+    }
+
 }
 
 @media print,
