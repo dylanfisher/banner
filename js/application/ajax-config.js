@@ -85,12 +85,7 @@ function apiRequest(request, identifier, callback){
 }
 
 function openLightbox(){
-    // var verbs = [
-    // 'Loading','Building','Creating','Constructing','Crafting','Testing','Working',
-    // 'Tidying','Erecting','Assembling','Arranging','Signing','Photographing','Painting',
-    // 'Sanding','Dusting','Washing','Finishing','Drying','Updating','Searching','Polishing',
-    // 'Measuring','Cutting','Sawing','Nailing','Screwing','Hammering','Leveling','Fetching'
-    // ];
+    // Get verbs from the list printed to the <script>, which imports the list via php... messy
     var verbs = $('#loading-verbs').html().split(',');
     var verb = verbs[Math.floor(Math.random() * verbs.length)];
     console.warn(verb);
