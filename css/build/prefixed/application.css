@@ -1525,7 +1525,8 @@ a img.aligncenter {
 
   .collection-see-all {
     padding: 0;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     margin-bottom: 20px;
   }
 
