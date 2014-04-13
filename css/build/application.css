@@ -957,6 +957,10 @@ footer,
   border-bottom: 1px solid #000;
 }
 
+.validation {
+  margin-bottom: 1em;
+}
+
 .email-button {
   display: none;
   background: #F5F5F5;
