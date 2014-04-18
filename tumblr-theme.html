@@ -8,6 +8,16 @@
         {/block:Description}
         <link rel="stylesheet" href="http://static.tumblr.com/cqzobiu/9Oon1o03z/normalize-v3.css" type="text/css">
         <style type="text/css">
+            @font-face {
+                font-family: 'century_expanded_regularRg';
+                src: url('http://bannerfurniture.com/dev/wp-content/themes/banner/assets/century-expanded-regular-webfont.eot');
+                src: url('http://bannerfurniture.com/dev/wp-content/themes/banner/assets/century-expanded-regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('http://bannerfurniture.com/dev/wp-content/themes/banner/assets/century-expanded-regular-webfont.woff') format('woff'),
+                     url('http://bannerfurniture.com/dev/wp-content/themes/banner/assets/century-expanded-regular-webfont.ttf') format('truetype'),
+                     url('http://bannerfurniture.com/dev/wp-content/themes/banner/assets/century-expanded-regular-webfont.svg#century_expanded_regularRg') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
             *, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
             body {
                 margin: 100px 10% 0;
@@ -22,24 +32,130 @@
                 width: auto;
                 max-width: 100%;
             }
+
             nav {
-                position: fixed;
-                z-index: 9999;
-                top: 30px;
-                left: 3.33333%;
+              font-size: 48px;
+              line-height: 1.2em;
             }
-            h1 {
-                margin: 0;
+
+            nav ul {
+              margin: 0;
+              padding: 0;
             }
-            h1 a {
-                background-image: url('http://static.tumblr.com/cqzobiu/OF4n3qz5i/banner-furniture-logo.svg');
-                width: 192px;
-                height: 52px;
-                background-size: 188px 49px;
-                background-repeat: no-repeat;
-                line-height: normal;
-                vertical-align: middle;
-                display: block;
+
+            nav li {
+              list-style: none;
+            }
+
+            nav li a {
+              text-decoration: none;
+            }
+            .nav-disabler {
+              display: none;
+              position: absolute;
+              width: 100%;
+              height: 70px;
+            }
+
+            header.fixed .nav-disabler {
+              display: none !important;
+            }
+
+            nav {
+              text-align: left;
+              font-family: 'century_expanded_regularRg', serif;
+            }
+            nav a {
+                color: black;
+                text-decoration: none;
+            }
+
+            nav.disabled {
+              pointer-events: none;
+            }
+
+            nav ul.active:hover li {
+              display: block;
+            }
+
+            nav ul.active li.current-menu-item:before,
+            nav ul.active li.current-page-ancestor:before {
+              margin-left: -1.5em;
+            }
+
+            nav li {
+              display: none;
+            }
+
+            body.home nav li {
+              display: block;
+            }
+
+            nav li:first-child a:before {
+              content: '';
+              background-image: url('http://static.tumblr.com/cqzobiu/CgVn47k1c/wishbone-logo.svg');
+              width: 76px;
+              height: 66px;
+              background-size: 63px;
+              background-repeat: no-repeat;
+              position: absolute;
+              left: 30px;
+              padding-right: 20px;
+              margin-top: -6px;
+              position: fixed;
+              pointer-events: auto;
+            }
+
+            nav li:first-child {
+              display: inline-block;
+            }
+
+            nav li:first-child:hover:before {
+              content: normal;
+            }
+
+            body.home nav li:first-child:hover:before {
+              content: normal;
+            }
+
+            nav li.current-menu-item:before,
+            nav li.current-page-ancestor:before,
+            nav li:hover:before {
+              content: '\25BA';
+              font-size: 12px;
+              position: absolute;
+            }
+
+            nav li:first-child:before {
+              content: normal;
+            }
+
+            nav li.current-menu-item:hover:before,
+            nav li.current-page-ancestor:hover:before,
+            nav li:hover:hover:before {
+              margin-left: -1.5em;
+            }
+
+            body.home nav li:hover:before {
+              content: '\25BA';
+            }
+
+            nav li a {
+              display: inline-block;
+            }
+            header {
+              position: absolute;
+              z-index: 10;
+              top: 30px;
+              left: 30px;
+              margin-left: 70px;
+            }
+            header.fixed {
+              position: fixed;
+            }
+
+            header.fixed nav {
+              pointer-events: auto;
             }
             iframe {
                 max-width: 100%;
@@ -89,13 +205,37 @@
                 position: absolute;
                 width: 1px !important;
             }
+            .fade-overlay {
+              position: fixed;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              z-index: 1;
+              background: #fff;
+              opacity: .7;
+            }
         </style>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://static.tumblr.com/cqzobiu/GPUn47lpq/tumblr-js.js"></script>
         <script type="text/javascript" src="http://static.tumblr.com/cqzobiu/Xdpn3qzn0/infinitescrolling.js"></script>
     </head>
     <body>
-        <nav>
-            <h1><a class="ir" href="http://bannerfurniture.com/">Banner Furniture</a></h1>
-        </nav>
+        <header>
+            <h1 id="site-title" class="visuallyhidden">Banner Furniture</h1>
+            <nav>
+              <div class="menu-header">
+                <ul id="menu-primary-nav" class="menu">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item current_page_item"><a href="http://bannerfurniture.com/">Banner</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="http://bannerfurniture.com/story/">Story</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="http://bannerfurniture.com/collections/">Collections</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19"><a href="http://bannerfurniture.com/press/">Press</a></li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://bannerfurniture.tumblr.com/">News</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="http://bannerfurniture.com/contact/">Contact</a></li>
+                </ul>
+              </div>
+            </nav>
+        </header>
         {block:Description}
             <p id="description">{Description}</p>
         {/block:Description}

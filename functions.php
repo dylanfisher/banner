@@ -491,7 +491,7 @@ function send_AJAX_mail_before_submit(){
     if (isset($_POST['action']) && $_POST['action'] == "mail_before_submit"){
         // It worked
 
-        $banner_email = 'dylanisthis@gmail.com';
+        $banner_email = 'studio@bannerfurniture.com';
 
         $product = $_POST['product'];
         $image = $_POST['image'];
@@ -517,9 +517,6 @@ function send_AJAX_mail_before_submit(){
         //
         // Email to visitor
         //
-
-        // TEMP!
-        $email = 'dylanisthis@gmail.com';
 
         // Create the message
         $message_visitor = '<i>Thanks for sending a product inquiry about "' . $product . '".
