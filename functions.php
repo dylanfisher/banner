@@ -539,6 +539,9 @@ function send_AJAX_mail_before_submit(){
         // Email to Banner
         //
 
+        // Change the headers to use inquirer's email
+        $headers = 'From: Banner Furniture Inquiry <' . $email . '>' . "\r\n";
+
         // Create the message
         $message_banner = '<i>You have received an inquiry about "' . $product . '".
         <br>Please respond directly to the contact info email shown below.</i>
