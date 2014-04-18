@@ -11,7 +11,7 @@
   clear: both;
 }
 
-nav, .banner-logo.mobile, .lightbox-loader {
+nav, .banner-logo.mobile, .lightbox-loader, .inquiry-overlay-success {
   font-family: 'century_expanded_regularRg', serif;
 }
 

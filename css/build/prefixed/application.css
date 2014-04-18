@@ -19,7 +19,8 @@
 
 nav,
 .banner-logo.mobile,
-.lightbox-loader {
+.lightbox-loader,
+.inquiry-overlay-success {
   font-family: 'century_expanded_regularRg', serif;
 }
 

@@ -47,6 +47,7 @@
 }
 
 .inquiry-overlay-success {
+    @extend %serif;
     z-index: 40;
     position: fixed;
     left: 0;
