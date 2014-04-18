@@ -698,8 +698,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .col4 {
   display: inline-block;
-  width: 25%;
-  min-width: 300px;
+  width: 300px;
   padding: 20px;
 }
 
@@ -748,11 +747,7 @@ body.home nav li:first-child:hover:before {
 nav li.current-menu-item:before, nav li.current-page-ancestor:before, nav li:hover:before {
   content: '\25BA';
   font-size: 12px;
-  width: 0;
-  display: inline-block;
-  margin-right: 1.5em;
-  vertical-align: middle;
-  line-height: 1.2em;
+  position: absolute;
 }
 body.home nav li.current-menu-item:before, body.home nav li.current-page-ancestor:before, body.home nav li:hover:before {
   content: normal;

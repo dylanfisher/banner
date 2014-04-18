@@ -26,9 +26,7 @@ $the_query = new WP_Query( $args ); ?>
                     <a class="api-product nu" data-slug="<?php echo $post->post_name; ?>" href="<?php the_permalink(); ?>">
                 <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
                     </a>
-                    <a class="nu title" href="<?php the_permalink(); ?>">
-                        <h2><?php the_title(); ?></h2>
-                    </a>
+                    <h2><a class="api-product nu title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                 </div>
     <?php endwhile; // End loop ?>
     <?php wp_reset_postdata(); ?>

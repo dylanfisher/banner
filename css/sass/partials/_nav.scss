@@ -62,11 +62,7 @@ nav {
             &:before {
                 content: '\25BA';
                 font-size: 12px;
-                width: 0;
-                display: inline-block;
-                margin-right: 1.5em;
-                vertical-align: middle;
-                line-height: 1.2em;
+                position: absolute;
                 body.home & {
                     content: normal;
                 }
