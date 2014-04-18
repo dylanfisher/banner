@@ -511,7 +511,7 @@ function send_AJAX_mail_before_submit(){
         $image_url = substr($image, strpos($image, '/uploads/'));
         $attachments = array( WP_CONTENT_DIR . $image_url );
         $relative_image = WP_CONTENT_DIR . $image_url;
-        $headers = 'From: Banner Furniture <tina@bannerfurniture.com>' . "\r\n";
+        $headers = 'From: Banner Furniture <studio@bannerfurniture.com>' . "\r\n";
         $email_subject = 'Product Inquiry: ' . $product;
 
         //
