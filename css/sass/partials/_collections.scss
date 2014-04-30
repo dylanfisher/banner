@@ -75,11 +75,12 @@
         margin-bottom: 20px;
     }
 }
-a.download-tear-sheet {
-    @extend %normal-text-link;
-}
 .button1.product-inquiry {
     margin-top: 0;
+}
+
+.download-tear-sheet {
+    @extend %normal-text-link;
 }
 
 .see-all {

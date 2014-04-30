@@ -6,16 +6,16 @@
     <% }); %>
 </ul>
 <div class="ibfix">
-    <div class="col col2 ib">
+    <div class="col col2 ib left">
         <h2 class="product-title"><%= title.toUpperCase() %></h2>
         <%= acf.description %>
         <% if(acf.tear_sheet){ %>
-            <br />
-            <a class="button1 download-tear-sheet" href="<%= acf.tear_sheet %>" target="_blank">Download PDF tear sheet</a>
+            <a class="download-tear-sheet" href="<%= acf.tear_sheet %>" target="_blank">Download PDF tear sheet</a>
         <% } %>
     </div>
-    <div class="col col2 ib">
+    <div class="col col2 ib right">
+        <p>&nbsp;</p>
         <%= acf.details %>
-        <a class="product-inquiry" href="#">Contact us to purchase</a>
+        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>
     </div>
 </div>

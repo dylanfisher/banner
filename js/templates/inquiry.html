@@ -2,7 +2,7 @@
 <!-- <a class="nu" href="<?php bloginfo('url') ?>/"><h2 class="logo"></h2></a> -->
 <div class="ibfix">
     <div class="col col2 ib">
-        <p>Product Inquiry:<br><span id="inquiry-product-title"><%= title %></span></p>
+        <p>Product Inquiry: <span id="inquiry-product-title"><%= title %></span></p>
         <img id="inquiry-image" data-image="<%= acf.featured_image.sizes.medium %>" src="<%= acf.featured_image.url %>">
     </div>
     <div class="col col2 ib">
@@ -20,6 +20,7 @@
             <label for="inquiry-message">Message</label>
             <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>
             <input class="visuallyhidden" type="text" name="verification" id="hp-verification">
+            <br>
             <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>
         </form>
     </div>

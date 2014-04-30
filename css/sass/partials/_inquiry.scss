@@ -26,10 +26,14 @@
     label,
     input {
         display: block;
+        margin-bottom: 4px;
     }
     input,
     textarea {
-        padding: 5px 10px;
+        border: 1px solid;
+        border-color: #848484 #c1c1c1 #e1e1e1;
+        border-radius: 2px;
+        padding: 10px 6px 9px;
     }
     input {
         width: 100%;
@@ -43,6 +47,10 @@
     }
     .submit-button {
         width: auto;
+    }
+    p {
+        font-family: Arial;
+        margin-bottom: 6px;
     }
 }
 

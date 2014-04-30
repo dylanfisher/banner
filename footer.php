@@ -2,7 +2,12 @@
     </div>
     <footer>
         <div id="to-top" class="button1 to-top">Back to top</div>
-        <ul class="social-media">
+        <ul class="contact-info social-media">
+            <li class="copyright">© 2014 Banner</li>
+            <!-- <li><a href="mailto:studio@bannerfurniture.com">studio@bannerfurniture.com</a></li>
+            <li>347-799-1932</li> --><!-- 
+        </ul>
+        <ul class="social-media"> -->
             <li><a href="http://instagram.com/bannerfurniture" target="_blank">Instagram</a></li>
             <li><a href="https://www.facebook.com/BannerStudio" target="_blank">Facebook</a></li>
             <li><a href="https://twitter.com/Banner_Studio" target="_blank">Twitter</a></li>

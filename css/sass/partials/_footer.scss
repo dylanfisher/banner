@@ -4,22 +4,32 @@
 
 footer {
     @extend %monospace;
-    margin-left: 30px;
+    margin-left: 32px;
     text-align: left;
-    a { color: #bbbbbb; }
-    a:hover { border-color: #bbbbbb; }
+    a { opacity: $opacity;
+        transition: opacity 0.15s ease-out;
+        -webkit-transition: opacity 0.15s ease-out;
+        -moz-transition: opacity 0.15s ease-out;
+        -o-transition: opacity 0.15s ease-out;
+      }
+    a:hover { opacity: 1; }
     .page-template-page-home-php & {
       height: auto;
       position: fixed;
-      bottom: 22px;
-      left: 30px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
       margin: 0;
+    }
+    .copyright {
+      opacity: $opacity;
     }
 }
 
 body.home footer {
-  a { color: #000000; }
-  a:hover { border-color: #000000; }
+  .copyright { opacity: 1; }
+  a { opacity: 1; color: #000000; }
 }
 
 html, body {
@@ -41,4 +51,26 @@ footer,
 .page-wrap:after {
   @extend %clearfix;
   display: block;
+}
+
+.contact-info,
+.social-media {
+  margin: 0;
+  margin-top: 6px;
+  padding: 0;
+  li {
+    display: inline-block;
+    margin-right: 16px;
+    .page-template-page-contact-php .content & {
+      display: block;
+    }
+  }
+}
+
+.contact-info {
+  position: absolute;
+  left: 90px;
+}
+
+.social-media {
 }

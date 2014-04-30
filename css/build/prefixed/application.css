@@ -72,14 +72,18 @@ nav li:first-child a:before,
   max-width: 100%;
 }
 
-a.product-inquiry {
+p a,
+.download-tear-sheet,
+.press-overlay a {
   text-decoration: none;
   border-bottom: 1px solid #000000;
   -webkit-transition: background .15s ease-out;
   transition: background .15s ease-out;
 }
 
-a.product-inquiry:hover {
+p a:hover,
+.download-tear-sheet:hover,
+.press-overlay a:hover {
   background: #d4c5b6;
 }
 
@@ -544,6 +548,11 @@ textarea {
   color: #000;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 body {
   font-size: 1rem;
   line-height: 1.4;
@@ -969,6 +978,7 @@ body.fixed .wrapper {
 
 .content {
   padding: 140px 90px 60px;
+  max-width: 1600px;
 }
 
 header {
@@ -1003,7 +1013,7 @@ header.fixed nav {
 }
 
 .lightbox {
-  padding: 20px;
+  padding: 20px 100px;
   position: absolute;
   background: #FFF;
   width: 100%;
@@ -1017,7 +1027,20 @@ header.fixed nav {
 }
 
 #lightbox-content {
-  width: 1075px;
+  max-width: 1075px;
+  margin: 0 auto;
+}
+
+#lightbox-content .col {
+  padding: 0;
+}
+
+#lightbox-content .col.left {
+  padding-right: 10px;
+}
+
+#lightbox-content .col.right {
+  padding-left: 10px;
 }
 
 .lightbox-close,
@@ -1046,32 +1069,41 @@ header.fixed nav {
 }
 
 footer {
-  margin-left: 30px;
+  margin-left: 32px;
   text-align: left;
 }
 
 footer a {
-  color: #bbbbbb;
+  opacity: 0.3;
+  transition: opacity 0.15s ease-out;
+  -webkit-transition: opacity 0.15s ease-out;
 }
 
 footer a:hover {
-  border-color: #bbbbbb;
+  opacity: 1;
 }
 
 .page-template-page-home-php footer {
   height: auto;
   position: fixed;
-  bottom: 22px;
-  left: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
   margin: 0;
 }
 
-body.home footer a {
-  color: #000000;
+footer .copyright {
+  opacity: 0.3;
 }
 
-body.home footer a:hover {
-  border-color: #000000;
+body.home footer .copyright {
+  opacity: 1;
+}
+
+body.home footer a {
+  opacity: 1;
+  color: #000000;
 }
 
 html,
@@ -1091,6 +1123,30 @@ footer,
 
 .page-wrap:after {
   display: block;
+}
+
+.contact-info,
+.social-media {
+  margin: 0;
+  margin-top: 6px;
+  padding: 0;
+}
+
+.contact-info li,
+.social-media li {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.page-template-page-contact-php .content .contact-info li,
+.page-template-page-contact-php .content
+.social-media li {
+  display: block;
+}
+
+.contact-info {
+  position: absolute;
+  left: 90px;
 }
 
 .home-background {
@@ -1214,8 +1270,8 @@ footer,
   margin-bottom: 20px;
 }
 
-.button1.download-tear-sheet,
-.download-tear-sheet.see-all {
+.button1.product-inquiry,
+.product-inquiry.see-all {
   margin-top: 0;
 }
 
@@ -1261,11 +1317,15 @@ footer,
 .inquiry-overlay label,
 .inquiry-overlay input {
   display: block;
+  margin-bottom: 4px;
 }
 
 .inquiry-overlay input,
 .inquiry-overlay textarea {
-  padding: 5px 10px;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  border-radius: 2px;
+  padding: 10px 6px 9px;
 }
 
 .inquiry-overlay input {
@@ -1282,6 +1342,11 @@ footer,
 
 .inquiry-overlay .submit-button {
   width: auto;
+}
+
+.inquiry-overlay p {
+  font-family: Arial;
+  margin-bottom: 6px;
 }
 
 .inquiry-overlay-success {
@@ -1325,17 +1390,6 @@ footer,
   font-size: 1em;
 }
 
-.press-overlay a {
-  text-decoration: none;
-  border-bottom: 1px solid #000000;
-  -webkit-transition: background .15s ease-out;
-  transition: background .15s ease-out;
-}
-
-.press-overlay a:hover {
-  background: #d4c5b6;
-}
-
 .press-overlay p {
   margin: 0;
 }
@@ -1343,30 +1397,6 @@ footer,
 .press-overlay .image-container img {
   display: block;
   margin: 0 auto;
-  margin-top: 20px;
-}
-
-.social-media {
-  margin: 0;
-  padding: 0;
-}
-
-.social-media li {
-  display: inline-block;
-  margin-right: 6px;
-}
-
-.page-template-page-contact-php .content .social-media li {
-  display: block;
-}
-
-.page-template-page-contact-php .content .social-media li img {
-  margin-right: 5px;
-}
-
-.social-media img {
-  height: 20px;
-  width: auto;
 }
 
 .alignnone {
@@ -1451,7 +1481,7 @@ a img.aligncenter {
   padding: 0 4px 5px;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1275px) {
   .collection {
     width: 100%;
   }
@@ -1459,11 +1489,18 @@ a img.aligncenter {
   .col4 {
     width: 50%;
   }
-}
 
-@media only screen and (max-width: 1115px) {
-  #lightbox-content {
-    width: 100%;
+  .lightbox-close,
+  .inquiry-close {
+    display: none;
+  }
+
+  .lightbox {
+    padding: 20px;
+  }
+
+  #lightbox-content .col.right {
+    padding-left: 0;
   }
 }
 
