@@ -8,7 +8,7 @@ body.fixed .wrapper {
 
 .content {
     @extend %clearfix;
-    padding: 100px $gutter 0;
+    padding: 140px $gutter $vertical-space;
 }
 header {
     position: absolute;
@@ -38,7 +38,7 @@ header {
 }
 
 .lightbox {
-    padding: 50px $gutter 100px;
+    padding: 20px;
     position: absolute;
     background: #FFF;
     width: 100%;
@@ -49,11 +49,18 @@ header {
         position: fixed;
     }
 }
+#lightbox-content {
+    width: 1075px;
+}
 .lightbox-close {
-    @include set_background('close.png', '33px 33px', '0 0');
+    // @include set_background('close.png', '33px 33px', '0 0');
     position: fixed;
-    width: 33px;
-    height: 33px;
+    // width: 33px;
+    // height: 33px;
+    background-image: url(../../../images/wishbone-logo.svg);
+    width: 66px;
+    height: 66px;
+    background-size: 66px;
     top: 20px;
     right: 20px;
     cursor: pointer;
@@ -67,6 +74,10 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.inquiry-overlay p {
+    @extend %monospace;
 }
 
 .inquiry-close {

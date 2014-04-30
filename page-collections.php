@@ -26,7 +26,7 @@ $the_query = new WP_Query( $args ); ?>
                         <div class="collection-rollover"><?php the_field('description'); ?></div>
                     </a>
                     <a class="nu" href="<?php the_permalink(); ?>">
-                        <h2><?php the_title(); ?></h2>
+                        <!-- <h2><?php the_title(); ?></h2> -->
                     </a>
                 </div>
     <?php endwhile; // End loop ?>

@@ -3,9 +3,9 @@
     <footer>
         <div id="to-top" class="button1 to-top">Back to top</div>
         <ul class="social-media">
-            <li><a href="http://instagram.com/bannerfurniture" target="_blank"><img src="<?php echo get_bloginfo('template_url'); ?>/images/instagram.png"></a></li>
-            <li><a href="https://www.facebook.com/BannerStudio" target="_blank"><img src="<?php echo get_bloginfo('template_url'); ?>/images/facebook.png"></a></li>
-            <li><a href="https://twitter.com/Banner_Studio" target="_blank"><img src="<?php echo get_bloginfo('template_url'); ?>/images/twitter.png"></a></li>
+            <li><a href="http://instagram.com/bannerfurniture" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/BannerStudio" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/Banner_Studio" target="_blank">Twitter</a></li>
         </ul>
     </footer><!-- #footer -->
 </div><!-- .page-wrap -->

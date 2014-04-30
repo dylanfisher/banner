@@ -3,7 +3,7 @@
 //
 
 .col {
-    padding: 20px;
+    padding: 10px;
     display: inline-block;
     text-align: left;
 }
@@ -15,9 +15,14 @@
             margin-bottom: 40px;
         }
     }
+    p {
+        @extend %max-line-length;
+    }
 }
 .col4 {
     display: inline-block;
-    width: 300px;
-    padding: 20px;
+    // width: 300px;
+    // padding: 20px;
+    width: 25%;
+    padding: 10px;
 }

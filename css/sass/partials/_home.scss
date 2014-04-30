@@ -18,10 +18,10 @@
     display: none;
     position: fixed;
     width: 310px;
-    padding: 30px;
+    padding: 20px;
+    padding-bottom: 22px;
     background: #FFF;
-    font-size: 15px;
-    line-height: 19px;
+    line-height: 20px;
     cursor: move;
     p, input {
         cursor: auto;
@@ -29,6 +29,7 @@
     input {
         padding: 10px;
         border: 1px solid;
+        border-radius: 2px;
         border-color: #848484 #c1c1c1 #e1e1e1;
         width: 100%;
     }

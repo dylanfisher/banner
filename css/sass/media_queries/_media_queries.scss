@@ -1,3 +1,12 @@
+@media only screen and (max-width: 1250px) {
+    .collection { width: 100%; }
+    .col4 { width: 50%; }
+    }
+
+@media only screen and (max-width: 1115px) {
+    #lightbox-content { width: 100%; }
+}
+
 @media only screen and (max-width: 800px) {
     html,
     body {
@@ -183,6 +192,9 @@
         padding: 0;
         margin-bottom: 20px;
         min-width: 0;
+    }
+    .col2.col-first img {
+        margin-bottom: 20px;
     }
 }
 

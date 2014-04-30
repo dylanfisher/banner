@@ -51,6 +51,7 @@ nav {
                 }
             }
             a {
+                margin-left: 0 !important;
                 &:before {
                     @extend %wishbone;
                 }
@@ -58,30 +59,36 @@ nav {
         }
         &.current-menu-item,
         &.current-page-ancestor,
-        &:hover {
-            &:before {
-                content: '\25BA';
-                font-size: 12px;
-                position: absolute;
-                body.home & {
-                    content: normal;
-                }
-            }
-            &:hover {
-                &:before {
-                    margin-left: -1.5em;
-                }
-            }
-        }
-        &:hover {
-            &:before {
-                body.home & {
-                    content: '\25BA';
-                }
-            }
-        }
+        // &:hover {
+        //     &:before {
+        //         content: '\25BA';
+        //         font-size: 12px;
+        //         position: absolute;
+        //         body.home & {
+        //             content: normal;
+        //         }
+        //     }
+        //     &:hover {
+        //         &:before {
+        //             margin-left: -1.5em;
+        //         }
+        //     }
+        // }
+        // &:hover {
+        //     &:before {
+        //         body.home & {
+        //             content: '\25BA';
+        //         }
+        //     }
+        // }
         a {
             display: inline-block;
+            transition: margin-left .15s ease-out;
+            -webkit-transition: margin-left .15s ease-out;
+            margin-left: 0;
+        }
+        a:hover {
+            margin-left: 6px;
         }
     }
 }

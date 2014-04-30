@@ -3,8 +3,11 @@
 //
 
 footer {
+    @extend %monospace;
     margin-left: 30px;
     text-align: left;
+    a { color: #bbb; }
+    a:hover { border-color: #bbb; }
     .page-template-page-home-php & {
       height: auto;
       position: fixed;
@@ -12,6 +15,10 @@ footer {
       left: 30px;
       margin: 0;
     }
+}
+
+body.home footer {
+  a { color: #000000; }
 }
 
 html, body {

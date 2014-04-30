@@ -496,7 +496,7 @@ this["JST"]["templates/inquiry"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div id="inquiry-close" class="inquiry-close"></div>\n<a class="nu" href="<?php bloginfo(\'url\') ?>/"><h2 class="logo"></h2></a>\n<div class="ibfix">\n    <div class="col col2 ib">\n        <p>Product Inquiry:<br><span id="inquiry-product-title">' +
+__p += '<div id="inquiry-close" class="inquiry-close"></div>\n<!-- <a class="nu" href="<?php bloginfo(\'url\') ?>/"><h2 class="logo"></h2></a> -->\n<div class="ibfix">\n    <div class="col col2 ib">\n        <p>Product Inquiry:<br><span id="inquiry-product-title">' +
 ((__t = ( title )) == null ? '' : __t) +
 '</span></p>\n        <img id="inquiry-image" data-image="' +
 ((__t = ( acf.featured_image.sizes.medium )) == null ? '' : __t) +
@@ -556,9 +556,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<h2 class="product-title">' +
-((__t = ( title.toUpperCase() )) == null ? '' : __t) +
-'</h2>\n<ul class="product-images">\n    ';
+__p += '<ul class="product-images">\n    ';
  _.each(acf.images, function (key) { ;
 __p += '\n      ';
  _.each(key, function(image){ ;
@@ -572,13 +570,15 @@ __p += '\n            <li><img src="' +
  }); ;
 __p += '\n    ';
  }); ;
-__p += '\n</ul>\n<div class="ibfix">\n    <div class="col col2 ib">\n        ' +
+__p += '\n</ul>\n<div class="ibfix">\n    <div class="col col2 ib">\n        <h2 class="product-title">' +
+((__t = ( title.toUpperCase() )) == null ? '' : __t) +
+'</h2>\n        ' +
 ((__t = ( acf.description )) == null ? '' : __t) +
-'\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n    </div>\n    <div class="col col2 ib">\n        ' +
+'\n        ' +
 ((__t = ( acf.details )) == null ? '' : __t) +
-'\n        ';
+'\n    </div>\n    <div class="col col2 ib">\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n        ';
  if(acf.tear_sheet){ ;
-__p += '\n            <a href="' +
+__p += '\n            <br />\n            <a class="button1 download-tear-sheet" href="' +
 ((__t = ( acf.tear_sheet )) == null ? '' : __t) +
 '" target="_blank">Download PDF tear sheet</a>\n        ';
  } ;

@@ -22,6 +22,15 @@
     font-family: arial, sans-serif;
 }
 
+%monospace {
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: $font-meta;
+    text-transform: uppercase;
+    a { text-decoration: none; }
+    a:hover { border-bottom: 1px solid #000000; }
+
+}
+
 %wishbone {
     content: '';
     background-image: url(../../../images/wishbone-logo.svg);
@@ -30,11 +39,15 @@
     background-size: 63px;
     background-repeat: no-repeat;
     position: absolute;
-    left: 30px;
+    left: 20px;
     padding-right: 20px;
     margin-top: -6px;
     position: fixed;
     pointer-events: auto;
+}
+
+%max-line-length {
+    max-width: 420px;
 }
 
 %ir {
