@@ -75,9 +75,10 @@
         margin-bottom: 20px;
     }
 }
-
-.button1.product-inquiry,
-.button1.download-tear-sheet {
+a.download-tear-sheet {
+    @extend %normal-text-link;
+}
+.button1.product-inquiry {
     margin-top: 0;
 }
 

@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>{Title}</title>
-        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="shortcut icon" href="http://static.tumblr.com/cqzobiu/HpLn4ugal/banner-favicon.png">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         {block:Description}
             <meta name="description" content="{MetaDescription}" />
@@ -20,7 +20,7 @@
             }
             *, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
             body {
-                margin: 100px 10% 0;
+                margin: 140px 90px 60px;
             }
             ol, ul, li {
                 list-style: none;
@@ -99,7 +99,7 @@
               background-size: 63px;
               background-repeat: no-repeat;
               position: absolute;
-              left: 30px;
+              left: 20px;
               padding-right: 20px;
               margin-top: -6px;
               position: fixed;
@@ -118,12 +118,24 @@
               content: normal;
             }
 
+            nav li .news-section {
+              margin-left: 18px;
+            }
+            /*nav li.news:before,*/
+            nav li .news-section:before,
             nav li.current-menu-item:before,
-            nav li.current-page-ancestor:before,
-            nav li:hover:before {
+            nav li.current-page-ancestor:before {
               content: '\25BA';
               font-size: 12px;
               position: absolute;
+            }
+            nav li .news-section:before {
+              margin-left: -18px;
+            }
+            nav li:hover:before {
+              /*content: '\25BA';
+              font-size: 12px;
+              position: absolute;*/
             }
 
             nav li:first-child:before {
@@ -142,6 +154,15 @@
 
             nav li a {
               display: inline-block;
+              transition: margin-left .15s ease-out;
+              -webkit-transition: margin-left .15s ease-out;
+              margin-left: 0;
+            }
+            nav li a:hover {
+              margin-left: 6px;
+            }
+            nav li:first-child a:hover {
+              margin-left: 0;
             }
             header {
               position: absolute;
@@ -166,10 +187,11 @@
             .posts {
                 font-size: 0;
                 max-width: 1100px;
-                margin: 0 auto;
+                /*margin: 0 auto;*/
             }
             .post-container {
                 font-size: 16px;
+                line-height: 20px;
                 display: inline-block;
                 width: 50%;
                 padding: 0 10px 40px;
@@ -226,11 +248,11 @@
             <nav>
               <div class="menu-header">
                 <ul id="menu-primary-nav" class="menu">
-                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item current_page_item"><a href="http://bannerfurniture.com/">Banner</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page page_item current_page_item"><a href="http://bannerfurniture.com/">Banner</a> <span class="news-section">News</span></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="http://bannerfurniture.com/story/">Story</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="http://bannerfurniture.com/collections/">Collections</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19"><a href="http://bannerfurniture.com/press/">Press</a></li>
-                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="http://bannerfurniture.tumblr.com/">News</a></li>
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-87 current-menu-item"><a href="http://bannerfurniture.tumblr.com/">News</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="http://bannerfurniture.com/contact/">Contact</a></li>
                 </ul>
               </div>

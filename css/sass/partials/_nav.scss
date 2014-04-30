@@ -57,27 +57,41 @@ nav {
                 }
             }
         }
-        &.current-menu-item,
-        &.current-page-ancestor,
+        &.current-menu-item, &.current-page-ancestor {
+            &:before {
+                // content: '\2022';
+                // font-size: 22px;
+                // left: 8px;
+                content: '\25BA';
+                font-size: 12px;
+                position: absolute;
+                body.home & {
+                    content: normal;
+                }
+            }
+        }
+        &:hover {
+            // &:before {
+            //     content: '\25BA';
+            //     font-size: 12px;
+            //     position: absolute;
+            //     body.home & {
+            //         content: normal;
+            //     }
+            // }
+            &:hover {
+                &:before {
+                    margin-left: -1.5em;
+                }
+            }
+        }
         // &:hover {
         //     &:before {
-        //         content: '\25BA';
-        //         font-size: 12px;
-        //         position: absolute;
         //         body.home & {
-        //             content: normal;
-        //         }
-        //     }
-        //     &:hover {
-        //         &:before {
-        //             margin-left: -1.5em;
-        //         }
-        //     }
-        // }
-        // &:hover {
-        //     &:before {
-        //         body.home & {
+        //             // content: '\2022';
         //             content: '\25BA';
+        //             font-size: 12px;
+        //             position: absolute;
         //         }
         //     }
         // }

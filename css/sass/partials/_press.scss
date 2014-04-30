@@ -5,15 +5,23 @@
 .page-template-page-press-php {
     .content {
         img {
-            -webkit-transition: filter .15s ease-out;
-            -moz-transition: filter .15s ease-out;
-            -o-transition: filter .15s ease-out;
-            transition: filter .15s ease-out;
-            filter: grayscale(1);
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            filter: url(#greyscale);
+            filter: gray;
+            transition: .15s ease-out;
+            -webkit-transition: .15s ease-out;
+            -moz-transition: .15s ease-out;
+            -o-transition: .15s ease-out;
             &:hover {
+                -webkit-filter: grayscale(0);
                 filter: grayscale(0);
+                filter: none;
             }
         }
+    }
+    #lightbox-content {
+      width: 100%;
     }
 }
 
@@ -23,24 +31,17 @@
     font-size: 1em;
   }
   a {
-    text-decoration: none;
-    border-bottom: 1px solid #000000;
-    -webkit-transition: background .15s ease-out;
-    -moz-transition: background .15s ease-out;
-    -o-transition: background .15s ease-out;
-    transition: background .15s ease-out;
-  }
-  a:hover {
-    background: $light-brown;
+    @extend %normal-text-link;
   }
   p {
     margin: 0;
   }
   .image-container {
-    margin-top: 40px;
+    // margin-top: 40px;
     img {
       display: block;
       margin: 0 auto;
+      margin-top:
     }
   }
 }

@@ -69,7 +69,18 @@ nav li:first-child a:before,
 
 .col2 p,
 .collection-rollover p {
-  max-width: 420px;
+  max-width: 100%;
+}
+
+a.product-inquiry {
+  text-decoration: none;
+  border-bottom: 1px solid #000000;
+  -webkit-transition: background .15s ease-out;
+  transition: background .15s ease-out;
+}
+
+a.product-inquiry:hover {
+  background: #d4c5b6;
 }
 
 @font-face {
@@ -877,8 +888,22 @@ nav li:first-child a {
   margin-left: 0 !important;
 }
 
-nav li.current-menu-item,
-nav li.current-page-ancestor,
+nav li.current-menu-item:before,
+nav li.current-page-ancestor:before {
+  content: '\25BA';
+  font-size: 12px;
+  position: absolute;
+}
+
+body.home nav li.current-menu-item:before,
+body.home nav li.current-page-ancestor:before {
+  content: normal;
+}
+
+nav li:hover:hover:before {
+  margin-left: -1.5em;
+}
+
 nav li a {
   display: inline-block;
   transition: margin-left .15s ease-out;
@@ -1012,10 +1037,8 @@ header.fixed nav {
 .lightbox-loader {
   font-size: 48px;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 20px;
+  left: 20px;
 }
 
 .inquiry-close {
@@ -1028,11 +1051,11 @@ footer {
 }
 
 footer a {
-  color: #bbb;
+  color: #bbbbbb;
 }
 
 footer a:hover {
-  border-color: #bbb;
+  border-color: #bbbbbb;
 }
 
 .page-template-page-home-php footer {
@@ -1045,6 +1068,10 @@ footer a:hover {
 
 body.home footer a {
   color: #000000;
+}
+
+body.home footer a:hover {
+  border-color: #000000;
 }
 
 html,
@@ -1187,8 +1214,6 @@ footer,
   margin-bottom: 20px;
 }
 
-.button1.product-inquiry,
-.product-inquiry.see-all,
 .button1.download-tear-sheet,
 .download-tear-sheet.see-all {
   margin-top: 0;
@@ -1274,15 +1299,22 @@ footer,
 }
 
 .page-template-page-press-php .content img {
-  -webkit-transition: -webkit-filter .15s ease-out;
-  transition: filter .15s ease-out;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: url(#greyscale);
+  filter: gray;
+  transition: .15s ease-out;
+  -webkit-transition: .15s ease-out;
 }
 
 .page-template-page-press-php .content img:hover {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
+  filter: none;
+}
+
+.page-template-page-press-php #lightbox-content {
+  width: 100%;
 }
 
 .press-overlay {
@@ -1308,13 +1340,10 @@ footer,
   margin: 0;
 }
 
-.press-overlay .image-container {
-  margin-top: 40px;
-}
-
 .press-overlay .image-container img {
   display: block;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .social-media {

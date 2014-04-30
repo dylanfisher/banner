@@ -9,13 +9,13 @@
     <div class="col col2 ib">
         <h2 class="product-title"><%= title.toUpperCase() %></h2>
         <%= acf.description %>
-        <%= acf.details %>
-    </div>
-    <div class="col col2 ib">
-        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>
         <% if(acf.tear_sheet){ %>
             <br />
             <a class="button1 download-tear-sheet" href="<%= acf.tear_sheet %>" target="_blank">Download PDF tear sheet</a>
         <% } %>
+    </div>
+    <div class="col col2 ib">
+        <%= acf.details %>
+        <a class="product-inquiry" href="#">Contact us to purchase</a>
     </div>
 </div>

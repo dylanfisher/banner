@@ -82,15 +82,15 @@ __p += '\n</ul>\n<div class="ibfix">\n    <div class="col col2 ib">\n        <h2
 ((__t = ( title.toUpperCase() )) == null ? '' : __t) +
 '</h2>\n        ' +
 ((__t = ( acf.description )) == null ? '' : __t) +
-'\n        ' +
-((__t = ( acf.details )) == null ? '' : __t) +
-'\n    </div>\n    <div class="col col2 ib">\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n        ';
+'\n        ';
  if(acf.tear_sheet){ ;
 __p += '\n            <br />\n            <a class="button1 download-tear-sheet" href="' +
 ((__t = ( acf.tear_sheet )) == null ? '' : __t) +
 '" target="_blank">Download PDF tear sheet</a>\n        ';
  } ;
-__p += '\n    </div>\n</div>';
+__p += '\n    </div>\n    <div class="col col2 ib">\n        ' +
+((__t = ( acf.details )) == null ? '' : __t) +
+'\n        <a class="product-inquiry" href="#">Contact us to purchase</a>\n    </div>\n</div>';
 
 }
 return __p
