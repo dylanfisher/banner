@@ -5,7 +5,7 @@ Template Name: -- Single Collection
 ?>
 <?php $nonce = wp_create_nonce('my-nonce'); ?>
 <?php get_header() ?>
-        <div class="content" id="content" data-nonce="<?php echo $nonce; ?>">
+<div class="content" id="content" data-nonce="<?php echo $nonce; ?>">
 <?php
 $category = get_field('category_association');
 $args = array(
@@ -32,8 +32,9 @@ $the_query = new WP_Query( $args ); ?>
                 </div>
     <?php endwhile; // End loop ?>
     <?php wp_reset_postdata(); ?>
+    </div>
 <?php endif; ?>
-        </div><!-- .content -->
+</div><!-- .content -->
 <?php get_footer() ?>
 </body>
 </html>

@@ -6,7 +6,7 @@ Template Name: Page - Collections - See All
 <?php get_header() ?>
 <?php $nonce = wp_create_nonce('my-nonce'); ?>
 <?php get_header() ?>
-        <div class="content" id="content" data-nonce="<?php echo $nonce; ?>">
+<div class="content" id="content" data-nonce="<?php echo $nonce; ?>">
 <?php
 $args = array(
     'post_type' => 'post',

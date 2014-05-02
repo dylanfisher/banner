@@ -4,7 +4,7 @@ Template Name: - Collection Container
 */
 ?>
 <?php get_header() ?>
-        <div class="content collection-content">
+<div class="content collection-content">
 <?php
 $args = array(
     'post_type' => 'page',
@@ -17,7 +17,7 @@ $args = array(
 $the_query = new WP_Query( $args ); ?>
 <?php if ( $the_query->have_posts() ) : ?>
     <div class="ibfix">
-    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); // Begin loop 
+    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); // Begin loop
         $attachment_id = get_field('collection_image');
         $size = "full"; // (thumbnail, medium, large, full or custom size) ?>
                 <div class="collection ib">
@@ -33,10 +33,10 @@ $the_query = new WP_Query( $args ); ?>
     <?php wp_reset_postdata(); ?>
     </div>
 <?php endif; ?>
-            <div class="center">
-                <a class="see-all" href="<?php echo get_permalink(140); ?>">See all</a>
-            </div>
-        </div><!-- .content -->
+    <div class="center">
+        <a class="see-all" href="<?php echo get_permalink(140); ?>">See all</a>
+    </div>
+</div><!-- .content -->
 <?php get_footer() ?>
 </body>
 </html>
