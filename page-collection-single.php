@@ -20,11 +20,16 @@ $the_query = new WP_Query( $args ); ?>
         <?php
             $image = get_field('featured_image');
             $attachment_id = $image['id'];
-            $size = "full"; // (thumbnail, medium, large, full or custom size)
+
+            $secondary_image = get_field('secondary_image');
+            $secondary_attachment_id = $secondary_image['id'];
+
+            $size = "large"; // (thumbnail, medium, large, full or custom size)
         ?>
                 <div class="col4 ib collection-see-all">
-                    <a class="api-product nu" data-slug="<?php echo $post->post_name; ?>" href="<?php the_permalink(); ?>">
+                    <a class="api-product image-rollover nu" data-slug="<?php echo $post->post_name; ?>" href="<?php the_permalink(); ?>">
                 <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
+                <?php echo wp_get_attachment_image( $secondary_attachment_id, $size, false, array('class' => 'secondary-image') ); ?>
                     </a>
                     <a class="api-product nu title" data-slug="<?php echo $post->post_name; ?>" href="<?php the_permalink(); ?>">
                         <h2><?php the_title(); ?></h2>

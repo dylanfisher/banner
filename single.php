@@ -1,4 +1,3 @@
-<!-- TEMP STUFF FIX LOOP AND ACF FIELDS -->
 <?php $nonce = wp_create_nonce('my-nonce'); ?>
 <?php get_header() ?>
     <div class="content" id="content" data-nonce="<?php echo $nonce; ?>">
@@ -8,7 +7,7 @@
         $size = "full"; // (thumbnail, medium, large, full or custom size)
         echo wp_get_attachment_image( $attachment_id, $size, false, array('class' => "attachement-$size product") );
     endwhile;
-endif; 
+endif;
 ?>
     </div><!-- .content -->
 <?php get_footer() ?>

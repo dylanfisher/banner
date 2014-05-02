@@ -1150,6 +1150,23 @@ footer,
   display: block;
 }
 
+.image-rollover {
+  position: relative;
+  display: block;
+}
+.image-rollover:hover .secondary-image {
+  opacity: 1;
+  z-index: 1;
+}
+.image-rollover .secondary-image {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: opacity .15s;
+}
+
 .inquiry-overlay {
   padding: 140px 90px 100px;
   position: absolute;
