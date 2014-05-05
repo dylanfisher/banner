@@ -39,7 +39,7 @@ header {
 }
 
 .lightbox {
-    padding: 20px 100px;
+    padding: 20px 100px 40px;
     position: absolute;
     background: #FFF;
     width: 100%;
@@ -64,20 +64,24 @@ header {
     }
 }
 .lightbox-close {
-    // @include set_background('close.png', '33px 33px', '0 0');
     position: fixed;
-    // width: 33px;
-    // height: 33px;
-    background-image: url(../../../images/wishbone-logo.svg);
-    width: 66px;
-    height: 66px;
-    background-size: 66px;
+    background-image: url(../../../images/close-x.svg);
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
     top: 20px;
     right: 20px;
     cursor: pointer;
     font-size: 40px;
     font-family: sans-serif;
+    // -webkit-transition: background-image .25s ease-out;
+    // -moz-transition: background-image .25s ease-out;
+    // -o-transition: background-image .25s ease-out;
+    // transition: background-image .25s ease-out;
 }
+// .lightbox-close:hover {
+//     background-image: url(../../../images/close-x-black.svg);
+// }
 .lightbox-loader {
     @extend %serif;
     font-size: $font-large;

@@ -3,7 +3,6 @@
 //
 
 footer {
-    @extend %monospace;
     margin-left: 32px;
     text-align: left;
     a { opacity: $opacity;
@@ -68,6 +67,7 @@ footer,
 }
 
 .contact-info {
+  @extend %monospace;
   position: absolute;
   left: 90px;
 }

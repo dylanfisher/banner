@@ -39,6 +39,23 @@ $the_query = new WP_Query( $args ); ?>
     <?php wp_reset_postdata(); ?>
     </div>
 <?php endif; ?>
+
+<div class="collection-info">
+
+    <div class="collection-image">
+        <img src="http://localhost:3000/banner/wp-content/uploads/2014/04/Helm-Collection.jpg">
+    </div>
+
+    <div class="collection-description">
+        <p>The Helm Collection is a set of furniture built with time in mind. We created a group of pieces we feel are essential for the contemporary home and constructed them to last into the next generation.</p>
+        <p>The juxtaposition of the wild and the man made is the inspiration for our Helm Collection. Along the industrial waterfront of Greenpoint, Brooklyn, where the Banner studio is located, remnants line the coast: chain link fences, steel pipes, posts, and driftwood. Along the shore, an abandoned pier rots away, sharing the view of the Manhattan skyline with its incredible landscape of skyscrapers and glass.</p>
+        <p>The collection is built with torched, sandblasted wood, architectural glass elements, blackened brass, and clean edges.</p>
+    </div>
+
+    <a class="button1 back-to-collections" href="collections">Back to Collections</a>
+
+</div>
+
 </div><!-- .content -->
 <?php get_footer() ?>
 </body>

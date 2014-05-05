@@ -580,7 +580,7 @@ __p += '\n            <a class="download-tear-sheet" href="' +
 ((__t = ( acf.tear_sheet )) == null ? '' : __t) +
 '" target="_blank">Download PDF tear sheet</a>\n        ';
  } ;
-__p += '\n    </div>\n    <div class="col col2 ib right">\n        <p>&nbsp;</p>\n        ' +
+__p += '\n    </div>\n    <div class="col col2 ib right">\n        ' +
 ((__t = ( acf.details )) == null ? '' : __t) +
 '\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n    </div>\n</div>';
 

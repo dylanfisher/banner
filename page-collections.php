@@ -23,7 +23,10 @@ $the_query = new WP_Query( $args ); ?>
                 <div class="collection ib">
                     <a class="collection-link-container" href="<?php the_permalink(); ?>">
             <?php echo wp_get_attachment_image( $attachment_id, $size ); ?>
-                        <div class="collection-rollover"><?php the_field('description'); ?></div>
+                        <div class="collection-rollover">
+                            <!-- <?php the_field('description'); ?> -->
+                            <?php the_title(); ?>
+                        </div>
                     </a>
                     <a class="nu" href="<?php the_permalink(); ?>">
                         <!-- <h2><?php the_title(); ?></h2> -->

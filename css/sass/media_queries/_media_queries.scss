@@ -1,15 +1,21 @@
 @media only screen and (max-width: 1275px) {
-    .collection {
-        width: 100%;
-    }
     .col4 {
         width: 50%;
     }
-    .lightbox-close {
-        display: none;
+    .collection-info {
+        padding: 0;
+        margin-top: 60px;
+    }
+    .collection-image, .collection-description {
+        width: 100%;
+        padding: 0;
+    }
+    .collection-description {
+        margin-top: 20px;
     }
     .lightbox {
         padding: 20px;
+        padding-top: 90px;
     }
     #lightbox-content {
         .col.right {
@@ -97,6 +103,14 @@
         margin: 20px !important;
         padding-bottom: 20px !important;
     }
+    .contact-info {
+        left: 20px; 
+        margin-bottom: 20px;
+    }
+    .copyright {
+        display: block;
+        width: 100%;
+    }
     .content {
         margin: 20px 20px 0;
         padding: 0;
@@ -109,6 +123,10 @@
     .collection {
         width: 100%;
         padding: 0;
+        padding-bottom: 20px;
+    }
+    .collection:last-child {
+        padding-bottom: 0;
     }
     .breadcrumbs {
         display: none !important;
@@ -160,10 +178,6 @@
                 opacity: 1;
             }
         }
-    }
-
-    .lightbox {
-        padding-top: 70px;
     }
 
     .lightbox-close {

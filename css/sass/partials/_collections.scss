@@ -25,6 +25,27 @@
     }
 }
 
+.collection-info {
+    margin-top: 20px;
+    padding: 10px;
+    .back-to-collections {
+        margin-top: 40px;
+    }
+}
+
+.collection-image {
+    display: inline-block;
+    width: 75%;
+    padding-right: 10px;
+}
+
+.collection-description {
+    display: inline-block;
+    width: 24%;
+    padding-left: 10px;
+    text-align: left;
+}
+
 .collection-link-container {
     position: relative;
     display: block;

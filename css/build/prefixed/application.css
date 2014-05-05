@@ -29,7 +29,7 @@ body {
 }
 
 .inquiry-overlay p,
-footer,
+.contact-info,
 .collection h2,
 .collection-see-all .title h2 {
   font-family: 'Courier New', 'Courier', monospace;
@@ -38,14 +38,14 @@ footer,
 }
 
 .inquiry-overlay p a,
-footer a,
+.contact-info a,
 .collection h2 a,
 .collection-see-all .title h2 a {
   text-decoration: none;
 }
 
 .inquiry-overlay p a:hover,
-footer a:hover,
+.contact-info a:hover,
 .collection h2 a:hover,
 .collection-see-all .title h2 a:hover {
   border-bottom: 1px solid #000000;
@@ -1013,7 +1013,7 @@ header.fixed nav {
 }
 
 .lightbox {
-  padding: 20px 100px;
+  padding: 20px 100px 40px;
   position: absolute;
   background: #FFF;
   width: 100%;
@@ -1046,10 +1046,10 @@ header.fixed nav {
 .lightbox-close,
 .inquiry-close {
   position: fixed;
-  background-image: url(../../../images/wishbone-logo.svg);
-  width: 66px;
-  height: 66px;
-  background-size: 66px;
+  background-image: url(../../../images/close-x.svg);
+  width: 50px;
+  height: 50px;
+  background-size: 50px;
   top: 20px;
   right: 20px;
   cursor: pointer;
@@ -1225,6 +1225,28 @@ footer,
   margin-top: 10px;
 }
 
+.collection-info {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.collection-info .back-to-collections {
+  margin-top: 40px;
+}
+
+.collection-image {
+  display: inline-block;
+  width: 75%;
+  padding-right: 10px;
+}
+
+.collection-description {
+  display: inline-block;
+  width: 24%;
+  padding-left: 10px;
+  text-align: left;
+}
+
 .collection-link-container {
   position: relative;
   display: block;
@@ -1311,7 +1333,7 @@ footer,
 }
 
 .inquiry-overlay {
-  padding: 140px 90px 100px;
+  padding: 20px 90px 100px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -1417,6 +1439,7 @@ footer,
 .press-overlay .image-container img {
   display: block;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .alignnone {
@@ -1502,21 +1525,28 @@ a img.aligncenter {
 }
 
 @media only screen and (max-width: 1275px) {
-  .collection {
-    width: 100%;
-  }
-
   .col4 {
     width: 50%;
   }
 
-  .lightbox-close,
-  .inquiry-close {
-    display: none;
+  .collection-info {
+    padding: 0;
+    margin-top: 60px;
+  }
+
+  .collection-image,
+  .collection-description {
+    width: 100%;
+    padding: 0;
+  }
+
+  .collection-description {
+    margin-top: 20px;
   }
 
   .lightbox {
     padding: 20px;
+    padding-top: 90px;
   }
 
   #lightbox-content .col.right {
@@ -1622,6 +1652,16 @@ a img.aligncenter {
     padding-bottom: 20px !important;
   }
 
+  .contact-info {
+    left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .copyright {
+    display: block;
+    width: 100%;
+  }
+
   .content {
     margin: 20px 20px 0;
     padding: 0;
@@ -1636,6 +1676,11 @@ a img.aligncenter {
   .collection {
     width: 100%;
     padding: 0;
+    padding-bottom: 20px;
+  }
+
+  .collection:last-child {
+    padding-bottom: 0;
   }
 
   .breadcrumbs {
@@ -1688,10 +1733,6 @@ a img.aligncenter {
 
   .collection-link-container:hover img {
     opacity: 1;
-  }
-
-  .lightbox {
-    padding-top: 70px;
   }
 
   .lightbox-close,
