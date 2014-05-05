@@ -28,6 +28,7 @@ body {
   font-family: arial, sans-serif;
 }
 
+#lightbox-content .col.right strong,
 .inquiry-overlay p,
 .contact-info,
 .collection h2,
@@ -37,6 +38,7 @@ body {
   text-transform: uppercase;
 }
 
+#lightbox-content .col.right strong a,
 .inquiry-overlay p a,
 .contact-info a,
 .collection h2 a,
@@ -44,6 +46,7 @@ body {
   text-decoration: none;
 }
 
+#lightbox-content .col.right strong a:hover,
 .inquiry-overlay p a:hover,
 .contact-info a:hover,
 .collection h2 a:hover,
@@ -836,7 +839,7 @@ h6 {
 
 .col4 {
   display: inline-block;
-  width: 25%;
+  width: 33.333%;
   padding: 10px;
 }
 
@@ -1043,6 +1046,11 @@ header.fixed nav {
   padding-left: 10px;
 }
 
+#lightbox-content .col.right strong {
+  font-weight: normal;
+  line-height: 1;
+}
+
 .lightbox-close,
 .inquiry-close {
   position: fixed;
@@ -1236,13 +1244,13 @@ footer,
 
 .collection-image {
   display: inline-block;
-  width: 75%;
+  width: 66.666%;
   padding-right: 10px;
 }
 
 .collection-description {
   display: inline-block;
-  width: 24%;
+  width: 32%;
   padding-left: 10px;
   text-align: left;
 }
@@ -1525,10 +1533,6 @@ a img.aligncenter {
 }
 
 @media only screen and (max-width: 1275px) {
-  .col4 {
-    width: 50%;
-  }
-
   .collection-info {
     padding: 0;
     margin-top: 60px;

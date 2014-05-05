@@ -19,15 +19,15 @@ body {
   font-family: arial, sans-serif;
 }
 
-.inquiry-overlay p, .contact-info, .collection h2, .collection-see-all .title h2 {
+#lightbox-content .col.right strong, .inquiry-overlay p, .contact-info, .collection h2, .collection-see-all .title h2 {
   font-family: 'Courier New', 'Courier', monospace;
   font-size: 15px;
   text-transform: uppercase;
 }
-.inquiry-overlay p a, .contact-info a, .collection h2 a, .collection-see-all .title h2 a {
+#lightbox-content .col.right strong a, .inquiry-overlay p a, .contact-info a, .collection h2 a, .collection-see-all .title h2 a {
   text-decoration: none;
 }
-.inquiry-overlay p a:hover, .contact-info a:hover, .collection h2 a:hover, .collection-see-all .title h2 a:hover {
+#lightbox-content .col.right strong a:hover, .inquiry-overlay p a:hover, .contact-info a:hover, .collection h2 a:hover, .collection-see-all .title h2 a:hover {
   border-bottom: 1px solid #000000;
 }
 
@@ -739,7 +739,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .col4 {
   display: inline-block;
-  width: 25%;
+  width: 33.333%;
   padding: 10px;
 }
 
@@ -916,6 +916,10 @@ header.fixed nav {
 }
 #lightbox-content .col.right {
   padding-left: 10px;
+}
+#lightbox-content .col.right strong {
+  font-weight: normal;
+  line-height: 1;
 }
 
 .lightbox-close, .inquiry-close {
@@ -1097,13 +1101,13 @@ footer,
 
 .collection-image {
   display: inline-block;
-  width: 75%;
+  width: 66.666%;
   padding-right: 10px;
 }
 
 .collection-description {
   display: inline-block;
-  width: 24%;
+  width: 32%;
   padding-left: 10px;
   text-align: left;
 }
@@ -1371,10 +1375,6 @@ a img.aligncenter {
 }
 
 @media only screen and (max-width: 1275px) {
-  .col4 {
-    width: 50%;
-  }
-
   .collection-info {
     padding: 0;
     margin-top: 60px;

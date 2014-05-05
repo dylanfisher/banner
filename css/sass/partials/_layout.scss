@@ -61,6 +61,11 @@ header {
     }
     .col.right {
         padding-left: 10px;
+        strong {
+            @extend %monospace;
+            font-weight: normal;
+            line-height: 1;
+        }
     }
 }
 .lightbox-close {
