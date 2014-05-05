@@ -1131,7 +1131,6 @@ footer,
   right: 0;
   text-align: left;
   padding: 20px;
-  overflow-y: scroll;
   -webkit-transition: opacity .25s ease-out;
   -moz-transition: opacity .25s ease-out;
   -o-transition: opacity .25s ease-out;

@@ -43,7 +43,7 @@ $the_query = new WP_Query( $args ); ?>
 <div class="collection-info">
 
     <div class="collection-image">
-        <img src="http://localhost:3000/banner/wp-content/uploads/2014/04/Helm-Collection.jpg">
+        <img src="http://bannerfurniture.com/dev/wp-content/uploads/2014/04/Helm-Collection.jpg">
     </div>
 
     <div class="collection-description">
@@ -52,7 +52,7 @@ $the_query = new WP_Query( $args ); ?>
         <p>The collection is built with torched, sandblasted wood, architectural glass elements, blackened brass, and clean edges.</p>
     </div>
 
-    <a class="button1 back-to-collections" href="collections">Back to Collections</a>
+    <a class="button1 back-to-collections" href="../collections">Back to Collections</a>
 
 </div>
 
