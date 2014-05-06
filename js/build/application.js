@@ -104,6 +104,14 @@ $(function(){
 
     });
 
+    // Load the api-product data manually on single posts
+    if($('.single-page-content .product-inquiry').attr('data-slug') !== undefined){
+        var slug = $('.single-page-content .product-inquiry').attr('data-slug');
+        apiRequest('get_post', slug, function(){
+            getTemplate($('#lightbox-content'), 'templates/product', APIData);
+        });
+    }
+
     // Product inquiry overlay, template and request
     $(document).on('click', '.product-inquiry', function(e){
         e.preventDefault();
@@ -112,6 +120,10 @@ $(function(){
         $('#lightbox').addClass('fixed');
         getTemplate($('#inquiry-overlay'), 'templates/inquiry', APIData);
         $(window).scrollTop(0);
+
+        if($(this).hasClass('single-page-inquiry')){
+            $('body').addClass('fixed');
+        }
     });
 
     // Press page overlay, template and request
@@ -181,6 +193,10 @@ function closeInquiry(){
     $('#lightbox').removeClass('fixed');
     $('#inquiry-overlay').remove();
     $(window).scrollTop(ScrollPos2);
+
+    if($('#content.single-page-content').length){
+        closeLightbox();
+    }
 }
 
 /**

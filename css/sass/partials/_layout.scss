@@ -38,6 +38,16 @@ header {
     opacity: .7;
 }
 
+.single-page-content {
+    .single-page-wrapper {
+        max-width: 1075px;
+        margin: 0 auto;
+    }
+    .product-images .product {
+        margin-bottom: 0;
+    }
+}
+
 .lightbox {
     padding: 20px 100px 40px;
     position: absolute;

@@ -19,15 +19,15 @@ body {
   font-family: arial, sans-serif;
 }
 
-#lightbox-content .col.right strong, .inquiry-overlay p, .contact-info, .collection h2, .collection-see-all .title h2 {
+.product-details strong, #lightbox-content .col.right strong, .inquiry-overlay p, .contact-info, .collection h2, .collection-see-all .title h2 {
   font-family: 'Courier New', 'Courier', monospace;
   font-size: 15px;
   text-transform: uppercase;
 }
-#lightbox-content .col.right strong a, .inquiry-overlay p a, .contact-info a, .collection h2 a, .collection-see-all .title h2 a {
+.product-details strong a, #lightbox-content .col.right strong a, .inquiry-overlay p a, .contact-info a, .collection h2 a, .collection-see-all .title h2 a {
   text-decoration: none;
 }
-#lightbox-content .col.right strong a:hover, .inquiry-overlay p a:hover, .contact-info a:hover, .collection h2 a:hover, .collection-see-all .title h2 a:hover {
+.product-details strong a:hover, #lightbox-content .col.right strong a:hover, .inquiry-overlay p a:hover, .contact-info a:hover, .collection h2 a:hover, .collection-see-all .title h2 a:hover {
   border-bottom: 1px solid #000000;
 }
 
@@ -721,6 +721,11 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
 }
 
+.product-details strong {
+  font-weight: normal;
+  line-height: 1;
+}
+
 .col {
   padding: 10px;
   display: inline-block;
@@ -889,6 +894,14 @@ header.fixed nav {
   z-index: 1;
   background: #fff;
   opacity: .7;
+}
+
+.single-page-content .single-page-wrapper {
+  max-width: 1075px;
+  margin: 0 auto;
+}
+.single-page-content .product-images .product {
+  margin-bottom: 0;
 }
 
 .lightbox {

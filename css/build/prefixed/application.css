@@ -28,6 +28,7 @@ body {
   font-family: arial, sans-serif;
 }
 
+.product-details strong,
 #lightbox-content .col.right strong,
 .inquiry-overlay p,
 .contact-info,
@@ -38,6 +39,7 @@ body {
   text-transform: uppercase;
 }
 
+.product-details strong a,
 #lightbox-content .col.right strong a,
 .inquiry-overlay p a,
 .contact-info a,
@@ -46,6 +48,7 @@ body {
   text-decoration: none;
 }
 
+.product-details strong a:hover,
 #lightbox-content .col.right strong a:hover,
 .inquiry-overlay p a:hover,
 .contact-info a:hover,
@@ -819,6 +822,11 @@ h6 {
   text-align: left;
 }
 
+.product-details strong {
+  font-weight: normal;
+  line-height: 1;
+}
+
 .col {
   padding: 10px;
   display: inline-block;
@@ -1013,6 +1021,15 @@ header.fixed nav {
   z-index: 1;
   background: #fff;
   opacity: .7;
+}
+
+.single-page-content .single-page-wrapper {
+  max-width: 1075px;
+  margin: 0 auto;
+}
+
+.single-page-content .product-images .product {
+  margin-bottom: 0;
 }
 
 .lightbox {

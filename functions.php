@@ -421,7 +421,10 @@ function sandbox_custom_breadcrumbs() {
         $slug = $post_type->rewrite;
         echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
         if ($showCurrent == 1) echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
-      } else { // Custom code added here to change category breadcrumb behavior
+      } else {
+      //
+      // Custom code added here to change category breadcrumb behavior
+      //
         $cat = get_the_category(); $cat = $cat[0] ;
         $cats = get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
         $catChild = wp_get_post_categories($post->ID);
@@ -429,7 +432,7 @@ function sandbox_custom_breadcrumbs() {
         $catChild = $catChild[0];
         $catChildLink = get_category_link($catChild);
         if ($showCurrent == 0) $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
-        echo $cats;
+        // echo $cats;
         if ($showCurrent == 1) echo ' ' . '<a href="' . $catChildLink . '">' . get_category($catChild)->name . '</a>' . ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
       }
 
