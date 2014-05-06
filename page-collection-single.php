@@ -41,20 +41,16 @@ $the_query = new WP_Query( $args ); ?>
 <?php endif; ?>
 
 <div class="collection-info">
-
     <div class="collection-image">
-        <img src="http://bannerfurniture.com/dev/wp-content/uploads/2014/04/Helm-Collection.jpg">
+        <?php
+            $attachment_id = get_field('collection_overview_image');
+            $size = "full"; // (thumbnail, medium, large, full or custom size)
+            echo wp_get_attachment_image( $attachment_id, $size ); // Echo our collection image
+        ?>
     </div>
-
     <div class="collection-description">
-        <p>The Helm Collection is a set of furniture built with time in mind. We created a group of pieces we feel are essential for the contemporary home and constructed them to last into the next generation.</p>
-        <p>The juxtaposition of the wild and the man made is the inspiration for our Helm Collection. Along the industrial waterfront of Greenpoint, Brooklyn, where the Banner studio is located, remnants line the coast: chain link fences, steel pipes, posts, and driftwood. Along the shore, an abandoned pier rots away, sharing the view of the Manhattan skyline with its incredible landscape of skyscrapers and glass.</p>
-        <p>The collection is built with torched, sandblasted wood, architectural glass elements, blackened brass, and clean edges.</p>
+        <?php the_field('description'); ?>
     </div>
-
-    <!-- Let's not do a "Back to Collections" button for now, since other sections don't have this back button -->
-    <!-- <a class="button1 back-to-collections" href="../collections">Back to Collections</a> -->
-
 </div>
 
 </div><!-- .content -->
