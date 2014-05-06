@@ -52,7 +52,8 @@ $the_query = new WP_Query( $args ); ?>
         <p>The collection is built with torched, sandblasted wood, architectural glass elements, blackened brass, and clean edges.</p>
     </div>
 
-    <a class="button1 back-to-collections" href="../collections">Back to Collections</a>
+    <!-- Let's not do a "Back to Collections" button for now, since other sections don't have this back button -->
+    <!-- <a class="button1 back-to-collections" href="../collections">Back to Collections</a> -->
 
 </div>
 

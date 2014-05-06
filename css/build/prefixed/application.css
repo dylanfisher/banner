@@ -1042,6 +1042,10 @@ header.fixed nav {
   padding-right: 10px;
 }
 
+#lightbox-content .col.left p {
+  margin-right: 20px;
+}
+
 #lightbox-content .col.right {
   padding-left: 10px;
 }
@@ -1185,6 +1189,10 @@ footer,
   cursor: auto;
 }
 
+.info-box p {
+  font-size: 16px;
+}
+
 .info-box input {
   padding: 10px;
   border: 1px solid;
@@ -1197,17 +1205,16 @@ footer,
   border-bottom: 1px solid #000;
 }
 
-.validation {
-  margin-bottom: 1em;
+.validation p {
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
-.email-button {
+#email-button.button1,
+#email-button.see-all {
   display: none;
-  background: #F5F5F5;
   margin: 0.5em 0 0;
-  padding: 10px;
   cursor: pointer !important;
-  height: 39px;
 }
 
 .mobile-image {
@@ -1275,8 +1282,8 @@ footer,
   right: 0;
   text-align: left;
   padding: 20px;
-  -webkit-transition: opacity .25s ease-out;
-  transition: opacity .25s ease-out;
+  -webkit-transition: opacity .10s ease-out;
+  transition: opacity .10s ease-out;
 }
 
 .product {
@@ -1543,6 +1550,10 @@ a img.aligncenter {
     padding: 0;
   }
 
+  .collection-description p {
+    max-width: 420px;
+  }
+
   .collection-description {
     margin-top: 20px;
   }
@@ -1552,8 +1563,17 @@ a img.aligncenter {
     padding-top: 90px;
   }
 
+  .lightbox-close,
+  .inquiry-close {
+    position: absolute;
+  }
+
   #lightbox-content .col.right {
     padding-left: 0;
+  }
+
+  #lightbox-content .col.left {
+    margin-bottom: 20px;
   }
 }
 
@@ -1736,11 +1756,6 @@ a img.aligncenter {
 
   .collection-link-container:hover img {
     opacity: 1;
-  }
-
-  .lightbox-close,
-  .inquiry-close {
-    position: absolute;
   }
 
   .inquiry-overlay {

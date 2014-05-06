@@ -9,7 +9,7 @@ get_header(); ?>
             <?php the_field('infobox_text'); ?>
             <div class="email-form-container">
                 <input id="email-form" type="email" value="" type="text" placeholder="Your email here">
-                <p id="email-button" class="email-button">Submit</p>
+                <p id="email-button" class="button1">Submit</p>
             </div>
         </div>
     </div><!-- .content -->

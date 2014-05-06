@@ -26,6 +26,9 @@
     p, input {
         cursor: auto;
     }
+    p {
+        font-size: 16px;
+    }
     input {
         padding: 10px;
         border: 1px solid;
@@ -39,17 +42,26 @@
 }
 
 .validation {
-    margin-bottom: 1em;
+    p {
+    margin-top: 1em;
+    margin-bottom: 0;
+    }
 }
 
-.email-button {
+#email-button.button1 {
     display: none;
-    background: #F5F5F5;
     margin: 0.5em 0 0;
-    padding: 10px;
     cursor: pointer !important;
-    height: 39px;
 }
+
+// .email-button {
+//     display: none;
+//     background: #F5F5F5;
+//     margin: 0.5em 0 0;
+//     padding: 10px;
+//     cursor: pointer !important;
+//     height: 39px;
+// }
 
 .mobile-image {
   display: none;

@@ -10,6 +10,9 @@
         width: 100%;
         padding: 0;
     }
+    .collection-description p {
+        max-width: 420px;
+    }
     .collection-description {
         margin-top: 20px;
     }
@@ -17,12 +20,17 @@
         padding: 20px;
         padding-top: 90px;
     }
+    .lightbox-close {
+        position: absolute;
+    }
     #lightbox-content {
         .col.right {
             padding-left: 0;
         }
+        .col.left {
+            margin-bottom: 20px;
+        }
     }
-
 }
 
 @media only screen and (max-width: 800px) {
@@ -178,10 +186,6 @@
                 opacity: 1;
             }
         }
-    }
-
-    .lightbox-close {
-        position: absolute;
     }
 
     .inquiry-overlay {
