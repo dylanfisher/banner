@@ -16,7 +16,7 @@ header {
     z-index: 10;
     top: 30px;
     left: 30px;
-    margin-left: 70px; // This accounts for the offset of the wishobe logo
+    margin-left: 70px; // This accounts for the offset of the wishbone logo
     &.fixed {
         position: fixed;
         nav {
@@ -82,21 +82,15 @@ header {
     cursor: pointer;
     font-size: 40px;
     font-family: sans-serif;
-    // -webkit-transition: background-image .25s ease-out;
-    // -moz-transition: background-image .25s ease-out;
-    // -o-transition: background-image .25s ease-out;
-    // transition: background-image .25s ease-out;
+    &.mobile {
+        display: none;
+    }
 }
-// .lightbox-close:hover {
-//     background-image: url(../../../images/close-x-black.svg);
-// }
+
 .lightbox-loader {
     @extend %serif;
     font-size: $font-large;
     position: fixed;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
     top: 20px;
     left: 20px;
 }

@@ -42,8 +42,8 @@ $(function() {
         }
     }
 
-    // To top button
-    $('#to-top').click(function(){
+    // Back to top button
+    $(document).on('click', '.to-top', function(){
         $('html, body').animate({scrollTop: 0});
     });
 

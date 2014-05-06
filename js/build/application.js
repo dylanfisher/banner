@@ -98,7 +98,7 @@ $(function(){
         openLightbox();
 
         apiRequest('get_post', $(this).data('slug'), function(){
-            console.log(APIData);
+            // console.log(APIData);
             getTemplate($('#lightbox-content'), 'templates/product', APIData);
         });
 
@@ -120,19 +120,19 @@ $(function(){
         openLightbox();
 
         apiRequest('get_post', $(this).data('slug'), function(){
-            console.log(APIData);
+            // console.log(APIData);
             getTemplate($('#lightbox-content'), 'templates/press', APIData);
         });
 
     });
 
     // Lightbox close
-    $(document).on('click', '#lightbox-close', function(e){
+    $(document).on('click', '#lightbox-close, .lightbox-close', function(e){
         e.preventDefault();
         closeLightbox();
     });
     // Inquiry close
-    $(document).on('click', '#inquiry-close', function(e){
+    $(document).on('click', '#inquiry-close, .inquiry-close', function(e){
         e.preventDefault();
         closeInquiry();
     });
@@ -164,7 +164,6 @@ function openLightbox(){
     // Get verbs from the list printed to the <script>, which imports the list via php... messy
     var verbs = $('#loading-verbs').html().split(',');
     var verb = verbs[Math.floor(Math.random() * verbs.length)];
-    console.warn(verb);
 
     ScrollPos = $(window).scrollTop();
     $('body')
@@ -262,6 +261,7 @@ $(document).on('click', '#inquiry-submit', function(e){
         console.error('Sorry, something went wrong. Please try again.');
     }
 });
+
 // jQueryUI config
 
 (function() {
@@ -377,8 +377,8 @@ $(function() {
         }
     }
 
-    // To top button
-    $('#to-top').click(function(){
+    // Back to top button
+    $(document).on('click', '.to-top', function(){
         $('html, body').animate({scrollTop: 0});
     });
 
@@ -490,6 +490,7 @@ $(function() {
         }
     }
 });
+
 this["JST"] = this["JST"] || {};
 
 this["JST"]["templates/inquiry"] = function(obj) {
@@ -502,7 +503,7 @@ __p += '<div id="inquiry-close" class="inquiry-close"></div>\n<!-- <a class="nu"
 ((__t = ( acf.featured_image.sizes.medium )) == null ? '' : __t) +
 '" src="' +
 ((__t = ( acf.featured_image.url )) == null ? '' : __t) +
-'">\n    </div>\n    <div class="col col2 ib">\n        <form>\n            <label for="inquiry-email" class="required">Email<sup>&#42;</sup></label>\n            <input type="email" name="email" id="inquiry-email">\n            <label for="inquiry-name" class="required">Name<sup>&#42;</sup></label>\n            <input type="text" name="name" id="inquiry-name">\n            <label for="inquiry-company">Company</label>\n            <input type="text" name="company" id="inquiry-company">\n            <label for="inquiry-phone">Phone Number</label>\n            <input type="tel" name="phone" id="inquiry-phone">\n            <label for="inquiry-location">Location</label>\n            <input type="text" name="location" id="inquiry-location">\n            <label for="inquiry-message">Message</label>\n            <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>\n            <input class="visuallyhidden" type="text" name="verification" id="hp-verification">\n            <br>\n            <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>\n        </form>\n    </div>\n</div>';
+'">\n    </div>\n    <div class="col col2 ib">\n        <form>\n            <label for="inquiry-email" class="required">Email<sup>&#42;</sup></label>\n            <input type="email" name="email" id="inquiry-email">\n            <label for="inquiry-name" class="required">Name<sup>&#42;</sup></label>\n            <input type="text" name="name" id="inquiry-name">\n            <label for="inquiry-company">Company</label>\n            <input type="text" name="company" id="inquiry-company">\n            <label for="inquiry-phone">Phone Number</label>\n            <input type="tel" name="phone" id="inquiry-phone">\n            <label for="inquiry-location">Location</label>\n            <input type="text" name="location" id="inquiry-location">\n            <label for="inquiry-message">Message</label>\n            <textarea type="text" name="message" id="inquiry-message" placeholder="Please send me more information about this product."></textarea>\n            <input class="visuallyhidden" type="text" name="verification" id="hp-verification">\n            <br>\n            <div id="inquiry-submit" class="button1 submit-button">Send product inquiry</div>\n        </form>\n    </div>\n</div>\n<div class="button1 inquiry-close mobile">Back</div>\n';
 
 }
 return __p
@@ -545,7 +546,7 @@ __p += '\n      <img src="' +
  }); ;
 __p += '\n  ';
  }); ;
-__p += '\n  </div>\n</div>';
+__p += '\n  </div>\n</div>\n<div class="button1 lightbox-close mobile">Back</div>\n';
 
 }
 return __p
@@ -582,7 +583,7 @@ __p += '\n            <a class="download-tear-sheet" href="' +
  } ;
 __p += '\n    </div>\n    <div class="col col2 ib right">\n        ' +
 ((__t = ( acf.details )) == null ? '' : __t) +
-'\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n    </div>\n</div>';
+'\n        <a class="button1 product-inquiry" href="#">Contact us to purchase</a>\n    </div>\n</div>\n<div class="button1 lightbox-close mobile">Back</div>\n';
 
 }
 return __p

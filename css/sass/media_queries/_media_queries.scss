@@ -188,6 +188,18 @@
         }
     }
 
+    .lightbox-close {
+        &.mobile {
+            display: block;
+            position: static;
+            display: inline-block;
+            background: none;
+            width: auto;
+            height: auto;
+            font-size: $font-normal;
+        }
+    }
+
     .inquiry-overlay {
         padding-top: 110px;
         padding-left: 20px;

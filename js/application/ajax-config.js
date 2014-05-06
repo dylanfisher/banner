@@ -22,7 +22,7 @@ $(function(){
         openLightbox();
 
         apiRequest('get_post', $(this).data('slug'), function(){
-            console.log(APIData);
+            // console.log(APIData);
             getTemplate($('#lightbox-content'), 'templates/product', APIData);
         });
 
@@ -44,19 +44,19 @@ $(function(){
         openLightbox();
 
         apiRequest('get_post', $(this).data('slug'), function(){
-            console.log(APIData);
+            // console.log(APIData);
             getTemplate($('#lightbox-content'), 'templates/press', APIData);
         });
 
     });
 
     // Lightbox close
-    $(document).on('click', '#lightbox-close', function(e){
+    $(document).on('click', '#lightbox-close, .lightbox-close', function(e){
         e.preventDefault();
         closeLightbox();
     });
     // Inquiry close
-    $(document).on('click', '#inquiry-close', function(e){
+    $(document).on('click', '#inquiry-close, .inquiry-close', function(e){
         e.preventDefault();
         closeInquiry();
     });
@@ -88,7 +88,6 @@ function openLightbox(){
     // Get verbs from the list printed to the <script>, which imports the list via php... messy
     var verbs = $('#loading-verbs').html().split(',');
     var verb = verbs[Math.floor(Math.random() * verbs.length)];
-    console.warn(verb);
 
     ScrollPos = $(window).scrollTop();
     $('body')

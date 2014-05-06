@@ -1069,6 +1069,11 @@ header.fixed nav {
   font-family: sans-serif;
 }
 
+.lightbox-close.mobile,
+.mobile.inquiry-close {
+  display: none;
+}
+
 .lightbox-loader {
   font-size: 48px;
   position: fixed;
@@ -1756,6 +1761,17 @@ a img.aligncenter {
 
   .collection-link-container:hover img {
     opacity: 1;
+  }
+
+  .lightbox-close.mobile,
+  .mobile.inquiry-close {
+    display: block;
+    position: static;
+    display: inline-block;
+    background: none;
+    width: auto;
+    height: auto;
+    font-size: 17px;
   }
 
   .inquiry-overlay {
