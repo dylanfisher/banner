@@ -6,17 +6,17 @@ $(function() {
     //
     // Define variables
     //
-    var docHeight = $(document).height(),
-        docWidth = $(document).width(),
+    var docHeight     = $(document).height(),
+        docWidth      = $(document).width(),
+        headerWidth   = $('header').outerWidth(true) + $('header').position().left,
+        headerHeight  = $('header').outerHeight(true) + $('header').position().top,
         infoBoxHeight = $('#info-box').outerHeight(true),
-        infoBoxWidth = $('#info-box').outerWidth(true),
-        infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight - 120)),
-        infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth)),
-        mobile = false,
-        mobileSize = 800,
-        breakpoint = 800,
-        randImage = $('.home-background').attr('data-bg'),
-        isHome = $('.page-template-page-home-php').length;
+        infoBoxWidth  = $('#info-box').outerWidth(true),
+        mobile        = false,
+        mobileSize    = 800,
+        breakpoint    = 800,
+        randImage     = $('.home-background').attr('data-bg'),
+        isHome        = $('.page-template-page-home-php').length;
 
     //
     // Call functions
@@ -26,6 +26,23 @@ $(function() {
 
     // Info box
     setInfoBox();
+
+    // Check to make sure we don't cover up the header nav
+    var infoBoxPosX = Math.floor((Math.random() * (docWidth - infoBoxWidth - headerWidth)) + headerWidth );
+    var infoBoxPosY = Math.floor((Math.random() * (docHeight - infoBoxHeight - headerHeight - 120)) + headerHeight );
+
+    if (infoBoxPosX > headerWidth){
+        infoBoxPosY = Math.floor(Math.random() * (docHeight - infoBoxHeight - 120));
+    } else {
+        infoBoxPosY = Math.floor((Math.random() * (docHeight - infoBoxHeight - headerHeight - 120)) + headerHeight );
+    }
+
+    if (infoBoxPosY > headerHeight){
+        infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth));
+    } else {
+        infoBoxPosX = Math.floor(Math.random() * (docWidth - infoBoxWidth - headerWidth) + headerWidth);
+    }
+
     function setInfoBox(){
         if(window.outerWidth >= breakpoint){
             $(".draggable" ).draggable({
