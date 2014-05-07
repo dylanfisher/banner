@@ -19,15 +19,18 @@ body {
   font-family: arial, sans-serif;
 }
 
-.product-details strong, #lightbox-content .col.right strong, .inquiry-overlay p, .contact-info, .collection h2, .collection-see-all .title h2 {
+.product-details strong, #lightbox-content .col.right strong,
+.single-page-content .single-page-wrapper .col.right strong, .inquiry-overlay p, .contact-info, .collection h2, .collection-see-all .title h2 {
   font-family: 'Courier New', 'Courier', monospace;
   font-size: 15px;
   text-transform: uppercase;
 }
-.product-details strong a, #lightbox-content .col.right strong a, .inquiry-overlay p a, .contact-info a, .collection h2 a, .collection-see-all .title h2 a {
+.product-details strong a, #lightbox-content .col.right strong a,
+.single-page-content .single-page-wrapper .col.right strong a, .inquiry-overlay p a, .contact-info a, .collection h2 a, .collection-see-all .title h2 a {
   text-decoration: none;
 }
-.product-details strong a:hover, #lightbox-content .col.right strong a:hover, .inquiry-overlay p a:hover, .contact-info a:hover, .collection h2 a:hover, .collection-see-all .title h2 a:hover {
+.product-details strong a:hover, #lightbox-content .col.right strong a:hover,
+.single-page-content .single-page-wrapper .col.right strong a:hover, .inquiry-overlay p a:hover, .contact-info a:hover, .collection h2 a:hover, .collection-see-all .title h2 a:hover {
   border-bottom: 1px solid #000000;
 }
 
@@ -898,7 +901,7 @@ header.fixed nav {
 
 .single-page-content .single-page-wrapper {
   max-width: 1075px;
-  margin: 0 auto;
+  margin: 0 10px;
 }
 .single-page-content .product-images .product {
   margin-bottom: 0;
@@ -917,23 +920,28 @@ header.fixed nav {
   position: fixed;
 }
 
-#lightbox-content {
+#lightbox-content,
+.single-page-content .single-page-wrapper {
   max-width: 1075px;
-  margin: 0 auto;
 }
-#lightbox-content .col {
+#lightbox-content .col,
+.single-page-content .single-page-wrapper .col {
   padding: 0;
 }
-#lightbox-content .col.left {
+#lightbox-content .col.left,
+.single-page-content .single-page-wrapper .col.left {
   padding-right: 10px;
 }
-#lightbox-content .col.left p {
+#lightbox-content .col.left p,
+.single-page-content .single-page-wrapper .col.left p {
   margin-right: 20px;
 }
-#lightbox-content .col.right {
+#lightbox-content .col.right,
+.single-page-content .single-page-wrapper .col.right {
   padding-left: 10px;
 }
-#lightbox-content .col.right strong {
+#lightbox-content .col.right strong,
+.single-page-content .single-page-wrapper .col.right strong {
   font-weight: normal;
   line-height: 1;
 }
@@ -1421,10 +1429,12 @@ a img.aligncenter {
     position: absolute;
   }
 
-  #lightbox-content .col.right {
+  #lightbox-content .col.right,
+  .single-page-content .single-page-wrapper .col.right {
     padding-left: 0;
   }
-  #lightbox-content .col.left {
+  #lightbox-content .col.left,
+  .single-page-content .single-page-wrapper .col.left {
     margin-bottom: 20px;
   }
 }
@@ -1634,6 +1644,11 @@ a img.aligncenter {
 
   .lightbox-loader {
     font-style: 30px;
+  }
+
+  .single-page-content .single-page-wrapper,
+  #lightbox-content {
+    margin: 0;
   }
 
   .col4 {

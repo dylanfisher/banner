@@ -41,7 +41,8 @@ header {
 .single-page-content {
     .single-page-wrapper {
         max-width: 1075px;
-        margin: 0 auto;
+        // margin: 0 auto;
+        margin: 0 10px;
     }
     .product-images .product {
         margin-bottom: 0;
@@ -60,9 +61,10 @@ header {
         position: fixed;
     }
 }
-#lightbox-content {
+#lightbox-content,
+.single-page-content .single-page-wrapper {
     max-width: 1075px;
-    margin: 0 auto;
+    // margin: 0 auto;
     .col {
         padding: 0;
     }

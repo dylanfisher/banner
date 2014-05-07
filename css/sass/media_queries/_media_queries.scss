@@ -23,7 +23,8 @@
     .lightbox-close {
         position: absolute;
     }
-    #lightbox-content {
+    #lightbox-content,
+    .single-page-content .single-page-wrapper {
         .col.right {
             padding-left: 0;
         }
@@ -226,6 +227,11 @@
 
     .lightbox-loader {
         font-style: 30px;
+    }
+
+    .single-page-content .single-page-wrapper,
+    #lightbox-content {
+        margin: 0;
     }
 
     .col4 {
