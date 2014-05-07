@@ -4,7 +4,7 @@ Template Name: Page - Home
 */
 get_header(); ?>
     <div class="content"><?php the_post() ?>
-        <div id="info-box" class="info-box draggable">
+        <div id="info-box" class="info-box email-box draggable">
             <p><span class="date"><?php the_field('infobox_date'); ?></span></p>
             <?php the_field('infobox_text'); ?>
             <div class="email-form-container">

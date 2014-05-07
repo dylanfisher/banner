@@ -1085,6 +1085,23 @@ footer,
   border-bottom: 1px solid #000;
 }
 
+.page-template-page-two-column-php .email-box .email-form-container {
+  margin-bottom: 0;
+}
+.page-template-page-two-column-php .email-box input {
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #848484 #C1C1C1 #E1E1E1;
+  width: 100%;
+  max-width: 255px;
+}
+.page-template-page-two-column-php .email-box #email-button {
+  display: none;
+  margin: .5em 0 0;
+  cursor: pointer !important;
+}
+
 .validation p {
   margin-top: 1em;
   margin-bottom: 0;

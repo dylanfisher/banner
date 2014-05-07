@@ -41,6 +41,26 @@
     }
 }
 
+// Email box for the contact page
+.page-template-page-two-column-php .email-box {
+    .email-form-container {
+        margin-bottom: 0;
+    }
+    input {
+        padding: 10px;
+        border: 1px solid;
+        border-radius: 2px;
+        border-color: #848484 #C1C1C1 #E1E1E1;
+        width: 100%;
+        max-width: 255px;
+    }
+    #email-button {
+        display: none;
+        margin: .5em 0 0;
+        cursor: pointer!important;
+    }
+}
+
 .validation {
     p {
     margin-top: 1em;

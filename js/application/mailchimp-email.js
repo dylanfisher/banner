@@ -42,22 +42,22 @@ $(function(){
         var validation = emailVal;
         if( /(.+)@(.+){2,}\.(.+){2,}/.test(validation) ){
             // Validation success
-            $('#info-box .validation').remove();
-            $('#info-box').append('<div id="validation" class="validation-success validation"><p>Thanks for joining our newsletter! You should receive a confirmation email shortly.</p></div>');
+            $('.email-box .validation').remove();
+            $('.email-box').append('<div id="validation" class="validation-success validation"><p>Thanks for joining our newsletter! You should receive a confirmation email shortly.</p></div>');
             $('#validation').hide().fadeIn('fast');
             $.ajax({
                 url: '/banner/wp-content/themes/banner/mailchimp-subscribe.php',
                 type: 'POST',
                 data: {email: emailVal}
             }).fail(function() {
-                $('#info-box .validation').remove();
-                $('#info-box').append('<div id="validation" class="validation-failed validation"><p>Sorry, it looks like there was a server error preventing you from signing up. We&#39;re looking into it.</p></div>');
+                $('.email-box .validation').remove();
+                $('.email-box').append('<div id="validation" class="validation-failed validation"><p>Sorry, it looks like there was a server error preventing you from signing up. We&#39;re looking into it.</p></div>');
                 $('#validation').hide().fadeIn('fast');
             });
         } else {
             // Validation failed
-            $('#info-box .validation').remove();
-            $('#info-box').append('<div id="validation" class="validation-fail validation"><p>&#42; Sorry, it looks like you entered an invalid email address.</p></div>');
+            $('.email-box .validation').remove();
+            $('.email-box').append('<div id="validation" class="validation-fail validation"><p>&#42; Sorry, it looks like you entered an invalid email address.</p></div>');
             $('#validation').hide().fadeIn('fast');
         }
     }
