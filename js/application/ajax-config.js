@@ -21,6 +21,9 @@ $(function(){
         e.preventDefault();
         openLightbox();
 
+        var url = $(this).attr('href');
+        History.pushState({state: 'productLightbox'}, null, url);
+
         apiRequest('get_post', $(this).data('slug'), function(){
             // console.log(APIData);
             getTemplate($('#lightbox-content'), 'templates/product', APIData);
@@ -111,6 +114,11 @@ function closeLightbox(){
     $('body').removeClass('fixed');
     $('#lightbox').remove();
     $(window).scrollTop(ScrollPos);
+
+    // Check if lightbox state is present and go back if it is
+    if(History.getState().data.state == "productLightbox"){
+        History.back(); 
+    }
 }
 
 function closeInquiry(){
