@@ -2465,7 +2465,7 @@ $(function(){
             $('.email-box').append('<div id="validation" class="validation-success validation"><p>Thanks for joining our newsletter! You should receive a confirmation email shortly.</p></div>');
             $('#validation').hide().fadeIn('fast');
             $.ajax({
-                url: '/banner/wp-content/themes/banner/mailchimp-subscribe.php',
+                url: '/wp-content/themes/banner/mailchimp-subscribe.php',
                 type: 'POST',
                 data: {email: emailVal}
             }).fail(function() {
