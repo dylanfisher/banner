@@ -11,7 +11,7 @@ var APIData,
 if (document.location.hostname == 'localhost'){
   SitePath = window.location.protocol + '//' + window.location.host + '/banner/';
 } else {
-  SitePath = window.location.protocol + '//' + window.location.host + '/dev/';
+  SitePath = window.location.protocol + '//' + window.location.host;
 }
 
 $(function(){
@@ -117,7 +117,7 @@ function closeLightbox(){
 
     // Check if lightbox state is present and go back if it is
     if(History.getState().data.state == "productLightbox"){
-        History.back(); 
+        History.back();
     }
 }
 
