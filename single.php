@@ -10,10 +10,10 @@ $slug = $post->post_name;
       <ul class="product-images">
   <?php if( have_rows('images') ):
       while ( have_rows('images') ) : the_row();
-          $attachment_id = get_sub_field('image')['id'];
+          $attachment_id = get_sub_field('image');
           $size = "full"; // (thumbnail, medium, large, full or custom size)
   ?>
-        <li><?php echo wp_get_attachment_image( $attachment_id, $size, false, array('class' => "attachement-$size product") ); ?></li>
+        <li><?php echo wp_get_attachment_image( $attachment_id['id'], $size, false, array('class' => "attachement-$size product") ); ?></li>
   <?php
       endwhile;
   endif;
