@@ -72,6 +72,7 @@ p a:hover, .download-tear-sheet:hover, .press-overlay a:hover {
   font-weight: normal;
   font-style: normal;
 }
+
 /*! normalize.css v3.0.0-rc.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -1735,7 +1736,8 @@ a img.aligncenter {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p,
   h2,
   h3 {
