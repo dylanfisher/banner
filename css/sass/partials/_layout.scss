@@ -22,6 +22,7 @@ header {
         nav {
             pointer-events: auto;
         }
+        -webkit-font-smoothing:subpixel-antialiased; // Fixes Safari from rendering text poorly
     }
     .page-template-page-home-php & {
         position: fixed;

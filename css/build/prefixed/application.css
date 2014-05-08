@@ -1005,6 +1005,7 @@ header {
 
 header.fixed {
   position: fixed;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 header.fixed nav {
