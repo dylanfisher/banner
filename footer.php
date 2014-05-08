@@ -11,7 +11,7 @@
             <li><a href="http://instagram.com/bannerfurniture" target="_blank">Instagram</a></li>
             <li><a href="https://www.facebook.com/BannerStudio" target="_blank">Facebook</a></li>
             <li><a href="https://twitter.com/Banner_Studio" target="_blank">Twitter</a></li>
-            <li><a href="/credits">Credits</a></li>
+            <li><a class="credits" href="/credits">Credits</a></li>
         </ul>
     </footer><!-- #footer -->
 </div><!-- .page-wrap -->

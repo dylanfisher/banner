@@ -1,3 +1,12 @@
+@media only screen and (max-width: 1600px) {
+
+    #lightbox-content,
+    .single-page-content .single-page-wrapper {
+        max-width: 928px;
+    }
+
+}
+
 @media only screen and (max-width: 1275px) {
     // .col4 {
     //     width: 50%;
@@ -81,6 +90,9 @@
         }
         li {
             display: block !important;
+            & a:hover {
+                margin-left: 0;
+            }
             &:before {
                 content: normal !important;
             }
@@ -111,6 +123,9 @@
         position: static !important;
         margin: 20px !important;
         padding-bottom: 20px !important;
+        a.credits {
+            display: none;
+        }
     }
     .contact-info {
         left: 20px; 
@@ -129,6 +144,9 @@
         width: 100%;
         padding: 0;
     }
+    .center {
+        text-align: left;
+    }.lightbox-loaderload
     .collection {
         width: 100%;
         padding: 0;
@@ -226,7 +244,7 @@
     }
 
     .lightbox-loader {
-        font-style: 30px;
+        font-size: 30px;
     }
 
     .single-page-content .single-page-wrapper,
