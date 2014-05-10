@@ -5,7 +5,7 @@
         <ul class="contact-info social-media">
             <li class="copyright">© 2014 Banner</li>
             <!-- <li><a href="mailto:studio@bannerfurniture.com">studio@bannerfurniture.com</a></li>
-            <li>347-799-1932</li> --><!-- 
+            <li>347-799-1932</li> --><!--
         </ul>
         <ul class="social-media"> -->
             <li><a href="http://instagram.com/bannerfurniture" target="_blank">Instagram</a></li>
@@ -34,10 +34,4 @@
                 $verb_remove_comma = rtrim($verb_list, ",");
             endif;
             ?><?php echo $verb_remove_comma; ?></script>
-        <script>
-            var _gaq=[['_setAccount','UA-29627774-1'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
     <?php wp_footer() ?>
