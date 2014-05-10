@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title><?php wp_title( '-', true, 'right' ); echo esc_html( get_bloginfo('name'), 1 ) ?></title>
     <meta name="description" content="<?php echo get_bloginfo('description') ?>">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="banner furniture, greenpoint, brooklyn, new york, wood, metal, glass, contemporary, classic, quality">
     <meta name="viewport" content="width=device-width">
     <link rel="icon" type="image/png" href="<?php echo get_bloginfo('template_url'); ?>/images/banner-favicon.png">
     <link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_url'); ?>" />
