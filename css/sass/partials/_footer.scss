@@ -27,8 +27,10 @@ footer {
 }
 
 body.home footer {
+  color: $light-brown;
   .copyright { opacity: 1; }
-  a { opacity: 1; color: #000000; }
+  a { opacity: 1; color: $light-brown; }
+  a:hover { border-color: $light-brown; }
 }
 
 html, body {

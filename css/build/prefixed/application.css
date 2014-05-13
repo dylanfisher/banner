@@ -1139,13 +1139,21 @@ footer .copyright {
   opacity: 0.3;
 }
 
+body.home footer {
+  color: #d4c5b6;
+}
+
 body.home footer .copyright {
   opacity: 1;
 }
 
 body.home footer a {
   opacity: 1;
-  color: #000000;
+  color: #d4c5b6;
+}
+
+body.home footer a:hover {
+  border-color: #d4c5b6;
 }
 
 html,
