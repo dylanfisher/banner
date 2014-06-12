@@ -5,17 +5,9 @@
 .page-template-page-press-php {
     .content {
         img {
-            -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
-            filter: url(#greyscale);
-            filter: gray;
             transition: .15s ease-out;
-            -webkit-transition: .15s ease-out;
-            -moz-transition: .15s ease-out;
-            -o-transition: .15s ease-out;
             &:hover {
-                -webkit-filter: grayscale(0);
-                filter: grayscale(0);
                 filter: none;
             }
         }

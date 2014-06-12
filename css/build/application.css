@@ -72,7 +72,6 @@ p a:hover, .download-tear-sheet:hover, .press-overlay a:hover {
   font-weight: normal;
   font-style: normal;
 }
-
 /*! normalize.css v3.0.0-rc.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -1309,18 +1308,10 @@ footer,
 }
 
 .page-template-page-press-php .content img {
-  -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
-  filter: url(#greyscale);
-  filter: gray;
   transition: .15s ease-out;
-  -webkit-transition: .15s ease-out;
-  -moz-transition: .15s ease-out;
-  -o-transition: .15s ease-out;
 }
 .page-template-page-press-php .content img:hover {
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
   filter: none;
 }
 .page-template-page-press-php #lightbox-content {
@@ -1760,8 +1751,7 @@ a img.aligncenter {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p,
   h2,
   h3 {
